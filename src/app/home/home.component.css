@@ -1,0 +1,137 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    padding: 10px 20px;
+}
+
+.navbar-left {
+    flex: 1;
+}
+
+.navbar-logo {
+    max-height: 50px;
+}
+
+.navbar-right {
+    flex: 3;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar-list {
+    display: flex;
+    list-style: none;
+}
+
+.navbar-list li {
+    margin-left: 20px;
+}
+
+.navbar-list a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.products-button {
+    color: white;
+}
+
+.products-button:hover {
+    background-color: rgb(152, 152, 29);
+}
+
+.hero {
+    position: relative;
+    height: 640px;
+    background-image: url('../../assets/Hero background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    animation: backgroundChange 16s infinite;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes backgroundChange {
+
+    0%,
+    100% {
+        background-image: url('../../assets/Hero background.png');
+    }
+
+    44% {
+        background-image: url('../../assets/Hero background2.png');
+    }
+
+    77% {
+        background-image: url('../../assets/Hero background3.png');
+    }
+
+
+}
+
+.hero_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    text-align: center;
+}
+
+.hero-content {
+    color: white;
+    display: contents;
+}
+
+.hero-content p {
+    font-weight: 600;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 4px;
+    width: 605px;
+    backdrop-filter: blur(10px);
+}
+
+.search-input {
+    display: flex;
+    flex: 1;
+}
+.search-input img{
+    margin-left: 15px;
+}
+
+.search {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    background: transparent;
+    color: white;
+    outline: none;
+}
+
+.search-bar button {
+    background: rgba(68, 85, 59, 1);
+    color: white;
+    height: 43px;
+    padding: 0 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.search-bar button:hover {
+    background-color: #45a049;
+}

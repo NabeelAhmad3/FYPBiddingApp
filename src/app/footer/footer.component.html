@@ -1,0 +1,125 @@
+<div class="container_footer">
+  <div class="d-flex justify-content-center">
+    <div class="d-flex flex-column align-content-center">
+      <div class="d-flex flex-row justify-content-between">
+        <!-- Logo Section -->
+        <div style="width: 457px; height: 324px;">
+          <div class="logo-container">
+            <div class="logo-text">
+              <h2>Logo</h2>
+              <p class="text-wrap">Loremd similique, laudantium in voluptate distinctio!</p>
+            </div>
+            <div class="contact-info">
+              <div>
+                <img src="assets/fIcon1.svg" alt="Call" class="icon" />
+                <span>+92 234 567 8904</span>
+              </div>
+              <div>
+                <img src="assets/fIcon2.svg" alt="Message" class="icon" />
+                <span>emailexample.com</span>
+              </div>
+              <div>
+                <img src="assets/fIcon3.svg" alt="Location" class="icon" />
+                <span>123 Main St, Anytown, USA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div style="width: 361px; height: 409px;">
+          <div class="contact-container">
+            <div class="contact-text">
+              <h2>Contact Us</h2>
+              <p>We usually respond within 24 hours.</p>
+            </div>
+            <div class="contact-form">
+              <form [formGroup]="footerForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="name" formControlName="Name" placeholder="Name" />
+                  <label for="name">Name</label>
+                  <div *ngIf="footerForm.get('Name')?.touched && footerForm.get('Name')?.invalid">
+                    <small class="text-danger" *ngIf="footerForm.get('Name')?.errors?.['required']">
+                      Name is required.
+                    </small>
+                    <small class="text-danger" *ngIf="footerForm.get('Name')?.errors?.['minlength']">
+                      Minimum length is 3 characters.
+                    </small>
+                  </div>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="email" class="form-control" id="email" formControlName="Email"
+                    placeholder="name@example.com" />
+                  <label for="email">Email</label>
+                  <div *ngIf="footerForm.get('Email')?.touched && footerForm.get('Email')?.invalid">
+                    <small class="text-danger" *ngIf="footerForm.get('Email')?.errors?.['required']">
+                      Email is required.
+                    </small>
+                    <small class="text-danger" *ngIf="footerForm.get('Email')?.errors?.['minlength']">
+                      Minimum length is 15 characters.
+                    </small>
+                    <small class="text-danger" *ngIf="footerForm.get('Email')?.errors?.['email']">
+                      Invalid email format.
+                    </small>
+                  </div>
+                </div>
+                <div class="form-floating mb-3">
+                  <textarea class="form-control" id="comments" formControlName="TextArea"
+                    placeholder="Leave a comment here"></textarea>
+                  <label for="comments">Comments</label>
+                  <div *ngIf="footerForm.get('TextArea')?.touched && footerForm.get('TextArea')?.invalid">
+                    <small class="text-danger" *ngIf="footerForm.get('TextArea')?.errors?.['required']">
+                      Comments are required.
+                    </small>
+                    <small class="text-danger" *ngIf="footerForm.get('TextArea')?.errors?.['minlength']">
+                      Minimum length is 10 characters.
+                    </small>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Media Section -->
+        <div style="width: 261px; height: 125px;">
+          <div class="social-media-container">
+            <h2>Social Media</h2>
+            <p>Be the first one to know about discount offers and events.</p>
+            <div class="social-icons">
+              <a href="#"><img src="assets/fIcon4.svg" alt="Facebook" class="img-fluid" /></a>
+              <a href="#"><img src="assets/fIcon5.svg" alt="Google" class="img-fluid" /></a>
+              <a href="#"><img src="assets/fIcon6.svg" alt="YouTube" class="img-fluid" /></a>
+              <a href="#"><img src="assets/fIcon7.svg" alt="WhatsApp" class="img-fluid" /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Navbar -->
+      <div class="navbar-div mt-4">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Privacy Policy</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Sitemap</a>
+            </li>
+            <li class="nav-item nav-link">Terms of Use 2000-2024 All Right Reserved</li>
+          </ul>
+          <ul>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
