@@ -1,0 +1,77 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(41, 43, 39, 1);
+    padding-left: 10px;
+}
+
+.navbar-logo {
+    max-height: 50px;
+    margin-right: 20px;
+}
+
+.navbar-list {
+    display: flex;
+    list-style: none;
+    align-items: center; 
+}
+
+.navbar-list a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.products-button {
+    color: white;
+}
+
+.products-button:hover {
+    background-color: rgb(152, 152, 29);
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 4px;
+    width: 500px;
+    backdrop-filter: blur(10px);
+    height: 43px; /* Adjust height to match button */
+}
+
+.search-input {
+    display: flex;
+    flex: 1;
+    align-items: center; /* Ensures input content is centered */
+}
+
+.search-input img {
+    margin-left: 15px;
+}
+
+.search {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    color: white;
+    outline: none;
+    background: transparent;
+}
+
+.search-bar button {
+    background: rgba(68, 85, 59, 1);
+    color: white;
+    height: 43px;
+    padding: 0 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.search-bar button:hover {
+    background-color: #45a049;
+}
