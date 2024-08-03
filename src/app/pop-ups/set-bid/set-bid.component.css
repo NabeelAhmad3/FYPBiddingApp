@@ -1,0 +1,32 @@
+.modal-title,
+.modal-body .mb-3:first-child,
+.modal-footer {
+    text-align: center;
+}
+
+.modal-header {
+    justify-content: center;
+}
+
+.modal-body .d-flex {
+    display: flex;
+    align-items: center;
+}
+
+.modal-body .col-form-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 17.61px;
+    white-space: nowrap; /* Ensure text doesn't wrap */
+    margin-bottom: 0; /* Remove default margin */
+}
+
+.modal-body .form-control {
+    border: 1px solid #7b8288;
+    flex-grow: 1; /* Make input grow to fill available space */
+}
+
+.modal-footer {
+    justify-content: center;
+}
