@@ -5,12 +5,12 @@ import { ProductSectionComponent } from "./product-section/product-section.compo
 import { FeaturesComponent } from "./features/features.component";
 import { FooterComponent } from "../footer/footer.component";
 import { SetBidComponent } from "../pop-ups/set-bid/set-bid.component";
-import { AllListingComponent } from "../all-listing/all-listing.component";
+import { AllListingsComponent } from "../All Components/all-listings/all-listings.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [LiveListingComponent, WorksSectionComponent, ProductSectionComponent, FeaturesComponent, FooterComponent, SetBidComponent, AllListingComponent],
+  imports: [LiveListingComponent, WorksSectionComponent, ProductSectionComponent, FeaturesComponent, FooterComponent, SetBidComponent, AllListingsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

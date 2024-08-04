@@ -1,0 +1,38 @@
+.modal-content {
+    width: 235px;
+    height: 450px;
+    border-radius: 11.76px 0px 0px 0px;
+    box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.3);
+
+}
+.modal-dialog {
+    position: absolute;
+    top: 87px;
+    right: 2px;
+    transform: none; /* Remove default transform */
+    margin: 0; /* Remove default margin */
+}
+
+
+.gmail-font {
+    font-family: Raleway;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 11.74px;
+    text-align: left;
+    color: rgba(131, 131, 131, 1);
+
+}
+
+.name-font {
+    
+    font-family: Readex Pro;
+    font-size: 16px;
+    font-weight: 500;
+
+}
+.modal-content a {
+    text-decoration: none;
+    color: black;
+}
+
