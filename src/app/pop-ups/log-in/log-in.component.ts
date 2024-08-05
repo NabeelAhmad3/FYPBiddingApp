@@ -5,7 +5,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 @Component({
   selector: 'app-log-in',
   standalone: true,
-  imports: [FormsModule, CommonModule,JsonPipe],
+  imports: [FormsModule, CommonModule, JsonPipe],
   templateUrl: './log-in.component.html',
   styleUrl: './log-in.component.css',
 })
@@ -25,7 +25,7 @@ export class LogInComponent  implements AfterViewInit{
     this.data = {};
   }
   googleLogUrl = 'https://accounts.google.com/v3/signin/identifier?dsh=S34321812%3A1689766128107239&hl=en_GB&ifkv=AeDOFXjVb8dV0EgcaUCimuPD3ioRs9_qp8ZtcARJBFX6hVBHYt1CqE-KgKnvn8LkYbSQjzeGIsAn&flowName=GlifWebSignIn&flowEntry=ServiceLogin ';
-  faceboobLogUrl = 'https://www.facebook.com/login/';
+  facebookLogUrl = 'https://www.facebook.com/login/';
 
 
 ngAfterViewInit(){

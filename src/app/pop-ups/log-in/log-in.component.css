@@ -8,9 +8,11 @@ form p {
   font-weight: 400;
 }
 
+
 .form-container {
   padding: 20px;
   border-radius: 8px;
+  background: white;
   width: 300px;
   margin-top: 2px;
   border: 1px solid #000;
