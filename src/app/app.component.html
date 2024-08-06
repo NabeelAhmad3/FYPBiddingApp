@@ -1,2 +1,11 @@
-<router-outlet />
-<app-footer/>
+<ng-container *ngIf="isHomeRoute(); else otherRoutes">
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </ng-container>
+  
+  <ng-template #otherRoutes>
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </ng-template>
+  

@@ -1,16 +1,22 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Router } from '@angular/router';
 import { LogInComponent } from './pop-ups/log-in/log-in.component';
 import { SignUpComponent } from './pop-ups/sign-up/sign-up.component';
 import { FooterComponent } from "./footer/footer.component";
+import { HeaderComponent } from './header/header.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LogInComponent, SignUpComponent, FooterComponent],
+  imports: [RouterOutlet, LogInComponent, SignUpComponent, HeaderComponent, FooterComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'first-app';
+  constructor(private router: Router) {}
+
+  isHomeRoute(): boolean {
+    return this.router.url === '/';
+  }
 }

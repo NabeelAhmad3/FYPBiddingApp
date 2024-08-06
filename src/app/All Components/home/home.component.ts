@@ -10,7 +10,7 @@ import { ProfileModalComponent } from "../../pop-ups/profile-modal/profile-modal
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [LiveListingComponent, WorksSectionComponent, ProductSectionComponent, FeaturesComponent, LogInComponent, SignUpComponent, ProfileModalComponent,],
+  imports: [LiveListingComponent, WorksSectionComponent, ProductSectionComponent, FeaturesComponent, LogInComponent, SignUpComponent, ProfileModalComponent, ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
