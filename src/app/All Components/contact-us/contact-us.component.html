@@ -1,1 +1,93 @@
-<p>contact-us works!</p>
+<div class="container">
+    <div class="header">
+      <h2>Get in touch</h2>
+      <p>Some text below the heading, centered on the page. Some text below the heading, centered on the page.</p>
+    </div>
+  
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="form-content mt-5">
+      <div class="form-row">
+        <div class="col-md-12">
+          <input type="text" class="form-control custom-input" id="name" formControlName="name" placeholder="Name">
+          <div *ngIf="contactForm.get('name')?.errors && contactForm.get('name')?.touched">
+            <span class="text-danger">{{ contactForm.get('name')?.errors?.['required'] ? 'Name is required.' : '' }}</span>
+            <span class="text-danger">{{ contactForm.get('name')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="col-md-12">
+          <input type="text" class="form-control custom-input" id="street" formControlName="street" placeholder="Street">
+          <div *ngIf="contactForm.get('street')?.invalid && contactForm.get('street')?.touched" class="text-danger">
+           
+            <span class="text-danger">{{ contactForm.get('street')?.errors?.['required'] ? 'street is required.' : '' }}</span>
+            <span class="text-danger">{{ contactForm.get('street')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-row row">
+        <div class="col-md-6 ps-0">
+          <input type="text" class="form-control custom-input" id="city" formControlName="city" placeholder="City">
+          <div *ngIf="contactForm.get('city')?.invalid && contactForm.get('city')?.touched" class="text-danger">
+           
+            <span class="text-danger">{{ contactForm.get('city')?.errors?.['required'] ? 'city is required.' : '' }}</span>
+            <span class="text-danger">{{ contactForm.get('city')?.errors?.['minlength'] ? 'Minimum length is 15 characters.' : '' }}</span>
+          </div>
+        </div>
+        <div class="col-md-6 pe-0">
+          <input type="text" class="form-control custom-input" id="postcode" formControlName="postCode" placeholder="Postcode">
+          <div *ngIf="contactForm.get('postCode')?.invalid && contactForm.get('postCode')?.touched" class="text-danger">
+
+            <span class="text-danger">{{ contactForm.get('postCode')?.errors?.['required'] ? 'Post Code is required.' : '' }}</span>
+            <span class="text-danger">{{ contactForm.get('postCode')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="col-md-12">
+          <input type="text" class="form-control custom-input" id="phone" formControlName="phoneNo" placeholder="Phone">
+          <div *ngIf="contactForm.get('phoneNo')?.invalid && contactForm.get('phoneNo')?.touched" class="text-danger">
+          
+            <span class="text-danger">{{ contactForm.get('phone')?.errors?.['required'] ? 'Phone No is required.' : '' }}</span>
+            <span class="text-danger">{{ contactForm.get('phone')?.errors?.['minlength'] ? 'Minimum length is 10 characters.' : '' }}</span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="col-md-12">
+          <input type="email" class="form-control custom-input" id="email" formControlName="email" placeholder="Email">
+          <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" >
+           
+            <span class="text-danger">{{ contactForm.get('email')?.errors?.['required'] ? 'Email is required.' : '' }}</span>
+            <span class="text-danger">{{ contactForm.get('email')?.errors?.['minlength'] ? 'Minimum length is 15 characters.' : '' }}</span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="col-md-12">
+          <textarea class="form-control custom-input" id="message" formControlName="message" rows="3" placeholder="Message"></textarea>
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="col-md-12">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="terms" formControlName="terms">
+            <label class="form-check-label" for="terms">I agree to the terms and conditions</label>
+          </div>
+          <div *ngIf="contactForm.get('terms')?.invalid && contactForm.get('terms')?.touched" class="text-danger">
+            You must agree to the terms and conditions.
+          </div>
+        </div>
+      </div>
+  
+      <div class="submit-section">
+        <button type="submit" class="btn btn-success">Submit</button>
+      </div>
+    </form>
+  </div>
+  
