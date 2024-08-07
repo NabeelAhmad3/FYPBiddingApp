@@ -1,0 +1,61 @@
+<div class="container justify-content-center">
+    <div class="header mb-5"> 
+         <p class="d-flex justify-content-center fw-bolder mb-4 mt-5" style="font-size: xx-large;">
+        <span style="color: black; margin-right: 5px;">Our</span>
+        <span style="color: rgba(68, 85, 59, 1);"> Help</span>
+    </p>
+      <p class="mt-3">
+        Some text below the heading, centered on the page. Some text below the heading, centered on the page.<br>
+        Some text below the heading, centered on the page. Some text below the heading, centered on the page
+      </p>
+    </div>
+  
+    <form [formGroup]="helpUsForm" (ngSubmit)="onSubmit()" class="form-content mt-5">
+      <div class="form-row">
+        <div class="col-md-12 mx-auto">
+          <input type="text" class="form-control custom-input" id="name" formControlName="name" placeholder="Name">
+          <div *ngIf="helpUsForm.get('name')?.errors && helpUsForm.get('name')?.touched">
+            <span class="text-danger">{{ helpUsForm.get('name')?.errors?.['required'] ? 'Name is required.' : '' }}</span>
+            <span class="text-danger">{{ helpUsForm.get('name')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-row mt-3">
+        <div class="col-md-12 mx-auto">
+          <input type="text" class="form-control custom-input" id="subject" formControlName="subject" placeholder="Subject">
+          <div *ngIf="helpUsForm.get('subject')?.invalid && helpUsForm.get('subject')?.touched" class="text-danger">
+            <span class="text-danger">{{ helpUsForm.get('subject')?.errors?.['required'] ? 'Subject is required.' : '' }}</span>
+            <span class="text-danger">{{ helpUsForm.get('subject')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-row mt-3">
+        <div class="col-md-12 mx-auto">
+          <textarea class="custom-textarea form-control" id="Description" formControlName="Description" rows="4" placeholder="Message"></textarea>
+        </div>
+      </div>
+
+      <div class="submit-section mt-4">
+        <button type="submit" class="btn btn-success" style="width: 200px; padding:10px 60px, 10px, 60px ; background: rgba(68, 85, 59, 1);">Submit</button>
+      </div>
+    </form>
+
+    <div class="contact-info d-flex justify-content-center mt-4 mb-3">
+      <div class="d-flex align-items-center me-4">
+        <img src="assets/fIcon1.svg" alt="Call" class="icon" />
+        <div class="ms-3">
+          <h6 class="mb-1">Phone</h6>
+          <span style="color: rgba(221, 84, 113, 1);">+92 234 567 8904</span>
+        </div>
+      </div>
+      <div class="d-flex align-items-center">
+        <img src="assets/fIcon2.svg" alt="Message" class="icon" />
+        <div class="ms-3">
+          <h6 class="mb-1">Email</h6>
+          <span style="color: rgba(221, 84, 113, 1);">emailexample.com</span>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+.form-control.custom-input {
+    border: none;
+    border-bottom: 1px solid #ced4da;
+    /* Adding a subtle bottom border */
+    border-radius: 0;
+    margin-bottom: 15px;
+    /* Adding margin between fields */
+}
+
+.form-control.custom-textarea {
+    border: none;
+    border-bottom: 1px solid #ced4da;
+    /* Adding a subtle bottom border */
+    border-radius: 0;
+    margin-bottom: 15px;
+    /* Adding margin between fields */
+}
+
+.file-section .form-control {
+    border: none;
+    border-bottom: 1px solid #ced4da;
+    /* Adding a subtle bottom border */
+}
+
+.submit-btn {
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    border: none;
+    display: block;
+    margin-top: 20px;
+}
+
+.row {
+    justify-content: center;
+}
+
+.custom-textarea {
+    background: rgba(182, 182, 182, 0.2);
+    border-radius: 15px !important;
+    
+}
