@@ -9,6 +9,8 @@ import { MyOrdersComponent } from './All Components/my-orders/my-orders.componen
 import { ContactUsComponent } from './All Components/contact-us/contact-us.component';
 import { FAQComponent } from './All Components/faq/faq.component';
 import { SellProductsComponent } from './All Components/sell-products/sell-products.component';
+import { HelpUsComponent } from './All Components/help-us/help-us.component';
+import { EditInformationComponent } from './All Components/edit-information/edit-information.component';
 
 export const routes: Routes = [
   {path:'', component: HomeComponent },
@@ -21,5 +23,7 @@ export const routes: Routes = [
   {path:'header',component:HeaderComponent},
   {path:'myProducts' , component: MyProductsComponent},
   {path:'myOrders',component:MyOrdersComponent},
+  {path:'helpUs',component:HelpUsComponent},
+  {path:'editInfo',component:EditInformationComponent},
   { path: '**', redirectTo: ''}
 ];
