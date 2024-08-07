@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { ProfileModalComponent } from "../../pop-ups/profile-modal/profile-modal.component";
 import { FeaturesComponent } from "../../features/features.component";
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-all-listings',
   standalone: true,
-  imports: [ ProfileModalComponent, FeaturesComponent,CommonModule],
+  imports: [FeaturesComponent,CommonModule],
   templateUrl: './all-listings.component.html',
   styleUrl: './all-listings.component.css'
 })

@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { ProfileModalComponent } from "../../pop-ups/profile-modal/profile-modal.component";
 
 @Component({
   selector: 'app-faq',
   standalone: true,
-  imports: [ProfileModalComponent],
+  imports: [],
   templateUrl: './faq.component.html',
   styleUrl: './faq.component.css'
 })

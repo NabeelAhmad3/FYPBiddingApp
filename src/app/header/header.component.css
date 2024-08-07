@@ -26,10 +26,11 @@
 
 .products-button {
     color: white;
+    border-radius: 29px !important;
 }
 
 .products-button:hover {
-    background-color: rgb(152, 152, 29);
+    background:  rgba(255, 141, 36, 1);
 }
 
 .search-bar {
