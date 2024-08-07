@@ -1,0 +1,68 @@
+<app-profile-modal />
+<div class="container d-flex flex-column align-items-center mt-5">
+    <div>
+        <p class="d-flex justify-content-center fw-bolder mb-4" style="font-size: xx-large;">Frequently Asked</p>
+        <p class="d-flex justify-content-center fw-bolder mb-4" style="font-size: xx-large; color: rgba(68, 85, 59, 1);">Questions</p>
+    </div>
+
+    <div class="accordion w-75" id="faqAccordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    What is Bootstrap?
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Bootstrap is a popular open-source front-end framework for developing responsive and mobile-first websites.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    How do I use Bootstrap?
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    You can use Bootstrap by including its CSS and JS files in your project, and then using its predefined classes and components.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Is Bootstrap customizable?
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Yes, Bootstrap is highly customizable. You can modify its variables and use custom CSS to override default styles.
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Where can I find Bootstrap documentation?
+                </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    The official Bootstrap documentation is available on the Bootstrap website, which provides detailed information and examples.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center m-5">
+        <div class="text-center d-flex flex-column align-items-center">
+            <p style="font-weight: 400;"><span style="font-weight:700;">Have any other Questions? </span>Feel free to send us an email with your inquiry and statement at.</p>
+            <p class="email-section mt-3">contactexample.com</p>
+        </div>
+    </div>
+</div>

@@ -7,6 +7,7 @@ import { HomeComponent } from './All Components/home/home.component';
 import { MyProductsComponent } from './All Components/my-products/my-products.component';
 import { MyOrdersComponent } from './All Components/my-orders/my-orders.component';
 import { ContactUsComponent } from './All Components/contact-us/contact-us.component';
+import { FAQComponent } from './All Components/faq/faq.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,5 +18,6 @@ export const routes: Routes = [
   {path:'myProducts' , component: MyProductsComponent},
   {path:'myOrders',component:MyOrdersComponent},
   {path:'contactUs',component:ContactUsComponent},
+{path:'faq',component:FAQComponent},
   { path: '**', redirectTo: ''}
 ];

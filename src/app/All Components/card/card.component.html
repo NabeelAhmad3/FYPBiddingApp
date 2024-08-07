@@ -32,49 +32,35 @@
                         <p class="mb-0 ms-2" style="color: red;">Views ({{ eyeTxt }})</p>
                     </div>
 
-                    <div class="dropdown dropdown-center">
-                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            In Action
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <img src="assets/myprodrop1.svg" alt="Preview">
-                                    <span class="dropdown-text">Preview</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <img src="assets/myprodrop2.svg" alt="Edit">
-                                    <span class="dropdown-text">Edit</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <img src="assets/myprodrop3.svg" alt="Disable">
-                                    <span class="dropdown-text">Disable</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
+                    <button  [matMenuTriggerFor]="menu" class="custom-button">In Action 
+                        
+                        <mat-icon>arrow_drop_down</mat-icon>
+                    </button>
 
-                                    <img src="assets/myprodrop4.svg" alt="Share">
-                                    <span class="dropdown-text">Share</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-
-                                    <img src="assets/myprodrop5.svg" alt="Start Auction">
-                                    <span class="dropdown-text">Start Auction</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
+                    <mat-menu #menu="matMenu" >
+                      <span mat-menu-item class="custom-menu-item">
+                        <img src="assets/myprodrop1.svg" alt="img"/> Preview
+                      </span>
+                      <span mat-menu-item class="custom-menu-item">
+                        <img src="assets/myprodrop2.svg" alt="img"/> Edit
+                      </span>
+                      <span mat-menu-item class="custom-menu-item">
+                        <img src="assets/myprodrop3.svg" alt="img"/> Disable
+                      </span>
+                      <span mat-menu-item class="custom-menu-item">
+                        <img src="assets/myprodrop4.svg" alt="img"/> Share
+                      </span>
+                      <span mat-menu-item class="custom-menu-item">
+                        <img src="assets/myprodrop5.svg" alt="img"/> Start Auction
+                      </span>
+                    </mat-menu>
+                    
+                      
+                      
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+

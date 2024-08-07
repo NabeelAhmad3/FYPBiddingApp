@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ProfileModalComponent } from "../../pop-ups/profile-modal/profile-modal.component";
 
 @Component({
   selector: 'app-contact-us',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, ProfileModalComponent],
   templateUrl: './contact-us.component.html',
   styleUrls: ['./contact-us.component.css'] 
 })
