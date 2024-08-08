@@ -16,6 +16,7 @@ import { PaymentSettingComponent } from './All Components/payment-setting/paymen
 import { Component } from '@angular/core';
 import { AddCardComponent } from './pop-ups/add-card/add-card.component';
 import { AddMethodComponent } from './pop-ups/add-method/add-method.component';
+import { VerificationCenterComponent } from './All Components/verification-center/verification-center.component';
 
 export const routes: Routes = [
   {path:'', component: HomeComponent },
@@ -25,6 +26,7 @@ export const routes: Routes = [
   {path:'faq',component:FAQComponent},
   {path:'sellProducts',component:SellProductsComponent},
   {path:'profileSet',component:ProfileSettingComponent},
+  {path:'verificationCent',component:VerificationCenterComponent},
   {path:'myOrders',component:MyOrdersComponent},
   {path:'helpUs',component:HelpUsComponent},
   {path:'myProducts' , component: MyProductsComponent},
