@@ -1,0 +1,87 @@
+<div class="modal fade" id="addMethodModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header text-center" style="justify-content:center !important;">
+        <p class="modal-title" style="font-size: 30px; font-weight: 500;">
+          <span style="color: black; margin-right: 5px;">Withdraw</span>
+          <span style="color: rgba(68, 85, 59, 1);">Methods</span>
+        </p>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addMethodForm" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label for="withdraw-method" class="col-form-label mt-3">Choose Withdraw Method</label>
+            <div class="custom-select-wrapper">
+              <select class="form-control custom-select-arrow" id="withdraw-method" formControlName="withdrawMethod">
+                <option value="" disabled selected>Select Method</option>
+                <option value="Bank">Bank Transfer</option>
+                <option value="Easypaisa">Easypaisa</option>
+                <option value="Jazz Cash">Jazz Cash</option>
+                <option value="Sada Pay">Sada Pay</option>
+              </select>
+            </div>
+            <div *ngIf="addMethodForm.get('withdrawMethod')?.errors && addMethodForm.get('withdrawMethod')?.touched">
+              <span class="text-danger">{{ addMethodForm.get('withdrawMethod')?.errors?.['required'] ? 'Withdraw Method is required.' : '' }}</span>
+            </div>
+          </div>
+          
+          <div class="row mb-3">
+            <div class="col-md-4">
+              <label for="chooseBank" class="col-form-label">Choose Bank</label>
+            </div>
+            <div class="col-md-8">
+              <div class="custom-select-wrapper">
+                <select class="form-control custom-select-arrow" id="chooseBank" formControlName="chooseBank">
+                  <option value="" disabled selected>Select Bank</option>
+                  <option value="HBL">HBL</option>
+                  <option value="ABL">ABL</option>
+                  <option value="UBL">UBL</option>
+                  <option value="MEEZAN">MEEZAN</option>
+                </select>
+              </div>
+              <div *ngIf="addMethodForm.get('chooseBank')?.errors && addMethodForm.get('chooseBank')?.touched">
+                <span class="text-danger">{{ addMethodForm.get('chooseBank')?.errors?.['required'] ? 'Choose Bank is required.' : '' }}</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row mb-3">
+            <div class="col-md-4">
+              <label for="account-title" class="col-form-label">Account Title</label>
+            </div>
+            <div class="col-md-8">
+              <input type="text" class="form-control" id="account-title" formControlName="accountTitle">
+              <div *ngIf="addMethodForm.get('accountTitle')?.errors && addMethodForm.get('accountTitle')?.touched">
+                <span class="text-danger">{{ addMethodForm.get('accountTitle')?.errors?.['required'] ? 'Account Title is required.' : '' }}</span>
+                <span class="text-danger">{{ addMethodForm.get('accountTitle')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row mb-3">
+            <div class="col-md-4">
+              <label for="account-type" class="col-form-label">Account Type</label>
+            </div>
+            <div class="col-md-8">
+              <div class="custom-select-wrapper">
+                <select class="form-control custom-select-arrow" id="account-type" formControlName="accountType">
+                  <option value="" disabled selected>Select Account Type</option>
+                  <option value="checking">Checking</option>
+                  <option value="savings">Savings</option>
+                  <option value="current">Current</option>
+                </select>
+              </div>
+              <div *ngIf="addMethodForm.get('accountType')?.errors && addMethodForm.get('accountType')?.touched">
+                <span class="text-danger">{{ addMethodForm.get('accountType')?.errors?.['required'] ? 'Account Type is required.' : '' }}</span>
+                 </div>
+            </div>
+          </div>
+          
+          <div class="d-flex justify-content-center">
+            <button type="submit" class="btn submitbtn mt-3 mb-3" style="width: 145px;">Add Card</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
