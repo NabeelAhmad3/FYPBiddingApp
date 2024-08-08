@@ -1,0 +1,8 @@
+.cardbtn{
+    border: 1px solid black; 
+    padding: 10px 20px 10px 20px;
+     border-radius: 5px;
+     background: rgba(68, 85, 59, 1);
+     color: white;
+     width: 140px;
+}
