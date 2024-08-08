@@ -11,6 +11,7 @@ import { FAQComponent } from './All Components/faq/faq.component';
 import { SellProductsComponent } from './All Components/sell-products/sell-products.component';
 import { HelpUsComponent } from './All Components/help-us/help-us.component';
 import { EditInformationComponent } from './All Components/edit-information/edit-information.component';
+import { ProfileSettingComponent } from './All Components/profile-setting/profile-setting.component';
 
 export const routes: Routes = [
   {path:'', component: HomeComponent },
@@ -21,9 +22,10 @@ export const routes: Routes = [
   {path:'signup', component: SignUpComponent },
   {path:'login', component: LogInComponent },
   {path:'header',component:HeaderComponent},
-  {path:'myProducts' , component: MyProductsComponent},
+  {path:'profileSet',component:ProfileSettingComponent},
   {path:'myOrders',component:MyOrdersComponent},
   {path:'helpUs',component:HelpUsComponent},
+  {path:'myProducts' , component: MyProductsComponent},
   {path:'editInfo',component:EditInformationComponent},
   { path: '**', redirectTo: ''}
 ];
