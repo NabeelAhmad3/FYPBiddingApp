@@ -1,3 +1,4 @@
+import { TransactionHistoryComponent } from './All Components/transaction-history/transaction-history.component';
 import { Routes } from '@angular/router';
 import { SignUpComponent } from './pop-ups/sign-up/sign-up.component';
 import { LogInComponent } from './pop-ups/log-in/log-in.component';
@@ -32,5 +33,6 @@ export const routes: Routes = [
   {path:'myProducts' , component: MyProductsComponent},
   {path:'editInfo',component:EditInformationComponent},
   {path:'paymetnSet',component:PaymentSettingComponent},
+  {path:'transHistory',component:TransactionHistoryComponent},
   { path: '**', redirectTo: ''}
 ];
