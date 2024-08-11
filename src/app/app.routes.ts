@@ -18,6 +18,8 @@ import { Component } from '@angular/core';
 import { AddCardComponent } from './pop-ups/add-card/add-card.component';
 import { AddMethodComponent } from './pop-ups/add-method/add-method.component';
 import { VerificationCenterComponent } from './All Components/verification-center/verification-center.component';
+import { DetailsComponent } from './details/details.component';
+import { PurchaseBidComponent } from './All Components/purchase-bid/purchase-bid.component';
 
 export const routes: Routes = [
   {path:'', component: HomeComponent },
@@ -31,7 +33,9 @@ export const routes: Routes = [
   {path:'myOrders',component:MyOrdersComponent},
   {path:'helpUs',component:HelpUsComponent},
   {path:'myProducts' , component: MyProductsComponent},
+  {path:'details',component:DetailsComponent},
   {path:'editInfo',component:EditInformationComponent},
+  {path:'purchaseBid',component:PurchaseBidComponent},
   {path:'paymetnSet',component:PaymentSettingComponent},
   {path:'transHistory',component:TransactionHistoryComponent},
   { path: '**', redirectTo: ''}

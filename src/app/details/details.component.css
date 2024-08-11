@@ -1,0 +1,20 @@
+.container {
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.table-responsive {
+  border: 1px solid #dee2e6;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  flex: 1;
+}
+
+.btnstyle {
+  background: rgba(68, 85, 59, 1);
+  color: white;
+  padding: 8.7px 20px 8.7px 20px;
+  border-radius: 4.35px;
+  border: none;
+}
