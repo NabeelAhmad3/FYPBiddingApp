@@ -1,1 +1,38 @@
-<p>purchase-bid works!</p>
+<div class="text-center mt-5 ">
+    <h2 class="fw-bolder" style="width: 100%;">Congrats! You have won the auction</h2>
+    <p style="width: 100%;">Some text below the heading, centered on the page.  Some text below the heading, centered on the page.</p>
+    <div class="auction-summary-container">
+        <h3 class="auction-summary-border ">Auction Summary</h3>
+      </div>
+
+    <table class="container summary-table" >
+        <thead >
+          <tr>
+            <td>Serial No</td>
+            <td>Product Name</td>
+            <td>Wining Amount</td>
+            <td>Quantity</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of summary" class="tdata">
+            <td >{{ item.serial }}</td>
+            <td >{{ item.productName }}</td>
+            <td >{{ item.winingAmount }}</td>
+            <td >{{ item.quantity }}</td>
+          </tr>
+        </tbody>
+      </table>
+    <h3 style="color:rgba(68, 85, 59, 1);" class="mt-5 mb-5">Choose your payment method</h3>
+</div>
+
+<div class="container w-75 imgsDiv ">
+    <a href=""><img src="assets/payment1.svg" alt="img"></a>
+    <a href=""><img src="assets/payment2.svg" alt="img"></a>
+    <a href=""><img src="assets/payment3.svg" alt="img"></a>
+    <a href=""><img src="assets/payment4.svg" alt="img"></a>
+</div>
+<div class="table-container">
+
+  </div>
+  
