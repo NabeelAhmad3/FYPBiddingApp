@@ -13,12 +13,11 @@
     margin-top: 60px;
 }
   .text-side {
-    flex: 1;
     padding: 20px;
   }
   
   .text1{
-    width: 446px;
+    width: 400px;
     height: 121px;
     box-shadow: 0px 0px 15px 0px rgba(29, 29, 29, 0.1);
     border-radius: 10px;
@@ -32,7 +31,7 @@
   }
   .text2{
     margin-top: 10px;
-    width: 412px;
+    width: 400px;
     height: 81px;
     padding: 20px 41px 20px 35px;
     font-family: Raleway;
@@ -58,11 +57,6 @@ text-align: left;
     
   }
   
-  
-  .large-image {
-    flex: 1;   
-      height: 470px;
-  }
   .work-btn{   
     border-radius: 10px;
     height: 44px;

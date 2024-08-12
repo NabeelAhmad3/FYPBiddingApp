@@ -102,7 +102,7 @@
     align-items: center;
     background-color: rgba(255, 255, 255, 0.25);
     border-radius: 4px;
-    width: 605px;
+    
     backdrop-filter: blur(10px);
 }
 

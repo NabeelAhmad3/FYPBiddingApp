@@ -1,43 +1,30 @@
 .container_footer {
-    align-items: center;
     background: rgba(39, 40, 43, 1);
     color: rgba(140, 140, 140, 1);
-    width: 100%;
 }
 
 /* Logo Container */
 .logo-container {
-    text-align: left;
     color: rgba(140, 140, 140, 1);
-    width: 441px;
-    margin-top: 48px;
-    padding: 0 16px 0 0;
 }
 
 .logo-text {
-    margin-bottom: 20px; 
-
+    margin-bottom: 20px;
 }
 
 .logo-text h2 {
-    margin-bottom: 10px; /* Adjust space below logo title */
+    margin-bottom: 10px;
     font-family: Raleway;
     font-size: 24px;
-    font-weight: 700; 
-   color: rgba(255, 255, 255, 1);
+    font-weight: 700;
+    color: rgba(255, 255, 255, 1);
 }
 
 /* Contact Info */
-.contact-info {
-    margin-top: 20px;
-}
 
-.contact-info div {
+.contact-info {
     margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    
-  color:   rgba(255, 255, 255, 1);
+    color: rgba(255, 255, 255, 1);
 }
 
 .contact-info .icon {
@@ -47,28 +34,22 @@
 
 /* Contact Container */
 .contact-container {
-    text-align: left;
     color: rgba(140, 140, 140, 1);
-    width: 361px;
-    margin-top: 48px;
-    padding: 0 16px 0 0;
 }
 
 .contact-text {
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
 
 .contact-text h2 {
-    margin-bottom: 10px; /* Adjust space below contact title */
+    margin-bottom: 10px;
     font-family: Raleway;
     font-size: 24px;
     font-weight: 700;
-   color: rgba(255, 255, 255, 1);
+    color: rgba(255, 255, 255, 1);
 }
 
-.contact-form {
-    margin-top: 10px;
-}
+
 
 .contact-form .form-control {
     background: rgba(39, 40, 43, 1);
@@ -79,27 +60,23 @@
 
 .contact-form .btn-primary {
     background: rgba(52, 53, 56, 1);
-    border-color:rgba(140, 140, 140, 1) ;
+    border-color: rgba(140, 140, 140, 1);
     color: rgba(255, 255, 255, 1);
     margin-top: 8px;
-    width: 100%; /* Make button width equal to form width */
-    
 }
 
 /* Social Media Container */
 .social-media-container {
-    text-align: left;
     color: rgba(140, 140, 140, 1);
     width: 261px;
-    margin-top: 48px;
 }
 
 .social-media-container h2 {
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
     font-family: Raleway;
     font-size: 24px;
     font-weight: 700;
-   color: rgba(255, 255, 255, 1);
+    color: rgba(255, 255, 255, 1);
 }
 
 
@@ -114,8 +91,7 @@
 
 /* Navbar Styling */
 .navbar-div {
-margin-top: 531px;
-text-align: center;
+    text-align: center;
 }
 
 .navbar-nav {
@@ -125,4 +101,3 @@ text-align: center;
 .nav-link {
     color: rgba(140, 140, 140, 1);
 }
-
