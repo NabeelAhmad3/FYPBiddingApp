@@ -6,7 +6,7 @@
 
   <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="form-content mt-5">
     <div class="form-row">
-      <div class="col-md-12">
+      <div class="col-12">
         <input type="text" class="form-control custom-input" id="name" formControlName="name" placeholder="Name">
         <div *ngIf="contactForm.get('name')?.errors && contactForm.get('name')?.touched">
           <span class="text-danger">{{ contactForm.get('name')?.errors?.['required'] ? 'Name is required.' : '' }}</span>
@@ -16,7 +16,7 @@
     </div>
 
     <div class="form-row">
-      <div class="col-md-12">
+      <div class="col-12">
         <input type="text" class="form-control custom-input" id="street" formControlName="street" placeholder="Street">
         <div *ngIf="contactForm.get('street')?.invalid && contactForm.get('street')?.touched" class="text-danger">
           <span class="text-danger">{{ contactForm.get('street')?.errors?.['required'] ? 'Street is required.' : '' }}</span>
@@ -26,14 +26,14 @@
     </div>
 
     <div class="form-row row">
-      <div class="col-md-6 ps-0">
+      <div class="col-md-6 col-12 mb-3 mb-md-0 ps-md-0">
         <input type="text" class="form-control custom-input" id="city" formControlName="city" placeholder="City">
         <div *ngIf="contactForm.get('city')?.invalid && contactForm.get('city')?.touched" class="text-danger">
           <span class="text-danger">{{ contactForm.get('city')?.errors?.['required'] ? 'City is required.' : '' }}</span>
           <span class="text-danger">{{ contactForm.get('city')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
         </div>
       </div>
-      <div class="col-md-6 pe-0">
+      <div class="col-md-6 col-12 pe-md-0">
         <input type="text" class="form-control custom-input" id="postcode" formControlName="postCode" placeholder="Postcode">
         <div *ngIf="contactForm.get('postCode')?.invalid && contactForm.get('postCode')?.touched" class="text-danger">
           <span class="text-danger">{{ contactForm.get('postCode')?.errors?.['required'] ? 'Post Code is required.' : '' }}</span>
@@ -43,7 +43,7 @@
     </div>
 
     <div class="form-row">
-      <div class="col-md-12">
+      <div class="col-12">
         <input type="text" class="form-control custom-input" id="phone" formControlName="phoneNo" placeholder="Phone">
         <div *ngIf="contactForm.get('phoneNo')?.invalid && contactForm.get('phoneNo')?.touched" class="text-danger">
           <span class="text-danger">{{ contactForm.get('phoneNo')?.errors?.['required'] ? 'Phone No is required.' : '' }}</span>
@@ -53,7 +53,7 @@
     </div>
 
     <div class="form-row">
-      <div class="col-md-12">
+      <div class="col-12">
         <input type="email" class="form-control custom-input" id="email" formControlName="email" placeholder="Email">
         <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" >
           <span class="text-danger">{{ contactForm.get('email')?.errors?.['required'] ? 'Email is required.' : '' }}</span>
@@ -63,13 +63,13 @@
     </div>
 
     <div class="form-row">
-      <div class="col-md-12">
+      <div class="col-12">
         <textarea class="form-control custom-input" id="message" formControlName="message" rows="3" placeholder="Message"></textarea>
       </div>
     </div>
 
     <div class="form-row">
-      <div class="col-md-12">
+      <div class="col-12">
         <div class="form-check">
           <input type="checkbox" class="form-check-input" id="terms" formControlName="terms">
           <label class="form-check-label" for="terms">I agree to the terms and conditions</label>
@@ -81,28 +81,28 @@
     </div>
 
     <div class="form-row">
-      <div class="col-md-12 text-center">
-        <button class="btn btn-success" style="width: 200px; padding: 10px 60px; background: rgba(68, 85, 59, 1);">Submit</button>
+      <div class="col-12 text-center">
+        <button class="btn btn-success custom-submit-button">Submit</button>
       </div>
     </div>
   </form>
 
-  <div class="contact-info d-flex justify-content-center mt-4 mb-3">
-    <div class="d-flex align-items-center me-4">
+  <div class="contact-info d-flex justify-content-center flex-wrap mt-4 mb-3">
+    <div class="d-flex align-items-center me-4 mb-3">
       <img src="assets/fIcon1.svg" alt="Call" class="icon" />
       <div class="ms-3">
         <h6 class="mb-1">Phone</h6>
         <span style="color: rgba(221, 84, 113, 1);">+92 234 567 8904</span>
       </div>
     </div>
-    <div class="d-flex align-items-center me-4">
+    <div class="d-flex align-items-center me-4 mb-3">
       <img src="assets/fIcon2.svg" alt="Message" class="icon" />
       <div class="ms-3">
         <h6 class="mb-1">Email</h6>
         <span style="color: rgba(221, 84, 113, 1);">emailexample.com</span>
       </div>
     </div>
-    <div class="d-flex align-items-center">
+    <div class="d-flex align-items-center mb-3">
       <img src="assets/fIcon3.svg" alt="Location" class="icon" />
       <div class="ms-3">
         <h6 class="mb-1">Location</h6>

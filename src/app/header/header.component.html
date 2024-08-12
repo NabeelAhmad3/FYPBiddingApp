@@ -1,27 +1,26 @@
-<div class="hero">
-    <nav class="navbar">
-        <div class="navbar">
-          <a href=""> <img src="assets/Logo.svg" alt="Logo" class="navbar-logo"></a> 
-            <div class="search-bar">
-                <div class="search-input">
-                    <img src="assets/Search icon.svg" alt="Search Icon">
-                    <input type="text" class="search" placeholder="Search...">
+<nav class="navbar navbar-expand-lg">
+          <button class="navbar-toggler" data-bs-toggle="modal" data-bs-target="#headerModal"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse">
+                <div class="search-bar ms-3">
+                    <div class="search-input">
+                        <img src="assets/Search icon.svg" alt="Search Icon">
+                        <input type="text" class="search" placeholder="Search...">
+                    </div>
                 </div>
-                <button>Advance Search</button>
+                <ul class="navbar-nav text-white mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/allListings">ALL LISTINGS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contactUs">CONTACT US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/faq">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/sellProducts">Sell Products</a>
+                    </li>
+                </ul>
             </div>
-        </div>
-        <div class="navbar">
-            <ul class="navbar-list">
-                <li><a href="/allListings">ALL LISTINGS</a></li>
-                <li><a href="/contactUs">CONTACT US</a></li>
-                <li><a href="/faq">FAQ</a></li>
-                <li><a href="/editInfo"><img src="assets/Notification icon.svg" alt="Bell"></a></li>
-                <li><a href="/sellProducts" class="products-button">Sell Products</a></li>
-                <li><a href="" data-bs-toggle="modal" data-bs-target="#profileModal"><img src="assets/Navbar2img.svg" alt="img" style="width: 40px; height: 40px;" ></a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
-<app-profile-modal/>
-
-
+</nav>
+<app-header-modal/>

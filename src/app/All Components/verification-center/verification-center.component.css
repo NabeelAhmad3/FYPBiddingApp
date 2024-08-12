@@ -47,7 +47,7 @@
 .submit-button {
   width: 150px; /* Set width to 150px */
   padding: 10px;
-  background-color: green;
+  background: rgba(68, 85, 59, 1);
   color: white;
   text-align: center;
   border-radius: 5px;
@@ -57,5 +57,5 @@
 }
 
 .submit-button:hover {
-  background-color: darkgreen;
+  background: darkgreen;
 }

@@ -41,40 +41,28 @@ textarea.custom-input {
     margin-left: 5px; /* Adjust spacing between checkbox and label */
 }
 
-.submit-section {
-    text-align: center;
-    margin-top: 20px;
+.custom-submit-button {
+    width: 100%;
+    max-width: 200px;
+    padding: 10px 60px;
+    background: rgba(68, 85, 59, 1);
+    border-radius: 5px;
 }
-.image-section {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 40px;
+
+.contact-info {
     gap: 20px;
 }
 
-.image-card {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.imgSize {
+.icon {
     width: 30px;
     height: 30px;
-    border-radius: 8px;
 }
 
-.imgText {
-    display: flex;
-    flex-direction: column;
-}
-
-.image-card h3 {
-    margin: 0;
-    font-size: 1em; /* Adjust font size as needed */
-}
-
-.image-card p {
-    margin: 0;
-    color: rgba(221, 84, 113, 1);
+@media (max-width: 767px) {
+    .contact-info .me-4 {
+        margin-right: 0;
+    }
+    .custom-submit-button {
+        width: 100%;
+    }
 }

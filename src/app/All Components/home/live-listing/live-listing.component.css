@@ -71,6 +71,10 @@
 }
 
 .bid-btn:hover {
-    background-color: forestgreen;
+    
+  background: rgba(68, 85, 59, 1);
     color: white;
+}
+a{
+    text-decoration: none;
 }
