@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LiveListingComponent } from './live-listing.component';
+import { CardHomeComponent } from './card-home.component';
 
-describe('LiveListingComponent', () => {
-  let component: LiveListingComponent;
-  let fixture: ComponentFixture<LiveListingComponent>;
+describe('CardHomeComponent', () => {
+  let component: CardHomeComponent;
+  let fixture: ComponentFixture<CardHomeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LiveListingComponent]
+      imports: [CardHomeComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LiveListingComponent);
+    fixture = TestBed.createComponent(CardHomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

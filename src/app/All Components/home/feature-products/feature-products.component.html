@@ -1,0 +1,13 @@
+<div class="Listings">
+    <p>Feature Products</p>
+    <div class="card-gallery ">
+        <app-card-home *ngFor="let item of cards; index as i" 
+            [ImgSrc]="item.ImgSrc" 
+            [des]="item.des" 
+            [pId]="item.pId" 
+            [cBid]="item.cBid" 
+            [lctn]="item.lctn">
+            [key]="i"
+        </app-card-home>
+    </div>
+</div>
