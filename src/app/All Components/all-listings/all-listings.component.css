@@ -1,35 +1,6 @@
-.card {
-    border: 1px solid #dee2e6;
-    border-radius: 10px;
-    width: 329px;
-}
-
-.card-body {
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-}
-
 .rating-box .bi-star-fill {
     color: gold;
     font-size: 1rem;
-}
-
-.like-button {
-    background: none;
-    border: none;
-    padding: 0;
-    margin-left: 10px;
-    cursor: pointer;
-}
-
-.like-button .bi-heart {
-    font-size: 1.5rem;
-    color: #d9534f;
-}
-
-.like-button .bi-heart-fill {
-    color: #d9534f;
 }
 
 .main-img {
@@ -68,7 +39,6 @@
 
 .filter-container {
     width: 338px;
-    height: 1020px;
     border: 1px solid #ccc;
     padding: 20px;
     box-sizing: border-box;
@@ -84,11 +54,6 @@
     margin-bottom: 20px;
 }
 
-h2 {
-    margin: 0;
-    font-size: 1.5rem;
-}
-
 .reset-btn {
     padding: 5px 10px;
     background-color: #007bff;
@@ -98,13 +63,12 @@ h2 {
     cursor: pointer;
 }
 
-.price-range {
-    display: flex;
-    flex-direction: column;
-}
-
-.price-range label {
+.price-range label,
+.condition label,
+.date-range label,
+.categories label {
     margin-bottom: 10px;
+    font-size: 1rem;
 }
 
 .price-display {
@@ -115,15 +79,6 @@ h2 {
 .line {
     border-bottom: 1px solid #dee2e6;
     margin-top: 20px;
-}
-
-.condition {
-    display: flex;
-    flex-direction: column;
-}
-
-.condition label {
-    margin-bottom: 10px;
 }
 
 .condition-buttons {
@@ -138,17 +93,11 @@ h2 {
     color: rgba(49, 49, 49, 1);
     background-color: #e0e0e0;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 .condition-btn:hover {
     background-color: rgba(68, 85, 59, 1);
     color: white;
-}
-
-.date-range {
-    display: flex;
-    flex-direction: column;
 }
 
 .date-input {
@@ -159,20 +108,9 @@ h2 {
 
 .date-input input[type="date"] {
     padding: 5px;
-    font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
     color: rgba(120, 120, 120, 1);
-}
-
-.categories {
-    flex-direction: column;
-    display: flex;
-    align-items: flex-start;
-}
-
-.categories label {
-    margin-right: 10px;
 }
 
 .categories select {
@@ -182,34 +120,68 @@ h2 {
     border-radius: 4px;
 }
 
-.categories {
-    margin-top: 20px;
-}
-
-.categories label {
-    display: block;
-    margin-bottom: 10px;
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-}
-
 .col-6 {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-
     color: rgba(0, 0, 0, 1);
+}
+
+.card {
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 329px;
+    margin-bottom: 20px;
+}
+
+.card-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
 }
 
 .col-6 input[type="checkbox"] {
     margin-right: 10px;
 }
 
-.col-6 label {
-    margin: 0;
-    font-size: 1rem;
-    color: rgba(49, 49, 49, 1);
+@media (max-width: 768px) {
+    .filter-container {
+        width: 100%;
+        height: auto;
+    }
+
+    .d-flex.flex-row {
+        flex-direction: column;
+    }
+
+    .card {
+        max-width: 100%;
+        margin: 10px 0;
+    }
+
+    .price-display {
+        font-size: 1rem;
+    }
+
+    .condition-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .col-6 {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+    .filter-container {
+        width: 50%;
+        height: auto;
+    }
+
+    .card {
+        max-width: 48%;
+        margin: 1%;
+    }
 }

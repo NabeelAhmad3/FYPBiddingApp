@@ -2,10 +2,12 @@ import { Component } from '@angular/core';
 import { FeaturesComponent } from "../../features/features.component";
 import { CommonModule } from '@angular/common';
 
+import {MatSliderModule} from '@angular/material/slider';
+
 @Component({
   selector: 'app-all-listings',
   standalone: true,
-  imports: [FeaturesComponent,CommonModule],
+  imports: [FeaturesComponent,CommonModule,MatSliderModule],
   templateUrl: './all-listings.component.html',
   styleUrl: './all-listings.component.css'
 })

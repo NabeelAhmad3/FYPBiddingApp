@@ -1,28 +1,21 @@
 .navbar {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     background: transparent;
-    padding: 10px 20px;
-}
-
-.navbar-left {
-    flex: 1;
 }
 
 .navbar-logo {
-    max-height: 50px;
+    max-height: 35px;
 }
 
-.navbar-right {
+.navbar-right { 
     flex: 3;
     display: flex;
     justify-content: flex-end;
 }
 
 .navbar-list {
-    display: flex;
     list-style: none;
+    flex-wrap: nowrap;
 }
 
 .navbar-list li {
@@ -35,16 +28,7 @@
     font-weight: bold;
     padding: 10px 15px;
     border-radius: 5px;
-}
-
-.products-button {
-    color: white;
-    border-radius: 29px !important;
-    border: 1px solid white;
-}
-
-.products-button:hover {
-    background:  rgba(255, 141, 36, 1) ;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .hero {
@@ -52,29 +36,21 @@
     height: 640px;
     background-image: url('../../../assets/Hero background.png');
     background-repeat: no-repeat;
-    background-size: cover;
     background-position: center;
     animation: backgroundChange 16s infinite;
     animation-fill-mode: forwards;
 }
 
-
 @keyframes backgroundChange {
-
-    0%,
-    100% {
+    0%, 100% {
         background-image: url('../../../assets/Hero background.png');
     }
-
     44% {
         background-image: url('../../../assets/Hero background2.png');
     }
-
     77% {
         background-image: url('../../../assets/Hero background3.png');
     }
-
-
 }
 
 .hero_section {
@@ -102,15 +78,16 @@
     align-items: center;
     background-color: rgba(255, 255, 255, 0.25);
     border-radius: 4px;
-    
     backdrop-filter: blur(10px);
+    transition: background 0.3s ease;
 }
 
 .search-input {
     display: flex;
     flex: 1;
 }
-.search-input img{
+
+.search-input img {
     margin-left: 15px;
 }
 
@@ -132,8 +109,14 @@
     border: none;
     cursor: pointer;
     border-radius: 4px;
+    transition: background 0.3s ease;
 }
 
 .search-bar button:hover {
     background-color: #45a049;
+}
+.nav-link{
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
 }
