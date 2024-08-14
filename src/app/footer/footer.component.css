@@ -1,9 +1,10 @@
 .container_footer {
     background: rgba(39, 40, 43, 1);
     color: rgba(140, 140, 140, 1);
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
-/* Logo Container */
 .logo-container {
     color: rgba(140, 140, 140, 1);
 }
@@ -20,8 +21,6 @@
     color: rgba(255, 255, 255, 1);
 }
 
-/* Contact Info */
-
 .contact-info {
     margin-bottom: 10px;
     color: rgba(255, 255, 255, 1);
@@ -32,7 +31,6 @@
     margin-right: 10px;
 }
 
-/* Contact Container */
 .contact-container {
     color: rgba(140, 140, 140, 1);
 }
@@ -49,8 +47,6 @@
     color: rgba(255, 255, 255, 1);
 }
 
-
-
 .contact-form .form-control {
     background: rgba(39, 40, 43, 1);
     color: rgba(255, 255, 255, 1);
@@ -62,10 +58,8 @@
     background: rgba(52, 53, 56, 1);
     border-color: rgba(140, 140, 140, 1);
     color: rgba(255, 255, 255, 1);
-    margin-top: 8px;
 }
 
-/* Social Media Container */
 .social-media-container {
     color: rgba(140, 140, 140, 1);
     width: 261px;
@@ -79,7 +73,6 @@
     color: rgba(255, 255, 255, 1);
 }
 
-
 .social-icons {
     display: flex;
     gap: 10px;
@@ -89,7 +82,6 @@
     width: 30px;
 }
 
-/* Navbar Styling */
 .navbar-div {
     text-align: center;
 }

@@ -1,7 +1,7 @@
 <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="logInModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content" style="background: transparent; width: 0px;">
-            <div class="modal-body p-0" >
+        <div class="modal-content" style="background: transparent; width: 316px;">
+            <div class="modal-body p-0">
                 <div class="d-flex flex-row">
                     <div class="filter-container">
                         <div class="header-row">
@@ -35,30 +35,23 @@
                         <div class="date-range">
 
                             <label>Date :</label>
-                            <div class="date-input d-flex flex-column">
-                                <div class="date-input">
-                                    <span>From</span><input type="date" id="startDate" />
-                                </div>
-                                <div class="date-input">
-                                    <span>To</span><input type="date" id="endDate" />
-                                </div>
-
+                            <div class="date-input ">
+                                <input type="date" id="startDate" />
+                                <input type="date" id="endDate" />
                             </div>
                             <div class="line"></div>
-                            <div class="categories">
+                            <div class="categories mt-4">
                                 <label for="carCategory">Categories:</label>
                                 <select id="carCategory">
                                     <option value="autoCar">Automatic</option>
                                     <option value="manualCar">Manual</option>
                                 </select>
                             </div>
-
                             <div class="line"></div>
-
                         </div>
-                        <div class="categories">
-                            <label for="carCategory">Location:</label>
-                            <div class="row">
+                        <div class="mb-4">
+                            <label for="location">Location:</label>
+                            <div class="row ">
                                 <div class="col-6">
                                     <input type="checkbox" id="islamabad">
                                     <label for="islamabad">Islamabad</label>

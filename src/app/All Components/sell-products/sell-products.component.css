@@ -1,43 +1,67 @@
 .form-control.custom-input {
     border: none;
-    border-bottom: 1px solid #ced4da;
-    /* Adding a subtle bottom border */
-    border-radius: 0;
-    margin-bottom: 15px;
-    /* Adding margin between fields */
+    border-bottom: 1px solid #ddd;
+    border-radius: 0px;
+    padding: 10px;
 }
 
-.form-control.custom-textarea {
-    border: none;
-    border-bottom: 1px solid #ced4da;
-    /* Adding a subtle bottom border */
-    border-radius: 0;
-    margin-bottom: 15px;
-    /* Adding margin between fields */
+.custom-textarea {
+    border: 1px;
+    background: #ddd;
+    border-radius: 10px;
+    padding: 10px;
 }
 
-.file-section .form-control {
-    border: none;
-    border-bottom: 1px solid #ced4da;
-    /* Adding a subtle bottom border */
+.img-container {
+    width: 75%;
+    height: 100px;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.upload-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.plus-sign {
+    display: inline-block;
+    background-color: white;
+    border-radius: 50%;
+    border: 2px solid rgba(68, 85, 59, 1);
+    padding: 10px;
 }
 
 .submit-btn {
-    background-color: green;
+    width: 170px;
+    padding: 10px 60px;
+    background: rgba(68, 85, 59, 1);
     color: white;
-    border-radius: 5px;
-    padding: 10px 20px;
-    border: none;
-    display: block;
-    margin-top: 20px;
+    border-radius: 10px;
+    border: transparent;
 }
 
 .row {
     justify-content: center;
 }
 
-.custom-textarea {
-    background: rgba(182, 182, 182, 0.2);
-    border-radius: 15px !important;
-    
+.plus-sign {
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    font-size: larger;
+}
+.ImgIcon{
+    width: 18px;
+     height: 18px;
+     margin-left: 4px;
+     margin-top: 8px;
 }

@@ -4,8 +4,12 @@
       <div class="logo-container m-2">
         <div class="logo-text">
           <h2>Logo</h2>
-          <p class="text-wrap">Loremd similique, laudantium in voluptate
-            distinctio!</p>
+          <p class="text-wrap">
+            Loremd similique, laudantium in voluptate oaiuesroiase <br>
+            Loremd similique, laudantium in similique, voluptate <br>
+            Loremd similique, laudantium in Loremd voluptate <br>
+            Loremd similique, laudantium in voluptate
+          </p>
         </div>
         <div class="contact-info ">
           <div>
@@ -29,66 +33,51 @@
             <p>We usually respond within 24 hours.</p>
           </div>
           <div class="contact-form">
-            <form [formGroup]="footerForm" (ngSubmit)="onSubmit()"
-              class="needs-validation" novalidate>
-                  <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="name"
-                      formControlName="Name" placeholder="Name" />
-                    <label for="name">Name</label>
-                    <div
-                      *ngIf="footerForm.get('Name')?.touched && footerForm.get('Name')?.invalid">
-                      <small class="text-danger"
-                        *ngIf="footerForm.get('Name')?.errors?.['required']">
-                        Name is required.
-                      </small>
-                      <small class="text-danger"
-                        *ngIf="footerForm.get('Name')?.errors?.['minlength']">
-                        Minimum length is 3 characters.
-                      </small>
-                    </div>
+            <form [formGroup]="footerForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="name" formControlName="Name" placeholder="Name" />
+                <label for="name">Name</label>
+                <div *ngIf="footerForm.get('Name')?.touched && footerForm.get('Name')?.invalid">
+                  <div class="text-danger" *ngIf="footerForm.get('Name')?.errors?.['required']">
+                    Name is required.
                   </div>
-                  <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="email"
-                      formControlName="Email"
-                      placeholder="name@example.com" />
-                    <label for="email">Email</label>
-                    <div
-                      *ngIf="footerForm.get('Email')?.touched && footerForm.get('Email')?.invalid">
-                      <small class="text-danger"
-                        *ngIf="footerForm.get('Email')?.errors?.['required']">
-                        Email is required.
-                      </small>
-                      <small class="text-danger"
-                        *ngIf="footerForm.get('Email')?.errors?.['minlength']">
-                        Minimum length is 15 characters.
-                      </small>
-                      <small class="text-danger"
-                        *ngIf="footerForm.get('Email')?.errors?.['email']">
-                        Invalid email format.
-                      </small>
-                    </div>
+                  <div class="text-danger" *ngIf="footerForm.get('Name')?.errors?.['minlength']">
+                    Minimum length is 3 characters.
                   </div>
-                  <div class="form-floating mb-3">
-                    <textarea class="form-control" id="comments"
-                      formControlName="TextArea"
-                      placeholder="Leave a comment here"></textarea>
-                    <label for="comments">Comments</label>
-                    <div
-                      *ngIf="footerForm.get('TextArea')?.touched && footerForm.get('TextArea')?.invalid">
-                      <small class="text-danger"
-                        *ngIf="footerForm.get('TextArea')?.errors?.['required']">
-                        Comments are required.
-                      </small>
-                      <small class="text-danger"
-                        *ngIf="footerForm.get('TextArea')?.errors?.['minlength']">
-                        Minimum length is 10 characters.
-                      </small>
-                    </div>
-                  </div>
-                <div>
-                  <button type="submit"
-                    class="btn btn-primary btn-block">Submit</button>
                 </div>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="email" formControlName="Email"
+                  placeholder="name@example.com" />
+                <label for="email">Email</label>
+                <div *ngIf="footerForm.get('Email')?.touched && footerForm.get('Email')?.invalid">
+                  <div class="text-danger" *ngIf="footerForm.get('Email')?.errors?.['required']">
+                    Email is required.
+                  </div>
+                  <div class="text-danger" *ngIf="footerForm.get('Email')?.errors?.['minlength']">
+                    Minimum length is 15 characters.
+                  </div>
+                  <div class="text-danger" *ngIf="footerForm.get('Email')?.errors?.['email']">
+                    Invalid email format.
+                  </div>
+                </div>
+              </div>
+              <div class="form-floating mb-3">
+                <textarea class="form-control" id="comments" formControlName="TextArea"
+                  placeholder="Leave a comment here"></textarea>
+                <label for="comments">Comments</label>
+                <div *ngIf="footerForm.get('TextArea')?.touched && footerForm.get('TextArea')?.invalid">
+                  <div class="text-danger" *ngIf="footerForm.get('TextArea')?.errors?.['required']">
+                    Comments are required.
+                  </div>
+                  <div class="text-danger" *ngIf="footerForm.get('TextArea')?.errors?.['minlength']">
+                    Minimum length is 10 characters.
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+              </div>
             </form>
           </div>
         </div>
@@ -98,14 +87,10 @@
           <h2>Social Media</h2>
           <p>Be the first one to know about discount offers and events.</p>
           <div class="social-icons">
-            <a href="#"><img src="assets/fIcon4.svg" alt="Facebook"
-                class="img-fluid" /></a>
-            <a href="#"><img src="assets/fIcon5.svg" alt="Google"
-                class="img-fluid" /></a>
-            <a href="#"><img src="assets/fIcon6.svg" alt="YouTube"
-                class="img-fluid" /></a>
-            <a href="#"><img src="assets/fIcon7.svg" alt="WhatsApp"
-                class="img-fluid" /></a>
+            <a href="#"><img src="assets/fIcon4.svg" alt="Facebook" class="img-fluid" /></a>
+            <a href="#"><img src="assets/fIcon5.svg" alt="Google" class="img-fluid" /></a>
+            <a href="#"><img src="assets/fIcon6.svg" alt="YouTube" class="img-fluid" /></a>
+            <a href="#"><img src="assets/fIcon7.svg" alt="WhatsApp" class="img-fluid" /></a>
           </div>
         </div>
       </div>

@@ -7,11 +7,11 @@
     <div class="accordion w-75" id="faqAccordion">
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <button class="accordion-button collapsed" type="button" (click)="toggleAccordion(0)" [attr.aria-expanded]="isAccordionOpen[0]" aria-controls="collapseOne">
                     What is Bootstrap?
                 </button>
             </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+            <div id="collapseOne" class="accordion-collapse collapse" [ngClass]="{'show': isAccordionOpen[0]}" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
                 <div class="accordion-body">
                     Bootstrap is a popular open-source front-end framework for developing responsive and mobile-first websites.
                 </div>
@@ -20,11 +20,11 @@
 
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <button class="accordion-button collapsed" type="button" (click)="toggleAccordion(1)" [attr.aria-expanded]="isAccordionOpen[1]" aria-controls="collapseTwo">
                     How do I use Bootstrap?
                 </button>
             </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+            <div id="collapseTwo" class="accordion-collapse collapse" [ngClass]="{'show': isAccordionOpen[1]}" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
                 <div class="accordion-body">
                     You can use Bootstrap by including its CSS and JS files in your project, and then using its predefined classes and components.
                 </div>
@@ -33,11 +33,11 @@
 
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <button class="accordion-button collapsed" type="button" (click)="toggleAccordion(2)" [attr.aria-expanded]="isAccordionOpen[2]" aria-controls="collapseThree">
                     Is Bootstrap customizable?
                 </button>
             </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+            <div id="collapseThree" class="accordion-collapse collapse" [ngClass]="{'show': isAccordionOpen[2]}" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
                 <div class="accordion-body">
                     Yes, Bootstrap is highly customizable. You can modify its variables and use custom CSS to override default styles.
                 </div>
@@ -46,11 +46,11 @@
 
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingFour">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                <button class="accordion-button collapsed" type="button" (click)="toggleAccordion(3)" [attr.aria-expanded]="isAccordionOpen[3]" aria-controls="collapseFour">
                     Where can I find Bootstrap documentation?
                 </button>
             </h2>
-            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+            <div id="collapseFour" class="accordion-collapse collapse" [ngClass]="{'show': isAccordionOpen[3]}" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
                 <div class="accordion-body">
                     The official Bootstrap documentation is available on the Bootstrap website, which provides detailed information and examples.
                 </div>

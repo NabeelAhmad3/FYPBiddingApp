@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sell-products',
@@ -11,8 +11,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class SellProductsComponent {
   contactForm: FormGroup;
-  fileControls: string[] = ['file1', 'file2', 'file3', 'file4', 'file5']; // Define as many file inputs as needed
-  imagePreviews: string[] = [];
+  imageUrls: { [key: number]: string | ArrayBuffer | null } = {};
 
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
@@ -24,29 +23,41 @@ export class SellProductsComponent {
       DeliverToCities: ['', [Validators.required, Validators.minLength(3)]],
       startDate: ['', [Validators.required]],
       endDate: ['', [Validators.required]],
-      Description: ['']
+      Description: [''],
+      images: this.fb.array([])
     });
   }
-
   onSubmit() {
     if (this.contactForm.invalid) {
       this.contactForm.markAllAsTouched();
       return;
     }
     console.log('Form Values:', this.contactForm.value);
-    console.log('Image Previews:', this.imagePreviews);
+    const imagesArray = this.contactForm.get('images') as FormArray;
+    console.log('Uploaded Image Paths:', imagesArray.value);
+  
     this.contactForm.reset();
-    this.imagePreviews = [];
+    this.imageUrls = {};
+    while (imagesArray.length) {
+      imagesArray.removeAt(0);
+    }
   }
-
+  
   onFileChange(event: any, index: number) {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = (e: any) => {
-        this.imagePreviews[index] = e.target.result;
+        this.imageUrls[index] = e.target.result;
+        const imagesArray = this.contactForm.get('images') as FormArray;
+        if (imagesArray.length < index) {
+          imagesArray.push(this.fb.control(e.target.result));
+        } else {
+          imagesArray.at(index).setValue(e.target.result);
+        }
       };
       reader.readAsDataURL(file);
     }
   }
+  
 }
