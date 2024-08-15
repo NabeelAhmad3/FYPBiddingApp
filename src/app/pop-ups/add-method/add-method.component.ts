@@ -1,29 +1,36 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-method',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './add-method.component.html',
-  styleUrl: './add-method.component.css'
+  styleUrls: ['./add-method.component.css']
 })
 export class AddMethodComponent {
-  addMethodForm: FormGroup =new FormGroup({
-    withdrawMethod: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    chooseBank: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    accountTitle: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    accountType: new FormControl('', [Validators.required, Validators.minLength(3)]),
-  });
+  @Output() methodAdded = new EventEmitter<any>();
 
-  constructor(private fb: FormBuilder){}
+  addMethodForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.addMethodForm = this.fb.group({
+      withdrawMethod: ['', Validators.required],
+      accountTitle: ['', [Validators.required, Validators.minLength(3)]],
+      accountType: ['', [Validators.required, Validators.minLength(3)]],
+    });
+  }
+
   onSubmit() {
     if (this.addMethodForm.invalid) {
       this.addMethodForm.markAllAsTouched();
       return;
     }
-    console.log(this.addMethodForm.value);
+
+    const formValue = this.addMethodForm.value;
+    console.log('Method added:', formValue);
+    this.methodAdded.emit(formValue);
     this.addMethodForm.reset();
   }
 }

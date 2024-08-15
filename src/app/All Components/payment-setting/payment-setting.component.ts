@@ -12,11 +12,21 @@ import { CommonModule } from '@angular/common';
 })
 export class PaymentSettingComponent {
   addedCards: any[] = []; 
+  methods: any[] = []; 
 
   onCardAdded(cardData: any) {
     this.addedCards.push(cardData);
   }
-  deleteCard(index: number) {
-    this.addedCards.splice(index, 1); 
+  handleMethodAdded(methodData: any) {
+    this.methods.push(methodData); 
   }
+  deleteItem(index: number, type: 'card' | 'method') {
+    if (type === 'card') {
+      this.addedCards.splice(index, 1);
+    } else if (type === 'method') {
+      this.methods.splice(index, 1);
+    }
+  }
+  
 }
+
