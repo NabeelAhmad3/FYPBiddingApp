@@ -6,3 +6,11 @@
      color: white;
      width: 140px;
 }
+.card{
+    background: rgb(69, 56, 56)!important;
+    color: white;
+    border: none;
+}
+.btn:hover{
+    background: red;
+}

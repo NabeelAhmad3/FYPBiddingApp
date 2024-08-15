@@ -1,6 +1,8 @@
 .container {
     display: flex;
-    width: 1334px;
+    width: auto;
+    padding: 0px;
+    justify-content: center;
     background: rgba(248, 249, 250, 1);
   }
   .text-side {
@@ -10,7 +12,7 @@
     box-shadow: 0px 0px 15px 0px rgba(29, 29, 29, 0.1);
     border-radius: 10px;
     padding: 20px 41px 20px 35px;
-
+    max-width: 390px;
   }
   .work-btn{   
     border-radius: 10px;
@@ -26,3 +28,15 @@
     color: white;
     cursor: pointer;
   }
+
+  .large-image {
+    display: block;
+    max-width: 100%;
+}
+
+/* For screens smaller than 800px */
+@media (max-width: 800px) {
+    .large-image {
+        display: none; /* Hide the image or you can adjust it differently */
+    }
+}
