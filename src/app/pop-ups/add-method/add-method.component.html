@@ -29,7 +29,7 @@
               <label for="account-title" class="col-form-label">Account Title</label>
             </div>
             <div class="col-md-8">
-              <input type="text" class="form-control" id="account-title" formControlName="accountTitle">
+              <input type="text" class="form-control" id="account-title" formControlName="accountTitle" placeholder="Nabeel khan">
               <div *ngIf="addMethodForm.get('accountTitle')?.errors && addMethodForm.get('accountTitle')?.touched">
                 <span class="text-danger">{{ addMethodForm.get('accountTitle')?.errors?.['required'] ? 'Account Title is required.' : '' }}</span>
                 <span class="text-danger">{{ addMethodForm.get('accountTitle')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
@@ -43,10 +43,15 @@
             </div>
             <div class="col-md-8">
               <div class="custom-select-wrapper">
-                <input type="number" class="form-control" id="account-type" formControlName="accountType">
+
+                <input type="text" class="form-control" id="account-type" formControlName="accountType" inputmode="numeric" placeholder="123..">
               </div>
               <div *ngIf="addMethodForm.get('accountType')?.errors && addMethodForm.get('accountType')?.touched">
                 <span class="text-danger">{{ addMethodForm.get('accountType')?.errors?.['required'] ? 'Account Type is required.' : '' }}</span>
+              <span class="text-danger">{{ addMethodForm.get('accountType')?.errors?.['pattern'] ? 'Account Number must contain only digits.' : '' }}</span>
+              <span class="text-danger">{{ addMethodForm.get('accountType')?.errors?.['minlength'] ? 'Account Number must be at least 11 digits.' : '' }}</span>
+              <span class="text-danger">{{ addMethodForm.get('accountType')?.errors?.['maxlength'] ? 'Account Number cannot exceed 17 digits.' : '' }}</span>
+            
               </div>
             </div>
           </div>

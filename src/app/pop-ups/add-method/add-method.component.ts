@@ -11,14 +11,18 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 })
 export class AddMethodComponent {
   @Output() methodAdded = new EventEmitter<any>();
-
   addMethodForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.addMethodForm = this.fb.group({
       withdrawMethod: ['', Validators.required],
-      accountTitle: ['', [Validators.required, Validators.minLength(3)]],
-      accountType: ['', [Validators.required, Validators.minLength(3)]],
+      accountTitle: ['', [Validators.required, Validators.minLength(3)]], 
+      accountType: ['', [
+        Validators.required,
+        Validators.minLength(11),
+        Validators.maxLength(17),
+        Validators.pattern(/^\d+$/) 
+      ]],
     });
   }
 
