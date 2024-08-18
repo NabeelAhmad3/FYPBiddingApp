@@ -44,6 +44,9 @@
                   <div class="text-danger" *ngIf="footerForm.get('Name')?.errors?.['minlength']">
                     Minimum length is 3 characters.
                   </div>
+                     <div class="text-danger" *ngIf="footerForm.get('Name')?.errors?.['maxlength']">
+                    Maximum length is 20 characters.
+                  </div>
                 </div>
               </div>
               <div class="form-floating mb-3">
@@ -56,6 +59,9 @@
                   </div>
                   <div class="text-danger" *ngIf="footerForm.get('Email')?.errors?.['minlength']">
                     Minimum length is 15 characters.
+                  </div>
+                  <div class="text-danger" *ngIf="footerForm.get('Email')?.errors?.['maxlength']">
+                    Maximum length is 35 characters.
                   </div>
                   <div class="text-danger" *ngIf="footerForm.get('Email')?.errors?.['email']">
                     Invalid email format.

@@ -11,11 +11,11 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 })
 export class ProfileSettingComponent {
   profileSetForm: FormGroup = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    phoneNo: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    address: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    city: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    country: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    name: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(20)]),
+    phoneNo: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(20),Validators.pattern(/^\d+$/)]),
+    address: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(20)]),
+    city: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(20)]),
+    country: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(20)]),
   });
 
   profileImage: string | ArrayBuffer | null = null;

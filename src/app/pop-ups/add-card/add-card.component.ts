@@ -13,7 +13,7 @@ export class AddCardComponent {
   @Output() cardAdded = new EventEmitter<any>(); // Event emitter to send data to parent component
 
   addCardForm: FormGroup = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    name: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(20)]),
     cardNumber: new FormControl('', [Validators.required,
     Validators.minLength(14),
     Validators.maxLength(17),

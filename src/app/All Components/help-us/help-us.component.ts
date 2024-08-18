@@ -11,8 +11,8 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 })
 export class HelpUsComponent {
   helpUsForm: FormGroup =new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    subject: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    name: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(20)]),
+    subject: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(20)]),
   });
 
   constructor(private fb: FormBuilder){}

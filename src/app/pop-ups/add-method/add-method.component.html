@@ -33,6 +33,7 @@
               <div *ngIf="addMethodForm.get('accountTitle')?.errors && addMethodForm.get('accountTitle')?.touched">
                 <span class="text-danger">{{ addMethodForm.get('accountTitle')?.errors?.['required'] ? 'Account Title is required.' : '' }}</span>
                 <span class="text-danger">{{ addMethodForm.get('accountTitle')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
+                <span class="text-danger">{{ addMethodForm.get('accountTitle')?.errors?.['maxlength'] ? 'Maximum length is 20 characters.' : '' }}</span>
               </div>
             </div>
           </div>

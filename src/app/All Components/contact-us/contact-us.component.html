@@ -11,6 +11,7 @@
         <div *ngIf="contactForm.get('name')?.errors && contactForm.get('name')?.touched">
           <span class="text-danger">{{ contactForm.get('name')?.errors?.['required'] ? 'Name is required.' : '' }}</span>
           <span class="text-danger">{{ contactForm.get('name')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
+          <span class="text-danger">{{ contactForm.get('name')?.errors?.['maxlength'] ? 'Maximum length is 20 characters.' : '' }}</span>
         </div>
       </div>
     </div>
@@ -21,6 +22,7 @@
         <div *ngIf="contactForm.get('street')?.invalid && contactForm.get('street')?.touched" class="text-danger">
           <span class="text-danger">{{ contactForm.get('street')?.errors?.['required'] ? 'Street is required.' : '' }}</span>
           <span class="text-danger">{{ contactForm.get('street')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
+          <span class="text-danger">{{ contactForm.get('street')?.errors?.['maxlength'] ? 'Maximum length is 20 characters.' : '' }}</span>
         </div>
       </div>
     </div>
@@ -31,23 +33,29 @@
         <div *ngIf="contactForm.get('city')?.invalid && contactForm.get('city')?.touched" class="text-danger">
           <span class="text-danger">{{ contactForm.get('city')?.errors?.['required'] ? 'City is required.' : '' }}</span>
           <span class="text-danger">{{ contactForm.get('city')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
+          <span class="text-danger">{{ contactForm.get('city')?.errors?.['maxlength'] ? 'Maximum length is 20 characters.' : '' }}</span>
         </div>
       </div>
       <div class="col-md-6 col-12 pe-md-0">
         <input type="text" class="form-control custom-input" id="postcode" formControlName="postCode" placeholder="Postcode">
         <div *ngIf="contactForm.get('postCode')?.invalid && contactForm.get('postCode')?.touched" class="text-danger">
+          
           <span class="text-danger">{{ contactForm.get('postCode')?.errors?.['required'] ? 'Post Code is required.' : '' }}</span>
-          <span class="text-danger">{{ contactForm.get('postCode')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
+          <span class="text-danger">{{ contactForm.get('postCode')?.errors?.['pattern'] ? 'Post Code must contain only digits.' : '' }}</span>
+          <span class="text-danger">{{ contactForm.get('postCode')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>  
+          <span class="text-danger">{{ contactForm.get('postCode')?.errors?.['maxlength'] ? 'Maximum length is 10 characters.' : '' }}</span> 
         </div>
       </div>
     </div>
 
     <div class="form-row">
       <div class="col-12">
-        <input type="text" class="form-control custom-input" id="phone" formControlName="phoneNo" placeholder="Phone">
+        <input type="text" class="form-control custom-input" id="phone" formControlName="phoneNo" placeholder="Phone" inputmode="numeric">
         <div *ngIf="contactForm.get('phoneNo')?.invalid && contactForm.get('phoneNo')?.touched" class="text-danger">
           <span class="text-danger">{{ contactForm.get('phoneNo')?.errors?.['required'] ? 'Phone No is required.' : '' }}</span>
-          <span class="text-danger">{{ contactForm.get('phoneNo')?.errors?.['minlength'] ? 'Minimum length is 10 characters.' : '' }}</span>
+          <span class="text-danger">{{ contactForm.get('phoneNo')?.errors?.['pattern'] ? 'Phone No must contain only digits.' : '' }}</span>
+          <span class="text-danger">{{ contactForm.get('phoneNo')?.errors?.['minlength'] ? 'Minimum length is 10 characters.' : '' }}</span>  
+          <span class="text-danger">{{ contactForm.get('phoneNo')?.errors?.['maxlength'] ? 'Maximum length is 14 characters.' : '' }}</span>
         </div>
       </div>
     </div>
@@ -55,9 +63,10 @@
     <div class="form-row">
       <div class="col-12">
         <input type="email" class="form-control custom-input" id="email" formControlName="email" placeholder="Email">
-        <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" >
+        <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
           <span class="text-danger">{{ contactForm.get('email')?.errors?.['required'] ? 'Email is required.' : '' }}</span>
           <span class="text-danger">{{ contactForm.get('email')?.errors?.['minlength'] ? 'Minimum length is 15 characters.' : '' }}</span>
+          <span class="text-danger">{{ contactForm.get('email')?.errors?.['maxlength'] ? 'Maximum length is 35 characters.' : '' }}</span>
         </div>
       </div>
     </div>

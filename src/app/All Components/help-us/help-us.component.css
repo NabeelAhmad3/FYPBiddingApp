@@ -86,8 +86,6 @@ textarea.custom-input {
 .form-control.custom-textarea {
     border: none;
     border-bottom: 1px solid #ced4da;
-    /* Adding a subtle bottom border */
     border-radius: 0;
     margin-bottom: 15px;
-    /* Adding margin between fields */
 }

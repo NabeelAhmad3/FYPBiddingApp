@@ -17,6 +17,7 @@
           <div *ngIf="helpUsForm.get('name')?.errors && helpUsForm.get('name')?.touched">
             <span class="text-danger">{{ helpUsForm.get('name')?.errors?.['required'] ? 'Name is required.' : '' }}</span>
             <span class="text-danger">{{ helpUsForm.get('name')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
+            <span class="text-danger">{{ helpUsForm.get('name')?.errors?.['maxlength'] ? 'Maximum length is 20 characters.' : '' }}</span>
           </div>
         </div>
       </div>
@@ -27,6 +28,7 @@
           <div *ngIf="helpUsForm.get('subject')?.invalid && helpUsForm.get('subject')?.touched" class="text-danger">
             <span class="text-danger">{{ helpUsForm.get('subject')?.errors?.['required'] ? 'Subject is required.' : '' }}</span>
             <span class="text-danger">{{ helpUsForm.get('subject')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
+            <span class="text-danger">{{ helpUsForm.get('subject')?.errors?.['maxlength'] ? 'Maximum length is 20 characters.' : '' }}</span>
           </div>
         </div>
       </div>

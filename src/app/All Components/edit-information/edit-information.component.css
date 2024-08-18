@@ -1,25 +1,20 @@
 .form-control.custom-input {
     border: none;
     border-bottom: 1px solid #ced4da;
-    /* Adding a subtle bottom border */
     border-radius: 0;
     margin-bottom: 15px;
-    /* Adding margin between fields */
 }
 
 .form-control.custom-textarea {
     border: none;
     border-bottom: 1px solid #ced4da;
-    /* Adding a subtle bottom border */
     border-radius: 0;
     margin-bottom: 15px;
-    /* Adding margin between fields */
 }
 
 .file-section .form-control {
     border: none;
     border-bottom: 1px solid #ced4da;
-    /* Adding a subtle bottom border */
 }
 
 .submit-btn {

@@ -15,12 +15,12 @@ export class SellProductsComponent {
 
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(3)]],
-      BasicPrice: ['', [Validators.required, Validators.minLength(3)]],
-      AddCategories: ['', [Validators.required, Validators.minLength(3)]],
-      QualityAvailable: ['', [Validators.required, Validators.minLength(3)]],
-      CurrentLocation: ['', [Validators.required, Validators.minLength(3)]],
-      DeliverToCities: ['', [Validators.required, Validators.minLength(3)]],
+      name: ['', [Validators.required, Validators.minLength(3),Validators.maxLength(20)]],
+      BasicPrice: ['', [Validators.required, Validators.minLength(3),Validators.maxLength(10), Validators.pattern(/^\d+$/)]],
+      QualityAvailable: ['', [Validators.required, Validators.minLength(3),Validators.maxLength(10), Validators.pattern(/^\d+$/)]],
+      AddCategories: ['', [Validators.required, Validators.minLength(3),Validators.maxLength(10)]],
+      CurrentLocation: ['', [Validators.required, Validators.minLength(3),Validators.maxLength(20)]],
+      DeliverToCities: ['', [Validators.required, Validators.minLength(3),Validators.maxLength(20)]],
       startDate: ['', [Validators.required]],
       endDate: ['', [Validators.required]],
       Description: [''],

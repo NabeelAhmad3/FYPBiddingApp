@@ -11,12 +11,12 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 })
 export class ContactUsComponent {
   contactForm: FormGroup =new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    street: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    city: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    postCode: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    phoneNo: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    email: new FormControl('', [Validators.required, Validators.email,Validators.minLength(15)]),
+    name: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(20)]),
+    street: new FormControl('', [Validators.required, Validators.minLength(10),Validators.maxLength(20),]),
+    city: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(20),]),
+    postCode: new FormControl('', [Validators.required, Validators.minLength(2),Validators.maxLength(10), Validators.pattern(/^\d+$/)]),
+    phoneNo: new FormControl('', [Validators.required, Validators.minLength(11),Validators.maxLength(14), Validators.pattern(/^\d+$/)]),
+    email: new FormControl('', [Validators.required, Validators.email,Validators.minLength(15),Validators.maxLength(35)]),
     message: new FormControl(''),
     terms: new FormControl(false, [Validators.requiredTrue])
   });

@@ -16,7 +16,7 @@ export class AddMethodComponent {
   constructor(private fb: FormBuilder) {
     this.addMethodForm = this.fb.group({
       withdrawMethod: ['', Validators.required],
-      accountTitle: ['', [Validators.required, Validators.minLength(3)]], 
+      accountTitle: ['', [Validators.required, Validators.minLength(3),Validators.maxLength(20)]], 
       accountType: ['', [
         Validators.required,
         Validators.minLength(11),

@@ -17,6 +17,7 @@
             <div *ngIf="addCardForm.get('name')?.errors && addCardForm.get('name')?.touched">
               <span class="text-danger">{{ addCardForm.get('name')?.errors?.['required'] ? 'Name is required.' : '' }}</span>
               <span class="text-danger">{{ addCardForm.get('name')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
+              <span class="text-danger">{{ addCardForm.get('name')?.errors?.['maxlength'] ? 'Maximum length is 20 characters.' : '' }}</span>
             </div>
           </div>
           <div class="mb-3">

@@ -11,23 +11,29 @@
                 <input type="text" class="form-control custom-input" id="name" formControlName="name" placeholder="Name">
                 <div *ngIf="contactForm.get('name')?.errors && contactForm.get('name')?.touched">
                     <span class="text-danger">{{ contactForm.get('name')?.errors?.['required'] ? 'Name is required.' : '' }}</span>
-                    <span class="text-danger">{{ contactForm.get('name')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
+                    <span class="text-danger">{{ contactForm.get('name')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>   
+                    <span class="text-danger">{{ contactForm.get('name')?.errors?.['maxlength'] ? 'Maximum length is 20 characters.' : '' }}</span>
                 </div>
             </div>
             <div class="col-md-5  mt-xl-5">
-                <input type="text" class="form-control custom-input" id="BasicPrice" formControlName="BasicPrice" placeholder="Basic Price">
+                <input type="text" class="form-control custom-input" id="BasicPrice" formControlName="BasicPrice" placeholder="Basic Price" inputmode="numeric">
                 <div *ngIf="contactForm.get('BasicPrice')?.invalid && contactForm.get('BasicPrice')?.touched" class="text-danger">
+
                     <span class="text-danger">{{ contactForm.get('BasicPrice')?.errors?.['required'] ? 'Basic Price is required.' : '' }}</span>
+                    <span class="text-danger">{{ contactForm.get('BasicPrice')?.errors?.['pattern'] ? 'Basic Pricemust contain only digits.' : '' }}</span>
                     <span class="text-danger">{{ contactForm.get('BasicPrice')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
+                    <span class="text-danger">{{ contactForm.get('BasicPrice')?.errors?.['maxlength'] ? 'Maximum length is 10 characters.' : '' }}</span>
                 </div>
             </div>
         </div>
         <div class=" row">
             <div class="col-md-5 mt-xl-5">
-                <input type="text" class="form-control custom-input" id="QualityAvailable" formControlName="QualityAvailable" placeholder="Quality Available">
+                <input type="text" class="form-control custom-input" id="QualityAvailable" formControlName="QualityAvailable" placeholder="Quality Available" inputmode="numeric">
                 <div *ngIf="contactForm.get('QualityAvailable')?.invalid && contactForm.get('QualityAvailable')?.touched" class="text-danger">
-                    <span class="text-danger">{{ contactForm.get('QualityAvailable')?.errors?.['required'] ? 'Quality Available is required.' : '' }}</span>
-                    <span class="text-danger">{{ contactForm.get('QualityAvailable')?.errors?.['minlength'] ? 'Minimum length is 15 characters.' : '' }}</span>
+                    <span class="text-danger">{{ contactForm.get('QualityAvailable')?.errors?.['required'] ? 'Quality Available is required.' : '' }}</span>      
+                    <span class="text-danger">{{ contactForm.get('QualityAvailable')?.errors?.['pattern'] ? 'Quality Available must contain only digits.' : '' }}</span>
+                    <span class="text-danger">{{ contactForm.get('QualityAvailable')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
+                    <span class="text-danger">{{ contactForm.get('QualityAvailable')?.errors?.['maxlength'] ? 'Maximum length is 10 characters.' : '' }}</span>
                 </div>
             </div>
             <div class="col-md-5 mt-xl-5">
@@ -35,6 +41,7 @@
                 <div *ngIf="contactForm.get('AddCategories')?.invalid && contactForm.get('AddCategories')?.touched" class="text-danger">
                     <span class="text-danger">{{ contactForm.get('AddCategories')?.errors?.['required'] ? 'Add Categories is required.' : '' }}</span>
                     <span class="text-danger">{{ contactForm.get('AddCategories')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
+                    <span class="text-danger">{{ contactForm.get('AddCategories')?.errors?.['maxlength'] ? 'Maximum length is 10 characters.' : '' }}</span>
                 </div>
             </div>
         </div>
@@ -48,14 +55,17 @@
                 <input type="text" class="form-control custom-input" id="CurrentLocation" formControlName="CurrentLocation" placeholder="Current Location">
                 <div *ngIf="contactForm.get('CurrentLocation')?.invalid && contactForm.get('CurrentLocation')?.touched" class="text-danger">
                     <span class="text-danger">{{ contactForm.get('CurrentLocation')?.errors?.['required'] ? 'Current Location is required.' : '' }}</span>
-                    <span class="text-danger">{{ contactForm.get('CurrentLocation')?.errors?.['minlength'] ? 'Minimum length is 10 characters.' : '' }}</span>
+                    <span class="text-danger">{{ contactForm.get('CurrentLocation')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
+                    
+                    <span class="text-danger">{{ contactForm.get('CurrentLocation')?.errors?.['maxlength'] ? 'Maximum length is 20 characters.' : '' }}</span>
                 </div>
             </div>
             <div class="col-md-5 mt-xl-5">
                 <input type="text" class="form-control custom-input" id="DeliverToCities" formControlName="DeliverToCities" placeholder="Deliver To Cities">
                 <div *ngIf="contactForm.get('DeliverToCities')?.errors && contactForm.get('DeliverToCities')?.touched">
                     <span class="text-danger">{{ contactForm.get('DeliverToCities')?.errors?.['required'] ? 'Deliver To Cities is required.' : '' }}</span>
-                    <span class="text-danger">{{ contactForm.get('DeliverToCities')?.errors?.['minlength'] ? 'Minimum length is 15 characters.' : '' }}</span>
+                    <span class="text-danger">{{ contactForm.get('DeliverToCities')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
+                    <span class="text-danger">{{ contactForm.get('DeliverToCities')?.errors?.['maxlength'] ? 'Maximum length is 20 characters.' : '' }}</span>
                 </div>
             </div>
         </div>
