@@ -18,15 +18,22 @@
     font-size: 15px;
     font-weight: 500;
     line-height: 17.61px;
-    white-space: nowrap; /* Ensure text doesn't wrap */
-    margin-bottom: 0; /* Remove default margin */
+    margin-bottom: 0;
 }
 
 .modal-body .form-control {
     border: 1px solid #7b8288;
-    flex-grow: 1; /* Make input grow to fill available space */
 }
 
 .modal-footer {
     justify-content: center;
+}
+
+.btnstyle {
+    background: rgba(68, 85, 59, 1);
+    border: none;
+    width: 80px;
+    height: 40px;
+    border-radius: 15px;
+    color: white;
 }

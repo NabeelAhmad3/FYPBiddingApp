@@ -10,16 +10,16 @@
       <div class="content">
         <p>This is some text below the heading, aligned to the left side of the container.</p>
       </div>
-      <div class="images d-flex justify-content-between">
-        <div class="image-upload">
+      <div class="images d-flex flex-wrap justify-content-between">
+        <div class="image-upload mb-2 ">
           <button *ngIf="!selectedImage1" class="btn btn-outline-success me-2" (click)="fileInput1.click()">+</button>
           <input #fileInput1 id="fileInput1" type="file" (change)="onFileSelected($event, 'image1')" style="display: none;" />
-          <img *ngIf="selectedImage1" [src]="selectedImage1" alt="Selected Image 1" class="uploaded-image mt-3">
+          <img *ngIf="selectedImage1" [src]="selectedImage1" alt="Image" class="uploaded-image "/>
         </div>
         <div class="image-upload">
           <button *ngIf="!selectedImage2" class="btn btn-outline-success" (click)="fileInput2.click()">+</button>
           <input #fileInput2 id="fileInput2" type="file" (change)="onFileSelected($event, 'image2')" style="display: none;" />
-          <img *ngIf="selectedImage2" [src]="selectedImage2" alt="Selected Image 2" class="uploaded-image mt-3">
+          <img *ngIf="selectedImage2" [src]="selectedImage2" alt="Image" class="uploaded-image "/>
         </div>
       </div>
     </div>

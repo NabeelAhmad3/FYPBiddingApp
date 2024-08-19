@@ -13,7 +13,7 @@
         <form [formGroup]="addCardForm" (ngSubmit)="onSubmit()">
           <div class="mb-3">
             <label for="card-name" class="col-form-label">Name on Card</label>
-            <input type="text" class="form-control" id="card-name" formControlName="name" placeholder="Nabeel khan">
+            <input type="text" class="form-control" id="card-name" formControlName="name" placeholder="Nabeel khan"/>
             <div *ngIf="addCardForm.get('name')?.errors && addCardForm.get('name')?.touched">
               <span class="text-danger">{{ addCardForm.get('name')?.errors?.['required'] ? 'Name is required.' : '' }}</span>
               <span class="text-danger">{{ addCardForm.get('name')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
@@ -22,7 +22,7 @@
           </div>
           <div class="mb-3">
             <label for="card-number" class="col-form-label">Card Number</label>
-            <input type="text" class="form-control" id="card-number" formControlName="cardNumber" inputmode="numeric" placeholder="123.....">
+            <input type="text" class="form-control" id="card-number" formControlName="cardNumber" inputmode="numeric" placeholder="123....."/>
             <div *ngIf="addCardForm.get('cardNumber')?.errors && addCardForm.get('cardNumber')?.touched">
               <span class="text-danger">{{ addCardForm.get('cardNumber')?.errors?.['required'] ? 'Card Number is required.' : '' }}</span>
               <span class="text-danger">{{ addCardForm.get('cardNumber')?.errors?.['pattern'] ? 'Card Number must contain only digits.' : '' }}</span>
@@ -34,7 +34,7 @@
           <div class="row mb-3">
             <div class="col-md-6">
               <label for="cvv" class="col-form-label">CVV</label>
-              <input type="text" class="form-control" id="cvv" formControlName="cvv" inputmode="numeric" placeholder="454">
+              <input type="text" class="form-control" id="cvv" formControlName="cvv" inputmode="numeric" placeholder="454"/>
               <div *ngIf="addCardForm.get('cvv')?.errors && addCardForm.get('cvv')?.touched">
                 <span class="text-danger">{{ addCardForm.get('cvv')?.errors?.['required'] ? 'CVV is required.' : '' }}</span>
                 <span class="text-danger">{{ addCardForm.get('cvv')?.errors?.['pattern'] ? 'CVV must contain only digits.' : '' }}</span>
@@ -44,7 +44,7 @@
             </div>
             <div class="col-md-6">
               <label for="expiry-date" class="col-form-label">Expiry Date</label>
-              <input type="text" class="form-control" id="expiry-date" formControlName="expiryDate" inputmode="numeric" placeholder="05/24">
+              <input type="text" class="form-control" id="expiry-date" formControlName="expiryDate" inputmode="numeric" placeholder="05/24"/>
               <div *ngIf="addCardForm.get('expiryDate')?.errors && addCardForm.get('expiryDate')?.touched">
                 <span class="text-danger">{{ addCardForm.get('expiryDate')?.errors?.['required'] ? 'Expiry Date is required.' : '' }}</span>
                 <span class="text-danger">{{ addCardForm.get('expiryDate')?.errors?.['pattern'] ? 'Expiry Date must be in MM/YY format.' : '' }}</span>

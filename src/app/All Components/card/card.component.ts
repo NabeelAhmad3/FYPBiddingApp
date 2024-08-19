@@ -1,13 +1,13 @@
 import { CommonModule, } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import {MatMenuModule} from '@angular/material/menu';
-import {MatButtonModule} from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
+import { SetBidComponent } from "../../pop-ups/set-bid/set-bid.component";
+
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [CommonModule,MatButtonModule,MatMenuModule, MatIconModule,],
+  imports: [CommonModule, MatMenuModule, SetBidComponent],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })

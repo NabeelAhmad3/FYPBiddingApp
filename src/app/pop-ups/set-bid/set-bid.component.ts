@@ -11,7 +11,10 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 })
 export class SetBidComponent {
   Bid: FormGroup=new FormGroup({
-    myBid: new FormControl('', [Validators.required, Validators.min(200000), Validators.max(300000000)])
+    myBid: new FormControl('', [Validators.required,
+      Validators.minLength(4),
+      Validators.maxLength(6),
+      Validators.pattern(/^\d+$/)])
   });
 
   constructor(private fb: FormBuilder) {}
@@ -23,8 +26,7 @@ export class SetBidComponent {
     }
 
     const formValues = this.Bid.value;
-    console.log('Form Submitted', formValues); // Check the console for form data
-    alert("form submit successfully")
+    console.log('Form Submitted', formValues); 
     this.Bid.reset();
   }
 }

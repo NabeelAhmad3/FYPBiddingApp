@@ -4,31 +4,31 @@
         <span style="color: rgba(68, 85, 59, 1);">History</span>
     </p>
 
-    <div class="row justify-content-center">
-        <div class="col-md-3">
+    <div class="row justify-content-center ">
+        <div class="col-md-3 mb-3">
             <div class="card card-custom">
-                <img src="assets/th1.svg" alt="Card Image" class="card-img-top">
+                <img src="assets/th1.svg" alt="Card Image" class="card-img-top"/>
                 <p class="card-title">Earned</p>
                 <h5 class="card-text">PKR {{price}}</h5>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 mb-3">
             <div class="card card-custom">
-                <img src="assets/th2.svg" alt="Card Image" class="card-img-top">
+                <img src="assets/th2.svg" alt="Card Image" class="card-img-top"/>
                 <p class="card-title">Withdraw</p>
                 <h5 class="card-text">PKR {{price}}</h5>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 mb-3">
             <div class="card card-custom">
-                <img src="assets/th3.svg" alt="Card Image" class="card-img-top">
+                <img src="assets/th3.svg" alt="Card Image" class="card-img-top"/>
                 <p class="card-title">Service Charges</p>
                 <h5 class="card-text">PKR {{price}}</h5>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 mb-3">
             <div class="card card-custom">
-                <img src="assets/th4.svg" alt="Card Image" class="card-img-top">
+                <img src="assets/th4.svg" alt="Card Image" class="card-img-top"/>
                 <p class="card-title">Pending Clearance</p>
                 <h5 class="card-text">PKR {{price}}</h5>
             </div>
@@ -39,7 +39,6 @@
         <button (click)="showTransaction('pay')" class="btn1Style me-3 ">Pay</button>
         <button (click)="showTransaction('withdraw')" class="btn2Style">Withdraw</button>
     </div>
-    <!-- Pay Transactions Table -->
     <div class="transHistory mt-5" *ngIf="currentTransaction === 'pay'">
         <table class="table text-center">
             <thead class="thead-dark">
@@ -63,7 +62,6 @@
         </table>
     </div>
 
-    <!-- Withdraw Transactions Table -->
     <div class="transHistory mt-5" *ngIf="currentTransaction === 'withdraw'">
         <table class="table text-center">
             <thead class="thead-dark">

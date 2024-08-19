@@ -32,7 +32,7 @@
             <p class="mb-0 ms-2" style="color: red;">Views ({{ eyeTxt }})</p>
           </div>
 
-          <button [matMenuTriggerFor]="menu" class="custom-button " style="width: 140px; padding:10px 60px, 10px, 60px ; background: rgba(68, 85, 59, 1);">In Action
+          <button [matMenuTriggerFor]="menu" class="custom-button " style="width: 120px; background: rgba(68, 85, 59, 1);">In Action
           </button>
           <div>
             <mat-menu #menu="matMenu" class="bg-white " >
@@ -48,15 +48,14 @@
               <span mat-menu-item class="custom-menu-item">
                 <img src="assets/myprodrop4.svg" alt="img" /> Share
               </span>
-              <a href="/purchaseBid"> <span mat-menu-item class="custom-menu-item">
+               <span mat-menu-item class="custom-menu-item" data-bs-toggle="modal" data-bs-target="#setBidModal">
                <img src="assets/myprodrop5.svg" alt="img" /> Start Auction
-              </span></a>
+              </span>
             </mat-menu>
           </div>
-
-
         </div>
       </div>
     </div>
   </div>
 </div>
+<app-set-bid/>

@@ -13,7 +13,7 @@
     <form [formGroup]="helpUsForm" (ngSubmit)="onSubmit()" class="form-content mt-5">
       <div class="form-row">
         <div class="col-md-12 mx-auto">
-          <input type="text" class="form-control custom-input" id="name" formControlName="name" placeholder="Name">
+          <input type="text" class="form-control custom-input" id="name" formControlName="name" placeholder="Name"/>
           <div *ngIf="helpUsForm.get('name')?.errors && helpUsForm.get('name')?.touched">
             <span class="text-danger">{{ helpUsForm.get('name')?.errors?.['required'] ? 'Name is required.' : '' }}</span>
             <span class="text-danger">{{ helpUsForm.get('name')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
@@ -24,7 +24,7 @@
   
       <div class="form-row mt-3">
         <div class="col-md-12 mx-auto">
-          <input type="text" class="form-control custom-input" id="subject" formControlName="subject" placeholder="Subject">
+          <input type="text" class="form-control custom-input" id="subject" formControlName="subject" placeholder="Subject"/>
           <div *ngIf="helpUsForm.get('subject')?.invalid && helpUsForm.get('subject')?.touched" class="text-danger">
             <span class="text-danger">{{ helpUsForm.get('subject')?.errors?.['required'] ? 'Subject is required.' : '' }}</span>
             <span class="text-danger">{{ helpUsForm.get('subject')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>

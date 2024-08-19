@@ -2,6 +2,10 @@
   margin-top: 20px;
   justify-content: center;
 }
+.carousel{
+  width: 685px; 
+  height: 300px;
+}
 
 .table-responsive {
   border: 1px solid #dee2e6;
@@ -45,4 +49,11 @@ a {
     gap: 20px;
     justify-content: center;
     align-items: center;
+}
+@media screen and (max-width: 787px){
+  .carousel{
+    width: 300px; 
+    height: auto;
+  }
+  
 }

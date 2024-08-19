@@ -1,7 +1,4 @@
-
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">POP UP</button>
-
-<div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="setBidModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -12,24 +9,29 @@
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Stay at the top to win.</label>
           </div>
-          <div class="mb-3 d-flex align-items-center">
+          <div class="mb-3 d-flex align-items-center justify-content-between">
             <label for="text" class="col-form-label me-2">How much increment on bid:</label>
-            <input type="number" class="form-control" id="text" formControlName="myBid" />
+            <div class="d-flex align-items-center">
+              <span class="me-2">PKR:</span>
+              <input type="text" class="form-control" id="text" formControlName="myBid" inputmode="numeric"/>
+            </div>
           </div>
           <div *ngIf="Bid.get('myBid')?.touched && Bid.get('myBid')?.invalid">
-            <small class="text-danger" *ngIf="Bid.get('myBid')?.errors?.['required']">
-              Bid amount is required.
-            </small>
-            <small class="text-danger" *ngIf="Bid.get('myBid')?.errors?.['min']">
-              Minimum bid amount is 200000.
-            </small>
-            <small class="text-danger" *ngIf="Bid.get('myBid')?.errors?.['max']">
-              Maximum bid amount is 300000000.
-            </small>
+            <div class="text-danger" *ngIf="Bid.get('myBid')?.errors?.['required']">
+                Bid amount is required.
+            </div>
+            <div class="text-danger" *ngIf="Bid.get('myBid')?.errors?.['minlength']">
+                Minimum Bid amount is 4 digits.
+            </div>
+            <div class="text-danger" *ngIf="Bid.get('myBid')?.errors?.['maxlength']">
+                Maximum Bid amount is 6 digits.
+            </div>
+            <div class="text-danger" *ngIf="Bid.get('myBid')?.errors?.['pattern']">
+              Bid amount must contain only digits.
+            </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Set Bid</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btnstyle">Set Bid</button>
           </div>
         </form>
       </div>
