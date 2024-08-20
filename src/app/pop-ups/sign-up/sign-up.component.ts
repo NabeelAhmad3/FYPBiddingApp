@@ -9,15 +9,11 @@ import { FormsModule, NgForm } from '@angular/forms';
   templateUrl: './sign-up.component.html',
   styleUrl: '../log-in/log-in.component.css',//because css have same so i use login css 
 })
-export class SignUpComponent implements AfterViewInit {
+export class SignUpComponent {
   data: any = {};
   myValues: any[] = [];
-
   agreeTerms: boolean = false;
-
-  constructor(private renderer: Renderer2) {
-
-  }
+  constructor() {}
 
   onSubmit(form: NgForm) {
     if (form.invalid) {
@@ -30,25 +26,5 @@ export class SignUpComponent implements AfterViewInit {
 
   reset() {
     this.data = {};
-  }
-
-  ngAfterViewInit() {
-    this.initializeValidation();
-  }
-
-  initializeValidation() {
-    this.renderer.listen('document', 'DOMContentLoaded', () => {
-      const forms = document.querySelectorAll('.needs-validation');
-      Array.from(forms).forEach(form => {
-        this.renderer.listen(form, 'submit', (event) => {
-          const formElement = form as HTMLFormElement;
-          if (!formElement.checkValidity()) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-          this.renderer.addClass(form, 'was-validated');
-        });
-      });
-    });
-  }
+}
 }

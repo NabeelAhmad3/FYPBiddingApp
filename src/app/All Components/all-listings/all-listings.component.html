@@ -1,53 +1,56 @@
+<div class="d-flex flex-row mt-3 ms-5" style="font-size: 25px;">
+    <a href="/" style="text-decoration: none; color: black;">&#8672; &#160;Home&#160;/&#160;</a>
+    <p style="color: #AAAAAA;">All Listings</p>
+</div>
 <div class=" btnstyle">
-<a href="" class="bi-text-left link-clr" data-bs-toggle="modal" data-bs-target="#filterModal" data-bs-dismiss="modal">Filter</a>
+    <a href="" class="bi-text-left link-clr" data-bs-toggle="modal" data-bs-target="#filterModal"
+        data-bs-dismiss="modal">Filter</a>
 </div>
 <div class="d-flex justify-content-center flex-column ">
-            <div class="d-flex flex-wrap justify-content-center">
-                <div class="m-3" *ngFor="let item of Card">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
-                                <div class="rating-box d-flex align-items-center">
-                                    <i class="bi bi-star-fill me-2"></i>
-                                    <span class="badge bg-white text-dark">{{ item.rating }}</span>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <img [src]="item.sImg4" [alt]="item.sTxt7" class="img-fluid"
-                                        style="max-height: 40px;">
-                                    <span class="ms-2">{{ item.sTxt7 }}</span>
-                                </div>
-                                <div class="availability-box d-flex align-items-center justify-content-center">
-                                    <span class="badge bg-white text-dark">{{ item.available }}</span>
-                                </div>
-                            </div>
-                            <img [src]="item.ImgSrc" alt="imgAlt"
-                                class="img-fluid mx-auto d-block my-3 main-img">
+    <div class="d-flex flex-wrap justify-content-center mt-3">
+        <div class="m-3" *ngFor="let item of Card">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
+                        <div class="rating-box d-flex align-items-center">
+                            <i class="bi bi-star-fill me-2"></i>
+                            <span class="badge bg-white text-dark">{{ item.rating }}</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <img [src]="item.sImg4" [alt]="item.sTxt7" class="img-fluid" style="max-height: 40px;">
+                            <span class="ms-2">{{ item.sTxt7 }}</span>
+                        </div>
+                        <div class="availability-box d-flex align-items-center justify-content-center">
+                            <span class="badge bg-white text-dark">{{ item.available }}</span>
+                        </div>
+                    </div>
+                    <img [src]="item.ImgSrc" alt="imgAlt" class="img-fluid mx-auto d-block my-3 main-img">
 
-                            <h5 class="card-title text-left">{{ item.CarName }}</h5>
+                    <h5 class="card-title text-left">{{ item.CarName }}</h5>
 
-                            <div class=" car-details d-flex justify-content-between align-items-center">
-                                <span>{{ item.carClr }}</span>
-                                <strong class="ms-2">{{ item.Price }}</strong>
-                            </div>
+                    <div class=" car-details d-flex justify-content-between align-items-center">
+                        <span>{{ item.carClr }}</span>
+                        <strong class="ms-2">{{ item.Price }}</strong>
+                    </div>
 
-                            <div class="d-flex justify-content-between flex-wrap align-items-center thumbnails-section mt-3">
-                                <div class="d-flex align-items-center">
-                                    <img [src]="item.sImg1" [alt]="item.sTxt1" class="img-thumbnail thumb-img">
-                                    <p class="mb-0 ms-1">{{ item.sTxt1 }}</p>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <img [src]="item.sImg2" [alt]="item.sTxt2" class="img-thumbnail thumb-img">
-                                    <p class="mb-0 ms-1 me-1">{{ item.sTxt2 }}</p>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <img [src]="item.sImg3" [alt]="item.sTxt3" class="img-thumbnail thumb-img">
-                                    <p class="mb-0 ms-1">{{ item.sTxt3 }}</p>
-                                </div>
-                            </div>
+                    <div class="d-flex justify-content-between flex-wrap align-items-center thumbnails-section mt-3">
+                        <div class="d-flex align-items-center">
+                            <img [src]="item.sImg1" [alt]="item.sTxt1" class="img-thumbnail thumb-img">
+                            <p class="mb-0 ms-1">{{ item.sTxt1 }}</p>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <img [src]="item.sImg2" [alt]="item.sTxt2" class="img-thumbnail thumb-img">
+                            <p class="mb-0 ms-1 me-1">{{ item.sTxt2 }}</p>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <img [src]="item.sImg3" [alt]="item.sTxt3" class="img-thumbnail thumb-img">
+                            <p class="mb-0 ms-1">{{ item.sTxt3 }}</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    <app-features />
-<app-filter-modal/>
+    </div>
+</div>
+<app-features />
+<app-filter-modal />

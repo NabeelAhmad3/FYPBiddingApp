@@ -1,3 +1,7 @@
+<div class="d-flex flex-row mt-3 ms-5" style="font-size: 25px;">
+    <a href="/" style="text-decoration: none; color: black;">&#8672; &#160;Home&#160;/&#160;</a>
+    <p style="color: #AAAAAA;">Edit Information</p>
+</div>
 <div class="header">
     <p class="d-flex justify-content-center fw-bolder mb-4 mt-5" style="font-size: xx-large;">
         <span style="color: black; margin-right: 5px;">Edit</span>
@@ -7,21 +11,24 @@
 </div>
 <div class="container mt-5 " style=" box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); border-radius: 15px;">
 
-    <form [formGroup]="helpUsForm" (ngSubmit)="onSubmit()" class="form-content mt-5 mb-5" >
+    <form [formGroup]="editInfoForm" (ngSubmit)="onSubmit()" class="form-content mt-5 mb-5" >
         <div class="form-row row ">
             <div class="col-md-5 mt-4">
                 <input type="text" class="form-control custom-input" id="name" formControlName="name" placeholder="Name"/>
-                <div *ngIf="helpUsForm.get('name')?.errors && helpUsForm.get('name')?.touched">
-                    <span class="text-danger">{{ helpUsForm.get('name')?.errors?.['required'] ? 'Name is required.' : '' }}</span>
-                    <span class="text-danger">{{ helpUsForm.get('name')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
+                <div *ngIf="editInfoForm.get('name')?.errors && editInfoForm.get('name')?.touched">
+                    <span class="text-danger">{{ editInfoForm.get('name')?.errors?.['required'] ? 'Name is required.' : '' }}</span>
+                    <span class="text-danger">{{ editInfoForm.get('name')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
+                    <span class="text-danger">{{ editInfoForm.get('name')?.errors?.['maxlength'] ? 'Maximum length is 20 characters.' : '' }}</span>
                 </div>
             </div>
             <div class="col-md-5 mt-4">
                 <input type="text" class="form-control custom-input" id="BasicPrice" formControlName="BasicPrice" placeholder="Basic Price"/>
-                <div *ngIf="helpUsForm.get('BasicPrice')?.invalid && helpUsForm.get('BasicPrice')?.touched"
+                <div *ngIf="editInfoForm.get('BasicPrice')?.invalid && editInfoForm.get('BasicPrice')?.touched"
                     class="text-danger">
-                    <span class="text-danger">{{ helpUsForm.get('BasicPrice')?.errors?.['required'] ? 'Basic Price is required.' : '' }}</span>
-                    <span class="text-danger">{{ helpUsForm.get('BasicPrice')?.errors?.['minlength'] ? 'Minimumlength is 3 characters.' : '' }}</span>
+                    <span class="text-danger">{{ editInfoForm.get('BasicPrice')?.errors?.['required'] ? 'Basic Price is required.' : '' }}</span>
+                    <span class="text-danger">{{ editInfoForm.get('BasicPrice')?.errors?.['minlength'] ? 'Minimum length is 6 characters.' : '' }}</span> 
+                    <span class="text-danger">{{ editInfoForm.get('BasicPrice')?.errors?.['maxlength'] ? 'Maximum length is 10 characters.' : '' }}</span>
+                    <span class="text-danger">{{ editInfoForm.get('BasicPrice')?.errors?.['pattern'] ? 'Post Code must contain only digits.' : '' }}</span>
                 </div>
             </div>
         </div>
@@ -32,39 +39,31 @@
                     placeholder="Description"></textarea>
             </div>
         </div>
-
-        <div class="form-row row">
+    <div class="row mt-xl-5">
             <div class="col-md-5 ">
-                <input type="text" class="form-control custom-input" id="CurrentLocation"formControlName="CurrentLocation" placeholder="Current Location"/>
-                <div *ngIf="helpUsForm.get('CurrentLocation')?.invalid && helpUsForm.get('CurrentLocation')?.touched"
-                    class="text-danger">
-                    <span class="text-danger">{{ helpUsForm.get('CurrentLocation')?.errors?.['required'] ? 'CurrentLocation No is required.' : '' }}</span>
-                    <span class="text-danger">{{ helpUsForm.get('CurrentLocation')?.errors?.['minlength'] ?'Minimum length is 10 characters.' : '' }}</span>
+                <label for="location" class="col-form-label">Choose Your City</label>
+                <div class="custom-select-wrapper">
+                    <select class="form-control custom-select-arrow" id="city" formControlName="city">
+                        <option value="" disabled selected>Select City</option>
+                        <option value="Islamabad">Islamabad</option>
+                        <option value="Peshawar">Peshawar</option>
+                        <option value="Multan">Multan</option>
+                        <option value="Lahore">Lahore</option>
+                        <option value="Karachi">Karachi</option>
+                        <option value="Quetta">Quetta</option>
+                        <option value="Muzaffarabad">Muzaffarabad</option>
+                    </select>
+                </div>
+                <div *ngIf="editInfoForm.get('city')?.invalid && editInfoForm.get('city')?.touched" class="text-danger">
+                    <span class="text-danger" *ngIf="editInfoForm.get('city')?.errors?.['required']">City is required.</span>
                 </div>
             </div>
             <div class="col-md-5">
-                <input type="text" class="form-control custom-input" id="DeliverToCities" formControlName="DeliverToCities" placeholder="Deliver To Cities"/>
-                <div *ngIf="helpUsForm.get('DeliverToCities')?.errors && helpUsForm.get('DeliverToCities')?.touched">
-                    <span class="text-danger">{{ helpUsForm.get('DeliverToCities')?.errors?.['required'] ? 'DeliverTo Cities is required.' : '' }}</span>
-                    <span class="text-danger">{{ helpUsForm.get('DeliverToCities')?.errors?.['minlength'] ?'Minimum length is 15 characters.' : '' }}</span>
-                </div>
-            </div>
-        </div>
-        <div class="form-row row mt-3" style="color: rgba(120, 120, 120, 1);">
-            <div class="col-md-5 ">
-                <label for="startDate" class="form-label">Bidding Start At</label>
-                <input type="date" class="form-control custom-input" id="startDate" formControlName="startDate" style="color: rgba(142, 142, 142, 1);"/>
-                <div *ngIf="helpUsForm.get('startDate')?.invalid && helpUsForm.get('startDate')?.touched"
-                    class="text-danger">
-                    <span class="text-danger">{{ helpUsForm.get('startDate')?.errors?.['required'] ? 'Start Date isrequired.' : '' }}</span>
-                </div>
-            </div>
-            <div class="col-md-5 ">
-                <label for="endDate" class="form-label">Bidding End At</label>
-                <input type="date" class="form-control custom-input" id="endDate" formControlName="endDate" style="color: rgba(142, 142, 142, 1);"/>
-                <div *ngIf="helpUsForm.get('endDate')?.invalid && helpUsForm.get('endDate')?.touched"
-                    class="text-danger">
-                    <span class="text-danger">{{ helpUsForm.get('endDate')?.errors?.['required'] ? 'End Date isrequired.' : '' }}</span>
+                <input type="text" class="form-control custom-input mt-4" id="address" formControlName="address" placeholder="Address" />
+                <div *ngIf="editInfoForm.get('address')?.errors && editInfoForm.get('address')?.touched">
+                    <span class="text-danger" *ngIf="editInfoForm.get('address')?.errors?.['required']">Address is required.</span>
+                    <span class="text-danger" *ngIf="editInfoForm.get('address')?.errors?.['minlength']">Minimum length is 3 characters.</span>
+                    <span class="text-danger" *ngIf="editInfoForm.get('address')?.errors?.['maxlength']">Maximum length is 20 characters.</span>
                 </div>
             </div>
         </div>

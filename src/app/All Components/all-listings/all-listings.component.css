@@ -56,9 +56,10 @@ a{
 }
 .btnstyle{
     background: green;
-    width: 65px;
+    width: 69px;
     border:none;
-    border-radius: 0px  5px 5px 0px ;
-    margin-top: 3px;
+    border-radius: 5px ;
+    position: fixed;
+    z-index: 100;
 }
 

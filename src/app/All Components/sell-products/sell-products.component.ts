@@ -10,47 +10,46 @@ import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } fr
   styleUrls: ['./sell-products.component.css']
 })
 export class SellProductsComponent {
-  contactForm: FormGroup;
+  sellProducts: FormGroup;
   imageUrls: { [key: number]: string | ArrayBuffer | null } = {};
 
   constructor(private fb: FormBuilder) {
-    this.contactForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(3),Validators.maxLength(20)]],
-      BasicPrice: ['', [Validators.required, Validators.minLength(3),Validators.maxLength(10), Validators.pattern(/^\d+$/)]],
-      QualityAvailable: ['', [Validators.required, Validators.minLength(3),Validators.maxLength(10), Validators.pattern(/^\d+$/)]],
-      AddCategories: ['', [Validators.required, Validators.minLength(3),Validators.maxLength(10)]],
-      CurrentLocation: ['', [Validators.required, Validators.minLength(3),Validators.maxLength(20)]],
-      DeliverToCities: ['', [Validators.required, Validators.minLength(3),Validators.maxLength(20)]],
-      startDate: ['', [Validators.required]],
-      endDate: ['', [Validators.required]],
+    this.sellProducts = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      BasicPrice: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10), Validators.pattern(/^\d+$/)]],
+      CarType: ['', Validators.required],
+      FuelType: ['', Validators.required],
+      city: ['', Validators.required],
+      Address: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       Description: [''],
-      images: this.fb.array([])
+      images: this.fb.array([''])
     });
   }
+
   onSubmit() {
-    if (this.contactForm.invalid) {
-      this.contactForm.markAllAsTouched();
+    if (this.sellProducts.invalid) {
+      this.sellProducts.markAllAsTouched();
       return;
     }
-    console.log('Form Values:', this.contactForm.value);
-    const imagesArray = this.contactForm.get('images') as FormArray;
-    console.log('Uploaded Image Paths:', imagesArray.value);
-  
-    this.contactForm.reset();
+
+    console.log('Form Values:', this.sellProducts.value);
+    const imagesArray = this.sellProducts.get('images') as FormArray;
+    this.sellProducts.reset();
     this.imageUrls = {};
     while (imagesArray.length) {
       imagesArray.removeAt(0);
     }
   }
-  
+
   onFileChange(event: any, index: number) {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = (e: any) => {
         this.imageUrls[index] = e.target.result;
-        const imagesArray = this.contactForm.get('images') as FormArray;
-        if (imagesArray.length < index) {
+
+        const imagesArray = this.sellProducts.get('images') as FormArray;
+        if (imagesArray.length <= index) {
           imagesArray.push(this.fb.control(e.target.result));
         } else {
           imagesArray.at(index).setValue(e.target.result);
@@ -59,5 +58,4 @@ export class SellProductsComponent {
       reader.readAsDataURL(file);
     }
   }
-  
 }

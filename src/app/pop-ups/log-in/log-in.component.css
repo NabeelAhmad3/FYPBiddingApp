@@ -4,25 +4,14 @@
   align-items: center;
 }
 
-form p {
-  font-weight: 400;
-}
-
 .form-container {
   padding: 20px;
   border-radius: 8px;
   background: white;
-  width: 300px;
+  width: 350px;
+  height: 490px;
   margin-top: 2px;
   border: 1px solid #000;
-}
-
-form h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #333;
-  font-weight: 700;
-  font-size: 33px;
 }
 
 .form-group {
@@ -33,15 +22,15 @@ form h2 {
   width: 100%;
   padding: 8px;
   outline: none;
-  border: 0px solid transparent;
-  border-bottom: 1px solid;
-  border-bottom-color: black;
+  border-radius: 0px;
+  border: transparent;
+  border-bottom: 1px solid black;
 }
 
 button {
   width: 100%;
   padding: 10px;
-  background-color: #0078d7;
+  background-color: rgba(89, 106, 255, 1);
   color: white;
   border: none;
   border-radius: 4px;
@@ -77,7 +66,6 @@ button:hover {
 .signup-options img {
   width: 14px;
   height: 14px;
-  margin-left: 10px;
 }
 
 .signup-options a {

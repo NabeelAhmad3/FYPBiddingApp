@@ -11,28 +11,24 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './edit-information.component.css'
 })
 export class EditInformationComponent {
-  helpUsForm: FormGroup;
+  editInfoForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
-    this.helpUsForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(3)]],
-      BasicPrice: ['', [Validators.required, Validators.minLength(3)]],
-      AddCategories: ['', [Validators.required, Validators.minLength(3)]],
-      QualityAvailable: ['', [Validators.required, Validators.minLength(3)]],
-      CurrentLocation: ['', [Validators.required, Validators.minLength(3)]],
-      DeliverToCities: ['', [Validators.required, Validators.minLength(3)]],
-      startDate: ['', [Validators.required]],
-      endDate: ['', [Validators.required]],
+    this.editInfoForm = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(3),Validators.maxLength(20)]],
+      BasicPrice: ['', [Validators.required, Validators.minLength(6),Validators.maxLength(10), Validators.pattern(/^\d+$/)]],
+      city: ['', [Validators.required]],
+      address: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(20)]],
       Description: ['']
     });
   }
 
   onSubmit() {
-    if (this.helpUsForm.invalid) {
-      this.helpUsForm.markAllAsTouched();
+    if (this.editInfoForm.invalid) {
+      this.editInfoForm.markAllAsTouched();
       return;
     }
-    console.log('Form Values:', this.helpUsForm.value);
-    this.helpUsForm.reset();
+    console.log('Form Values:', this.editInfoForm.value);
+    this.editInfoForm.reset();
   }
 }

@@ -9,16 +9,12 @@
               <h2>SignUp</h2>
               <p>Create an account</p>
               <div class="form-group has-validation">
-                <input type="text" id="fname" name="fName" class="form-control" [(ngModel)]="data.fName" required
-                  placeholder="Enter first name" minlength="3" maxlength="20"/>
-              </div>
-              <div class="form-group">
-                <input type="text" id="lName" name="lName" class="form-control" [(ngModel)]="data.lName" required
-                  placeholder="Enter last name" minlength="3" maxlength="20" />
+                <input type="text" id="name" name="Name" class="form-control" [(ngModel)]="data.Name" required
+                  placeholder="Name" minlength="3" maxlength="20"/>
               </div>
               <div class="form-group">
                 <input type="email" id="email" name="email" class="form-control" [(ngModel)]="data.email" required
-                  placeholder="Enter email" minlength="10" maxlength="30"/>
+                  placeholder="Email" minlength="10" maxlength="30"/>
               </div>
               <div class="form-group">
                 <input type="password" id="password" name="password" class="form-control" [(ngModel)]="data.password" required
