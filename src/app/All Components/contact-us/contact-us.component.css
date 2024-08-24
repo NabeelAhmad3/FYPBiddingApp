@@ -57,7 +57,15 @@ textarea.custom-input {
     width: 30px;
     height: 30px;
 }
+input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
 
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
 @media (max-width: 767px) {
     .contact-info .me-4 {
         margin-right: 0;

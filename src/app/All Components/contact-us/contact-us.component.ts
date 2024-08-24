@@ -14,8 +14,8 @@ export class ContactUsComponent {
     name: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(20)]),
     street: new FormControl('', [Validators.required, Validators.minLength(10),Validators.maxLength(20),]),
     city: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(20),]),
-    postCode: new FormControl('', [Validators.required, Validators.minLength(2),Validators.maxLength(10), Validators.pattern(/^\d+$/)]),
-    phoneNo: new FormControl('', [Validators.required, Validators.minLength(11),Validators.maxLength(14), Validators.pattern(/^\d+$/)]),
+    postCode: new FormControl('', [Validators.required, Validators.min(10),Validators.max(100000000)]),
+    phoneNo: new FormControl('', [Validators.required, Validators.min(1000000000),Validators.max(100000000000000)]),
     email: new FormControl('', [Validators.required, Validators.email,Validators.minLength(15),Validators.maxLength(35)]),
     message: new FormControl(''),
     terms: new FormControl(false, [Validators.requiredTrue])

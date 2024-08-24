@@ -41,13 +41,12 @@
         </div>
       </div>
       <div class="col-md-6 col-12 ps-0">
-        <input type="text" class="form-control custom-input" id="postcode" formControlName="postCode" placeholder="Postcode"/>
+        <input type="number" class="form-control custom-input" id="postcode" formControlName="postCode" placeholder="Postcode"/>
         <div *ngIf="contactForm.get('postCode')?.invalid && contactForm.get('postCode')?.touched" class="text-danger">
           
           <span class="text-danger">{{ contactForm.get('postCode')?.errors?.['required'] ? 'Post Code is required.' : '' }}</span>
-          <span class="text-danger">{{ contactForm.get('postCode')?.errors?.['pattern'] ? 'Post Code must contain only digits.' : '' }}</span>
-          <span class="text-danger">{{ contactForm.get('postCode')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>  
-          <span class="text-danger">{{ contactForm.get('postCode')?.errors?.['maxlength'] ? 'Maximum length is 10 characters.' : '' }}</span> 
+          <span class="text-danger">{{ contactForm.get('postCode')?.errors?.['min'] ? 'Minimum length is 3 characters.' : '' }}</span>  
+          <span class="text-danger">{{ contactForm.get('postCode')?.errors?.['max'] ? 'Maximum length is 10 characters.' : '' }}</span> 
         </div>
       </div>
     </div>
@@ -58,8 +57,8 @@
         <div *ngIf="contactForm.get('phoneNo')?.invalid && contactForm.get('phoneNo')?.touched" class="text-danger">
           <span class="text-danger">{{ contactForm.get('phoneNo')?.errors?.['required'] ? 'Phone No is required.' : '' }}</span>
           <span class="text-danger">{{ contactForm.get('phoneNo')?.errors?.['pattern'] ? 'Phone No must contain only digits.' : '' }}</span>
-          <span class="text-danger">{{ contactForm.get('phoneNo')?.errors?.['minlength'] ? 'Minimum length is 10 characters.' : '' }}</span>  
-          <span class="text-danger">{{ contactForm.get('phoneNo')?.errors?.['maxlength'] ? 'Maximum length is 14 characters.' : '' }}</span>
+          <span class="text-danger">{{ contactForm.get('phoneNo')?.errors?.['min'] ? 'Minimum length is 10 characters.' : '' }}</span>  
+          <span class="text-danger">{{ contactForm.get('phoneNo')?.errors?.['max'] ? 'Maximum length is 14 characters.' : '' }}</span>
         </div>
       </div>
     </div>

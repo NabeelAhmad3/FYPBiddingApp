@@ -12,16 +12,8 @@ import { FilterModalComponent } from "../../pop-ups/filter-modal/filter-modal.co
 })
 export class AllListingsComponent {
   Card=[
-    {CarName:'Toyota Yaris', rating:'4.6', available:'Available', sImg4:'assets/all7.svg',sTxt7:'120m(4min)', ImgSrc: 'assets/all1.svg', carClr:'1.5 Turbo Black Color' ,Price:'PKR: 50,00,000',sImg1:'assets/all4.svg',sTxt1:'petrol',sImg2:'assets/all5.svg' ,sTxt2:'Manual',sImg3:'assets/all6.svg',sTxt3:'Location'},
-    {CarName:'Toyota Yaris', rating:'4.6', available:'Available', sImg4:'assets/all7.svg',sTxt7:'120m(4min)', ImgSrc: 'assets/all2.svg', carClr:'1.5 Turbo Black Color' ,Price:'PKR: 50,00,000',sImg1:'assets/all4.svg',sTxt1:'petrol',sImg2:'assets/all5.svg' ,sTxt2:'Manual',sImg3:'assets/all6.svg',sTxt3:'Location'},
-    {CarName:'Toyota Yaris', rating:'4.6', available:'Available', sImg4:'assets/all7.svg',sTxt7:'120m(4min)', ImgSrc: 'assets/all3.svg', carClr:'1.5 Turbo Black Color' ,Price:'PKR: 50,00,000',sImg1:'assets/all4.svg',sTxt1:'petrol',sImg2:'assets/all5.svg' ,sTxt2:'Manual',sImg3:'assets/all6.svg',sTxt3:'Location'},
-    {CarName:'Toyota Yaris', rating:'4.6', available:'Available', sImg4:'assets/all7.svg',sTxt7:'120m(4min)', ImgSrc: 'assets/all1.svg', carClr:'1.5 Turbo Black Color' ,Price:'PKR: 50,00,000',sImg1:'assets/all4.svg',sTxt1:'petrol',sImg2:'assets/all5.svg' ,sTxt2:'Manual',sImg3:'assets/all6.svg',sTxt3:'Location'},
-    {CarName:'Toyota Yaris', rating:'4.6', available:'Available', sImg4:'assets/all7.svg',sTxt7:'120m(4min)', ImgSrc: 'assets/all2.svg', carClr:'1.5 Turbo Black Color' ,Price:'PKR: 50,00,000',sImg1:'assets/all4.svg',sTxt1:'petrol',sImg2:'assets/all5.svg' ,sTxt2:'Manual',sImg3:'assets/all6.svg',sTxt3:'Location'},
-    {CarName:'Toyota Yaris', rating:'4.6', available:'Available', sImg4:'assets/all7.svg',sTxt7:'120m(4min)', ImgSrc: 'assets/all3.svg', carClr:'1.5 Turbo Black Color' ,Price:'PKR: 50,00,000',sImg1:'assets/all4.svg',sTxt1:'petrol',sImg2:'assets/all5.svg' ,sTxt2:'Manual',sImg3:'assets/all6.svg',sTxt3:'Location'},
-    {CarName:'Toyota Yaris', rating:'4.6', available:'Available', sImg4:'assets/all7.svg',sTxt7:'120m(4min)', ImgSrc: 'assets/all1.svg', carClr:'1.5 Turbo Black Color' ,Price:'PKR: 50,00,000',sImg1:'assets/all4.svg',sTxt1:'petrol',sImg2:'assets/all5.svg' ,sTxt2:'Manual',sImg3:'assets/all6.svg',sTxt3:'Location'},
-    {CarName:'Toyota Yaris', rating:'4.6', available:'Available', sImg4:'assets/all7.svg',sTxt7:'120m(4min)', ImgSrc: 'assets/all2.svg', carClr:'1.5 Turbo Black Color' ,Price:'PKR: 50,00,000',sImg1:'assets/all4.svg',sTxt1:'petrol',sImg2:'assets/all5.svg' ,sTxt2:'Manual',sImg3:'assets/all6.svg',sTxt3:'Location'},
+    
+    { walkicon:'assets/all7.svg', walk:'120m(4min)', status:'Available', ImgSrc: 'assets/all1.svg',CarName:'Toyota Yaris', carClr:'1.5 Turbo Black Color' ,price:'PKR: 50,00,000',fuelicon:'assets/all4.svg',fueltype:'petrol',caricon:'assets/all5.svg' ,cartype:'Manual',locationicon:'assets/all6.svg',city:'Location'}
     
   ]
-  
-
 }

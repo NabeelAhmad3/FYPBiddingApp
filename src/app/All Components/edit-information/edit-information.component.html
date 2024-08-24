@@ -22,21 +22,49 @@
                 </div>
             </div>
             <div class="col-md-5 mt-4">
-                <input type="text" class="form-control custom-input" id="BasicPrice" formControlName="BasicPrice" placeholder="Basic Price"/>
-                <div *ngIf="editInfoForm.get('BasicPrice')?.invalid && editInfoForm.get('BasicPrice')?.touched"
+                <input type="text" class="form-control custom-input" id="price" formControlName="price" placeholder="Basic Price"/>
+                <div *ngIf="editInfoForm.get('price')?.invalid && editInfoForm.get('price')?.touched"
                     class="text-danger">
-                    <span class="text-danger">{{ editInfoForm.get('BasicPrice')?.errors?.['required'] ? 'Basic Price is required.' : '' }}</span>
-                    <span class="text-danger">{{ editInfoForm.get('BasicPrice')?.errors?.['minlength'] ? 'Minimum length is 6 characters.' : '' }}</span> 
-                    <span class="text-danger">{{ editInfoForm.get('BasicPrice')?.errors?.['maxlength'] ? 'Maximum length is 10 characters.' : '' }}</span>
-                    <span class="text-danger">{{ editInfoForm.get('BasicPrice')?.errors?.['pattern'] ? 'Post Code must contain only digits.' : '' }}</span>
+                    <span class="text-danger">{{ editInfoForm.get('price')?.errors?.['required'] ? 'price is required.' : '' }}</span>
+                    <span class="text-danger">{{ editInfoForm.get('price')?.errors?.['min'] ? 'Minimum length is 6 characters.' : '' }}</span> 
+                    <span class="text-danger">{{ editInfoForm.get('price')?.errors?.['max'] ? 'Maximum length is 10 characters.' : '' }}</span>
                 </div>
             </div>
         </div>
-
+        <div class="row">
+            <div class="col-md-5 mt-xl-5 mt-2">
+                <div class="custom-select-wrapper">
+                <label for="cartype" class="col-form-label">Choose Car Type</label>
+                    <select class="form-control custom-select-arrow" id="CarType" formControlName="cartype">
+                        <option value="" disabled selected>Select Type</option>
+                        <option value="Automatic">Automatic</option>
+                        <option value="Manual">Manual</option>
+                    </select>
+                </div>
+                <div *ngIf="editInfoForm.get('cartype')?.invalid && editInfoForm.get('cartype')?.touched" class="text-danger">
+                    <span class="text-danger" *ngIf="editInfoForm.get('cartype')?.errors?.['required']">Car Type is required.</span>
+                </div>
+            </div>
+            <div class="col-md-5 mt-xl-5 mt-2">
+                <div class="custom-select-wrapper">
+                    
+                <label for="fueltype" class="col-form-label">Choose Fuel Type</label>
+                    <select class="form-control custom-select-arrow" id="fueltype" formControlName="fueltype">
+                        <option value="" disabled selected>Select Type</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="Electric">Electric</option>
+                        <option value="Petrol">Petrol</option>
+                    </select>
+                </div>
+                <div *ngIf="editInfoForm.get('fueltype')?.invalid && editInfoForm.get('fueltype')?.touched" class="text-danger">
+                    <span class="text-danger" *ngIf="editInfoForm.get('fueltype')?.errors?.['required']">Fuel Type is required.</span>
+                </div>
+            </div>
+        </div>
         <div class="form-row row mt-3">
             <div class="col-md-10 ">
-                <textarea class=" custom-textarea form-control" id="Description" formControlName="Description" rows="4"
-                    placeholder="Description"></textarea>
+                <textarea class=" custom-textarea form-control" id="description" formControlName="description" rows="4"
+                    placeholder="description"></textarea>
             </div>
         </div>
     <div class="row mt-xl-5">

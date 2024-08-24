@@ -1,25 +1,28 @@
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-information',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule,],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './edit-information.component.html',
-  styleUrl: './edit-information.component.css'
+  styleUrls: ['./edit-information.component.css']
 })
 export class EditInformationComponent {
   editInfoForm: FormGroup;
+  productId: number | null = 25; 
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http: HttpClient) {
     this.editInfoForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(3),Validators.maxLength(20)]],
-      BasicPrice: ['', [Validators.required, Validators.minLength(6),Validators.maxLength(10), Validators.pattern(/^\d+$/)]],
+      name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      price: ['', [Validators.required, Validators.min(100000), Validators.max(1000000000)]],
+      cartype: ['', Validators.required],
+      fueltype: ['', Validators.required],
       city: ['', [Validators.required]],
-      address: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(20)]],
-      Description: ['']
+      address: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      description: ['']
     });
   }
 
@@ -28,7 +31,21 @@ export class EditInformationComponent {
       this.editInfoForm.markAllAsTouched();
       return;
     }
-    console.log('Form Values:', this.editInfoForm.value);
-    this.editInfoForm.reset();
+    if (this.productId) {
+      const productData = { ...this.editInfoForm.value, userid: 55 };
+
+      // Update product
+      this.http.put<any>(`http://localhost:5000/products/${this.productId}`, productData).subscribe(
+        response => {
+          alert(response.message);
+        },
+        error => {
+          console.error('Error updating product', error);
+        }
+      );
+      this.editInfoForm.reset();
+    } else {
+      console.error('No product ID specified for update');
+    }
   }
 }

@@ -1,30 +1,45 @@
 import { CommonModule } from '@angular/common';
-import { Component, AfterViewInit, Renderer2 } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
+import { HttpService } from './sign-up.services'; 
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
   imports: [FormsModule, CommonModule],
   templateUrl: './sign-up.component.html',
-  styleUrl: '../log-in/log-in.component.css',//because css have same so i use login css 
+  styleUrls: ['../log-in/log-in.component.css'], 
 })
 export class SignUpComponent {
   data: any = {};
   myValues: any[] = [];
   agreeTerms: boolean = false;
-  constructor() {}
+
+  constructor(private http: HttpService) { } 
 
   onSubmit(form: NgForm) {
-    if (form.invalid) {
+    if (form.invalid || !this.agreeTerms) {
       return;
     }
     this.myValues.push(this.data);
-    this.reset();
-    alert("your form submit success fully")
+    this.addUser(); 
+    this.reset(); 
   }
 
   reset() {
     this.data = {};
-}
+    this.agreeTerms = false;
+  }
+
+  addUser(): void {
+    console.log(this.data);
+    this.http.postData('http://localhost:5000/users', this.data).subscribe(
+      response => {
+        alert(response.message)
+      },
+      error => {
+        console.error('Error adding user', error);
+      }
+    );
+  }
 }

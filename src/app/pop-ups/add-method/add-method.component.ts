@@ -17,11 +17,7 @@ export class AddMethodComponent {
     this.addMethodForm = this.fb.group({
       withdrawMethod: ['', Validators.required],
       accountTitle: ['', [Validators.required, Validators.minLength(3),Validators.maxLength(20)]], 
-      accountType: ['', [
-        Validators.required,
-        Validators.minLength(11),
-        Validators.maxLength(17),
-        Validators.pattern(/^\d+$/) 
+      accountType: ['', [Validators.required,Validators.min(1000000000),Validators.max(10000000000000000),
       ]],
     });
   }

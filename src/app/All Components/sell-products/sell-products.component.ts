@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
@@ -13,15 +14,15 @@ export class SellProductsComponent {
   sellProducts: FormGroup;
   imageUrls: { [key: number]: string | ArrayBuffer | null } = {};
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http: HttpClient) {
     this.sellProducts = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
-      BasicPrice: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10), Validators.pattern(/^\d+$/)]],
-      CarType: ['', Validators.required],
-      FuelType: ['', Validators.required],
+      price: ['', [Validators.required, Validators.min(100000), Validators.max(100000000)]],
+      cartype: ['', Validators.required],
+      fueltype: ['', Validators.required],
       city: ['', Validators.required],
-      Address: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
-      Description: [''],
+      address: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
+      description: [''],
       images: this.fb.array([''])
     });
   }
@@ -31,8 +32,16 @@ export class SellProductsComponent {
       this.sellProducts.markAllAsTouched();
       return;
     }
+  
+    this.http.post<any>('http://localhost:5000/products', { ...this.sellProducts.value, userid: 55 }).subscribe(
+      response => {
+        alert(response.message);
+      },
+      error => {
+        console.error('Error adding product', error);
+      }
+    );
 
-    console.log('Form Values:', this.sellProducts.value);
     const imagesArray = this.sellProducts.get('images') as FormArray;
     this.sellProducts.reset();
     this.imageUrls = {};
@@ -47,7 +56,6 @@ export class SellProductsComponent {
       const reader = new FileReader();
       reader.onload = (e: any) => {
         this.imageUrls[index] = e.target.result;
-
         const imagesArray = this.sellProducts.get('images') as FormArray;
         if (imagesArray.length <= index) {
           imagesArray.push(this.fb.control(e.target.result));

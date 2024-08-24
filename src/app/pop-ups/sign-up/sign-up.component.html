@@ -1,7 +1,7 @@
 <!-- Sign Up Modal -->
 <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content" style="background: transparent;  width: 300px;">
+    <div class="modal-content" style="background: transparent; width: 300px;">
       <div class="modal-body p-0">
         <div class="fullForm">
           <div class="form-container">
@@ -9,7 +9,7 @@
               <h2>SignUp</h2>
               <p>Create an account</p>
               <div class="form-group has-validation">
-                <input type="text" id="name" name="Name" class="form-control" [(ngModel)]="data.Name" required
+                <input type="text" id="name" name="name" class="form-control" [(ngModel)]="data.name" required
                   placeholder="Name" minlength="3" maxlength="20"/>
               </div>
               <div class="form-group">
@@ -18,25 +18,19 @@
               </div>
               <div class="form-group">
                 <input type="password" id="password" name="password" class="form-control" [(ngModel)]="data.password" required
-                  placeholder="Password (8-20 long)" minlength="8" maxlength="20"/>
+                  placeholder="Password (8-20 characters)" minlength="8" maxlength="20"/>
               </div>
               <div class="form-check d-flex flex-row">
                 <input type="checkbox" id="terms" name="terms" [(ngModel)]="agreeTerms" class="form-check-input me-3" required/>
                 <p class="">I agree to the terms & conditions</p>
               </div>
-              <button type="submit">Create an account</button>
+              <button type="submit" class="btn btn-primary">Create an account</button>
               <p>
                 Already have an account?
                 <a href="" class="link-clr" data-bs-toggle="modal" data-bs-target="#logInModal" data-bs-dismiss="modal">Sign In</a>
               </p>
             </form>
           </div>
-          <li *ngFor="let value of myValues">
-            First Name: {{ value.fName }}<br />
-            Last Name: {{ value.lName }}<br />
-            Email: {{ value.email }}<br />
-            Password: {{ value.password }}
-          </li>
         </div>
       </div>
     </div>

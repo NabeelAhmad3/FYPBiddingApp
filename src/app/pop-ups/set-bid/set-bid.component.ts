@@ -12,9 +12,8 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 export class SetBidComponent {
   Bid: FormGroup=new FormGroup({
     myBid: new FormControl('', [Validators.required,
-      Validators.minLength(4),
-      Validators.maxLength(6),
-      Validators.pattern(/^\d+$/)])
+      Validators.min(1000000),
+      Validators.max(10000000),])
   });
 
   constructor(private fb: FormBuilder) {}

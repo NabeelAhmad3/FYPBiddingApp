@@ -33,12 +33,11 @@
 
         <div class="form-row">
             <div class="col-md-12">
-                <input type="text" class="form-control custom-input" id="phone" formControlName="phoneNo" placeholder="Phone"/>
+                <input type="number" class="form-control custom-input" id="phone" formControlName="phoneNo" placeholder="Phone"/>
                 <div *ngIf="profileSetForm.get('phoneNo')?.invalid && profileSetForm.get('phoneNo')?.touched" class="text-danger">
                     <span class="text-danger">{{ profileSetForm.get('phoneNo')?.errors?.['required'] ? 'Phone No is required.' : '' }}</span>
-                    <span class="text-danger">{{ profileSetForm.get('phoneNo')?.errors?.['pattern'] ? 'Phone No must contain only digits.' : '' }}</span>
-                    <span class="text-danger">{{ profileSetForm.get('phoneNo')?.errors?.['minlength'] ? 'Minimum length is 10 characters.' : '' }}</span>
-                    <span class="text-danger">{{ profileSetForm.get('phoneNo')?.errors?.['maxlength'] ? 'Maximum length is 14 characters.' : '' }}</span>
+                    <span class="text-danger">{{ profileSetForm.get('phoneNo')?.errors?.['min'] ? 'Minimum length is 10 characters.' : '' }}</span>
+                    <span class="text-danger">{{ profileSetForm.get('phoneNo')?.errors?.['max'] ? 'Maximum length is 14 characters.' : '' }}</span>
                 </div>
             </div>
         </div>

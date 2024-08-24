@@ -12,7 +12,7 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 export class ProfileSettingComponent {
   profileSetForm: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(20)]),
-    phoneNo: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(20),Validators.pattern(/^\d+$/)]),
+    phoneNo: new FormControl('', [Validators.required, Validators.min(1000000000),Validators.max(10000000000000),]),
     address: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(20)]),
     city: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(20)]),
     country: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(20)]),

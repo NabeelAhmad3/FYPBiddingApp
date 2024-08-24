@@ -12,16 +12,12 @@
             <div class="card shadow-sm">
                 <div class="card-body">
                     <div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
-                        <div class="rating-box d-flex align-items-center">
-                            <i class="bi bi-star-fill me-2"></i>
-                            <span class="badge bg-white text-dark">{{ item.rating }}</span>
-                        </div>
                         <div class="d-flex align-items-center">
-                            <img [src]="item.sImg4" [alt]="item.sTxt7" class="img-fluid" style="max-height: 40px;">
-                            <span class="ms-2">{{ item.sTxt7 }}</span>
+                            <img [src]="item.walkicon" alt="img" class="img-fluid" style="max-height: 40px;">
+                            <span class="ms-2">{{ item.walk }}</span>
                         </div>
                         <div class="availability-box d-flex align-items-center justify-content-center">
-                            <span class="badge bg-white text-dark">{{ item.available }}</span>
+                            <span class="badge bg-white text-dark">{{ item.status }}</span>
                         </div>
                     </div>
                     <img [src]="item.ImgSrc" alt="imgAlt" class="img-fluid mx-auto d-block my-3 main-img">
@@ -30,21 +26,21 @@
 
                     <div class=" car-details d-flex justify-content-between align-items-center">
                         <span>{{ item.carClr }}</span>
-                        <strong class="ms-2">{{ item.Price }}</strong>
+                        <strong class="ms-2">{{ item.price }}</strong>
                     </div>
 
                     <div class="d-flex justify-content-between flex-wrap align-items-center thumbnails-section mt-3">
                         <div class="d-flex align-items-center">
-                            <img [src]="item.sImg1" [alt]="item.sTxt1" class="img-thumbnail thumb-img">
-                            <p class="mb-0 ms-1">{{ item.sTxt1 }}</p>
+                            <img [src]="item.fuelicon" alt="img" class="img-thumbnail thumb-img">
+                            <p class="mb-0 ms-1">{{ item.fueltype }}</p>
                         </div>
                         <div class="d-flex align-items-center">
-                            <img [src]="item.sImg2" [alt]="item.sTxt2" class="img-thumbnail thumb-img">
-                            <p class="mb-0 ms-1 me-1">{{ item.sTxt2 }}</p>
+                            <img [src]="item.caricon" alt="img" class="img-thumbnail thumb-img">
+                            <p class="mb-0 ms-1 me-1">{{ item.cartype }}</p>
                         </div>
                         <div class="d-flex align-items-center">
-                            <img [src]="item.sImg3" [alt]="item.sTxt3" class="img-thumbnail thumb-img">
-                            <p class="mb-0 ms-1">{{ item.sTxt3 }}</p>
+                            <img [src]="item.locationicon" alt="img" class="img-thumbnail thumb-img">
+                            <p class="mb-0 ms-1">{{ item.city }}</p>
                         </div>
                     </div>
                 </div>

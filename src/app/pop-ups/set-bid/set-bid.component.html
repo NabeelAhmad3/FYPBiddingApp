@@ -13,22 +13,20 @@
             <label for="text" class="col-form-label me-2">How much increment on bid:</label>
             <div class="d-flex align-items-center">
               <span class="me-2">PKR:</span>
-              <input type="text" class="form-control" id="text" formControlName="myBid" inputmode="numeric"/>
+              <input type="number" class="form-control price" id="text" formControlName="myBid" />
             </div>
           </div>
           <div *ngIf="Bid.get('myBid')?.touched && Bid.get('myBid')?.invalid">
             <div class="text-danger" *ngIf="Bid.get('myBid')?.errors?.['required']">
                 Bid amount is required.
             </div>
-            <div class="text-danger" *ngIf="Bid.get('myBid')?.errors?.['minlength']">
-                Minimum Bid amount is 4 digits.
+            <div class="text-danger" *ngIf="Bid.get('myBid')?.errors?.['min']">
+                Minimum Bid amount is 6 digits.
             </div>
-            <div class="text-danger" *ngIf="Bid.get('myBid')?.errors?.['maxlength']">
-                Maximum Bid amount is 6 digits.
+            <div class="text-danger" *ngIf="Bid.get('myBid')?.errors?.['max']">
+                Maximum Bid amount is 10 digits.
             </div>
-            <div class="text-danger" *ngIf="Bid.get('myBid')?.errors?.['pattern']">
-              Bid amount must contain only digits.
-            </div>
+        
           </div>
           <div class="modal-footer">
             <button type="submit" class="btnstyle">Set Bid</button>
