@@ -20,7 +20,7 @@ index.use(cors());
 
 index.use('/users', users_endpoint);
 index.use('/products', products_endpoint);
-index.use('/products_bid', product_bid_endpoint);
+index.use('/product_bid', product_bid_endpoint);
 index.use('/payment_setting',payment_setting_endpoint);
 
 

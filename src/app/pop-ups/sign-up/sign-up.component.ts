@@ -1,43 +1,48 @@
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { HttpService } from './sign-up.services';  // Adjust the import path as necessary
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
-import { HttpService } from './sign-up.services'; 
 
 @Component({
   selector: 'app-sign-up',
-  standalone: true,
-  imports: [FormsModule, CommonModule],
+  standalone:true,
+  imports:[ReactiveFormsModule,CommonModule],
   templateUrl: './sign-up.component.html',
-  styleUrls: ['../log-in/log-in.component.css'], 
+  styleUrls: ['../../pop-ups/log-in/log-in.component.css'],
 })
-export class SignUpComponent {
-  data: any = {};
-  myValues: any[] = [];
-  agreeTerms: boolean = false;
+export class SignUpComponent implements OnInit {
+  signUpForm!: FormGroup;
 
-  constructor(private http: HttpService) { } 
+  constructor(private fb: FormBuilder, private http: HttpService) {}
 
-  onSubmit(form: NgForm) {
-    if (form.invalid || !this.agreeTerms) {
+  ngOnInit(): void {
+    this.signUpForm = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      email: ['', [Validators.required, Validators.email, Validators.minLength(10), Validators.maxLength(30)]],
+      phone: ['', [Validators.required, Validators.min(1000000000), Validators.max(100000000000)]],
+      cnic: ['', [Validators.required, Validators.min(1000000000), Validators.max(10000000000000)]], 
+      city: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],
+      terms: [false, Validators.requiredTrue],
+    });
+  }
+
+  onSubmit(): void {
+    if (this.signUpForm.invalid) {
+      this.signUpForm.markAllAsTouched();
       return;
     }
-    this.myValues.push(this.data);
-    this.addUser(); 
-    this.reset(); 
+    this.addUser(this.signUpForm.value);
+    this.signUpForm.reset();
   }
 
-  reset() {
-    this.data = {};
-    this.agreeTerms = false;
-  }
-
-  addUser(): void {
-    console.log(this.data);
-    this.http.postData('http://localhost:5000/users', this.data).subscribe(
-      response => {
-        alert(response.message)
+  addUser(data: any): void {
+    console.log(data);  
+    this.http.postData('http://localhost:5000/users', data).subscribe(
+      (response: any) => {
+        alert(response.message);
       },
-      error => {
+      (error: any) => {
         console.error('Error adding user', error);
       }
     );

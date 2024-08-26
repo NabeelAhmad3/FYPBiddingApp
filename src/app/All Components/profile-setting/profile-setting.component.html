@@ -8,9 +8,7 @@
             <span style="color: black; margin-right: 5px;">Profile</span>
             <span style="color: rgba(68, 85, 59, 1);">Setting</span>
         </p>
-    </div>
-
-    
+    </div>    
     <form [formGroup]="profileSetForm" (ngSubmit)="onSubmit()" class="form-content mt-5">
         <div class="picture-section d-flex justify-content-center mb-5 position-relative">
             <img src="assets/Navbar2img.svg" alt="Profile Picture" class="profile-picture"/>
@@ -21,61 +19,72 @@
         </div>
         <div class="form-row">
             <div class="col-md-12">
-                <input type="text" class="form-control custom-input" id="name" formControlName="name" placeholder="Name"/>
+                <label>Name</label>
+                <input type="text" class="form-control custom-input" id="Name" formControlName="name" placeholder="Name"/>
                 <div *ngIf="profileSetForm.get('name')?.errors && profileSetForm.get('name')?.touched">
                     <span class="text-danger">{{ profileSetForm.get('name')?.errors?.['required'] ? 'Name is required.' : '' }}</span>
                     <span class="text-danger">{{ profileSetForm.get('name')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
-                    
                     <span class="text-danger">{{ profileSetForm.get('name')?.errors?.['maxlength'] ? 'Maximum length is 20 characters.' : '' }}</span>
                 </div>
             </div>
         </div>
-
         <div class="form-row">
             <div class="col-md-12">
-                <input type="number" class="form-control custom-input" id="phone" formControlName="phoneNo" placeholder="Phone"/>
-                <div *ngIf="profileSetForm.get('phoneNo')?.invalid && profileSetForm.get('phoneNo')?.touched" class="text-danger">
-                    <span class="text-danger">{{ profileSetForm.get('phoneNo')?.errors?.['required'] ? 'Phone No is required.' : '' }}</span>
-                    <span class="text-danger">{{ profileSetForm.get('phoneNo')?.errors?.['min'] ? 'Minimum length is 10 characters.' : '' }}</span>
-                    <span class="text-danger">{{ profileSetForm.get('phoneNo')?.errors?.['max'] ? 'Maximum length is 14 characters.' : '' }}</span>
+                <label>Email</label>
+                <input type="email" class="form-control custom-input" id="Email" formControlName="email" placeholder="Email"/>
+                <div *ngIf="profileSetForm.get('email')?.invalid && profileSetForm.get('email')?.touched">
+                    <span class="text-danger">{{ profileSetForm.get('email')?.errors?.['required'] ? 'Email is required.' : '' }}</span>
+                    <span class="text-danger">{{ profileSetForm.get('email')?.errors?.['minlength'] ? 'Minimum length is 15 characters.' : '' }}</span>
+                    <span class="text-danger">{{ profileSetForm.get('email')?.errors?.['maxlength'] ? 'Maximum length is 35 characters.' : '' }}</span>
                 </div>
             </div>
         </div>
-        
         <div class="form-row">
             <div class="col-md-12">
-                <input type="text" class="form-control custom-input" id="address" formControlName="address" placeholder="Address"/>
-                <div *ngIf="profileSetForm.get('address')?.invalid && profileSetForm.get('address')?.touched" class="text-danger">
-                    <span class="text-danger">{{ profileSetForm.get('address')?.errors?.['required'] ? 'Address is required.' : '' }}</span>
-                    <span class="text-danger">{{ profileSetForm.get('address')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
-                    <span class="text-danger">{{ profileSetForm.get('address')?.errors?.['maxlength'] ? 'Maximum length is 20 characters.' : '' }}</span>
+                <label>Phone</label>
+                <input type="number" class="form-control custom-input" id="phone" formControlName="phone" placeholder="Phone"/>
+                <div *ngIf="profileSetForm.get('phone')?.invalid && profileSetForm.get('phone')?.touched" class="text-danger">
+                    <span class="text-danger">{{ profileSetForm.get('phone')?.errors?.['required'] ? 'Phone No is required.' : '' }}</span>
+                    <span class="text-danger">{{ profileSetForm.get('phone')?.errors?.['min'] ? 'Minimum length is 10 characters.' : '' }}</span>
+                    <span class="text-danger">{{ profileSetForm.get('phone')?.errors?.['max'] ? 'Maximum length is 14 characters.' : '' }}</span>
                 </div>
             </div>
         </div>
-    
         <div class="form-row">
             <div class="col-md-12">
-                <input type="email" class="form-control custom-input" id="city" formControlName="city" placeholder="City"/>
+                <label>CNIC</label>
+                <input type="number" class="form-control custom-input" id="cnic" formControlName="cnic" placeholder="CNIC"/>
+                <div *ngIf="profileSetForm.get('cnic')?.invalid && profileSetForm.get('cnic')?.touched" class="text-danger">
+                    <span class="text-danger">{{ profileSetForm.get('cnic')?.errors?.['required'] ? 'Address is required.' : '' }}</span>
+                    <span class="text-danger">{{ profileSetForm.get('cnic')?.errors?.['min'] ? 'Minimum length is 10 characters.' : '' }}</span>
+                    <span class="text-danger">{{ profileSetForm.get('cnic')?.errors?.['max'] ? 'Maximum length is 14 characters.' : '' }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-12">
+                <label>City</label>
+                <input type="text" class="form-control custom-input" id="city" formControlName="city" placeholder="City"/>
                 <div *ngIf="profileSetForm.get('city')?.invalid && profileSetForm.get('city')?.touched">
                     <span class="text-danger">{{ profileSetForm.get('city')?.errors?.['required'] ? 'City is required.' : '' }}</span>
                     <span class="text-danger">{{ profileSetForm.get('city')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
-                    <span class="text-danger">{{ profileSetForm.get('city')?.errors?.['maxlength'] ? 'Minimum length is 20 characters.' : '' }}</span>
+                    <span class="text-danger">{{ profileSetForm.get('city')?.errors?.['maxlength'] ? 'Maximum length is 20 characters.' : '' }}</span>
                 </div>
             </div>
         </div>
         <div class="form-row">
             <div class="col-md-12">
-                <input type="email" class="form-control custom-input" id="country" formControlName="country" placeholder="Country"/>
-                <div *ngIf="profileSetForm.get('country')?.invalid && profileSetForm.get('country')?.touched">
-                    <span class="text-danger">{{ profileSetForm.get('country')?.errors?.['required'] ? 'Country is required.' : '' }}</span>
-                    <span class="text-danger">{{ profileSetForm.get('country')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
-                    <span class="text-danger">{{ profileSetForm.get('country')?.errors?.['maxlength'] ? 'Maximum length is 20 characters.' : '' }}</span>
+                <label>Password</label>
+                <input type="password" class="form-control custom-input" id="password" formControlName="password" placeholder="Password"/>
+                <div *ngIf="profileSetForm.get('password')?.invalid && profileSetForm.get('password')?.touched">
+                    <span class="text-danger">{{ profileSetForm.get('password')?.errors?.['required'] ? 'City is required.' : '' }}</span>
+                    <span class="text-danger">{{ profileSetForm.get('password')?.errors?.['minlength'] ? 'Minimum length is 8 characters.' : '' }}</span>
+                    <span class="text-danger">{{ profileSetForm.get('password')?.errors?.['maxlength'] ? 'Maximum length is 20 characters.' : '' }}</span>
                 </div>
             </div>
         </div>
-    
         <div class="submit-section">
-            <button type="submit" class="btn btn-success mb-5 mt-4" style="width: 200px; background: rgba(68, 85, 59, 1);">SUBMIT TO VERIFY</button>
+            <button type="submit" class="btn btn-success mb-5 mt-4" style="width: 200px; background: rgba(68, 85, 59, 1);">Update Profile </button>
         </div>
     </form>
 </div>

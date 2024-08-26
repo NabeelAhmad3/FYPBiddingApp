@@ -12,7 +12,7 @@ import { SetBidComponent } from "../../pop-ups/set-bid/set-bid.component";
   styleUrl: './card.component.css'
 })
 export class CardComponent {
-
+constructor(){}
   @Input() status!: string;
   @Input() ImgSrc!: string;
   @Input() CarName!: string;
@@ -20,4 +20,6 @@ export class CardComponent {
   @Input() strtIn!: string;
   @Input() eyeTxt!: number;
   @Input() key!: number;
+  @Input() isRecentWinsComponent: boolean = true;
+
 }

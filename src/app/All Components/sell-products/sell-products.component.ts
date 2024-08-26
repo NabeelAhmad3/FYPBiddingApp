@@ -33,7 +33,7 @@ export class SellProductsComponent {
       return;
     }
   
-    this.http.post<any>('http://localhost:5000/products', { ...this.sellProducts.value, userid: 55 }).subscribe(
+    this.http.post<any>('http://localhost:5000/products', { ...this.sellProducts.value, userid: 65 }).subscribe(
       response => {
         alert(response.message);
       },

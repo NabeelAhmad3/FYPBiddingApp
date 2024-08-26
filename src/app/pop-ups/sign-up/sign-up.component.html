@@ -1,33 +1,68 @@
-<!-- Sign Up Modal -->
 <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content" style="background: transparent; width: 300px;">
       <div class="modal-body p-0">
         <div class="fullForm">
           <div class="form-container">
-            <form class="needs-validation" (ngSubmit)="onSubmit(form)" #form="ngForm">
-              <h2>SignUp</h2>
+            <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+              <h2>Sign Up</h2>
               <p>Create an account</p>
-              <div class="form-group has-validation">
-                <input type="text" id="name" name="name" class="form-control" [(ngModel)]="data.name" required
-                  placeholder="Name" minlength="3" maxlength="20"/>
-              </div>
+              
               <div class="form-group">
-                <input type="email" id="email" name="email" class="form-control" [(ngModel)]="data.email" required
-                  placeholder="Email" minlength="10" maxlength="30"/>
+                <input type="text" id="name" formControlName="name" class="form-control" placeholder="Name" />
+                <div *ngIf="signUpForm.get('name')?.invalid && signUpForm.get('name')?.touched" class="text-danger">
+                  Name is required (3-20 characters).
+                </div>
               </div>
+              
               <div class="form-group">
-                <input type="password" id="password" name="password" class="form-control" [(ngModel)]="data.password" required
-                  placeholder="Password (8-20 characters)" minlength="8" maxlength="20"/>
+                <input type="email" id="email" formControlName="email" class="form-control" placeholder="Email" />
+                <div *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched" class="text-danger">
+                  Valid email is required (10-30 characters).
+                </div>
               </div>
-              <div class="form-check d-flex flex-row">
-                <input type="checkbox" id="terms" name="terms" [(ngModel)]="agreeTerms" class="form-check-input me-3" required/>
-                <p class="">I agree to the terms & conditions</p>
+              
+              <div class="form-group">
+                <input type="number" id="phone" formControlName="phone" class="form-control" placeholder="Phone Number" />
+                <div *ngIf="signUpForm.get('phone')?.invalid && signUpForm.get('phone')?.touched" class="text-danger">
+                  Valid phone number is required (10-14 digits).
+                </div>
               </div>
+              
+              <div class="form-group">
+                <input type="number" id="cnic" formControlName="cnic" class="form-control" placeholder="CNIC Number" />
+                <div *ngIf="signUpForm.get('cnic')?.invalid && signUpForm.get('cnic')?.touched" class="text-danger">
+                  Valid CNIC number is required (10-15 digits).
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <input type="text" id="city" formControlName="city" class="form-control" placeholder="City" />
+                <div *ngIf="signUpForm.get('city')?.invalid && signUpForm.get('city')?.touched" class="text-danger">
+                  City is required (3-20 characters).
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <input type="password" id="password" formControlName="password" class="form-control" placeholder="Password (8-20 characters)" />
+                <div *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched" class="text-danger">
+                  Password is required (8-20 characters).
+                </div>
+              </div>
+              
+              <div class="form-check d-flex flex-row flex-wrap">
+                <input type="checkbox" id="terms" formControlName="terms" class="form-check-input me-3" />
+                <p>I agree to the terms & conditions</p>
+                <div *ngIf="signUpForm.get('terms')?.invalid && signUpForm.get('terms')?.touched" class="text-danger">
+                  You must agree to the terms and conditions.
+                </div>
+              </div>
+              
               <button type="submit" class="btn btn-primary">Create an account</button>
+              
               <p>
                 Already have an account?
-                <a href="" class="link-clr" data-bs-toggle="modal" data-bs-target="#logInModal" data-bs-dismiss="modal">Sign In</a>
+                <a href="#" class="link-clr" data-bs-toggle="modal" data-bs-target="#logInModal" data-bs-dismiss="modal">Sign In</a>
               </p>
             </form>
           </div>

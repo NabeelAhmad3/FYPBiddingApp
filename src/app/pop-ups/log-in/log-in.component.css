@@ -9,7 +9,7 @@
   border-radius: 8px;
   background: white;
   width: 350px;
-  height: 490px;
+  height: auto;
   margin-top: 2px;
   border: 1px solid #000;
 }
@@ -96,3 +96,8 @@ button:hover {
   text-decoration: none;
   cursor: pointer;
 }
+input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }

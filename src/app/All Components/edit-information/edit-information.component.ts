@@ -12,7 +12,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class EditInformationComponent {
   editInfoForm: FormGroup;
-  productId: number | null = 25; 
+  productId: number | null =35 ; 
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.editInfoForm = this.fb.group({

@@ -15,12 +15,12 @@ router.post('/', (req, res) => {
     });
 });
 
-router.put('/:id', (req, res) => {
-    const { id } = req.params;
+router.put('/:productid', (req, res) => {
+    const { productid } = req.params;
     const { name, price, fueltype, cartype, city, address } = req.body;
-    const sql = 'UPDATE products SET name = ?, price = ?,cartype = ?,fueltype = ?, city = ?, address = ? WHERE id = ?';
+    const sql = 'UPDATE products SET name = ?, price = ?,cartype = ?,fueltype = ?, city = ?, address = ? WHERE productid = ?';
 
-    connection.query(sql, [name, price, fueltype, cartype,  city, address, id], (err, result) => {
+    connection.query(sql, [name, price, fueltype, cartype,  city, address, productid], (err, result) => {
         if (err) {
             console.error('Error updating product:', err);
             return res.status(500).json({ sqlMessage: 'Failed to update product' });
