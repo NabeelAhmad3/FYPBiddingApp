@@ -28,5 +28,6 @@ cards: myCardModel[] = [
   { ImgSrc: 'assets/car3.svg',  des: 'BMW GAMING', pId: 'Product ID:123332', cBid: 'Current Bid: PKR 5,335,500', lctn: 'Location: Karachi' },
   { ImgSrc: 'assets/car1.svg',  des: 'BMW FASTEST', pId: 'Product ID:445588', cBid: 'Current Bid: PKR 5,855,000', lctn: 'Location: Lahore' },
 ];
+isRecentComponent: any;
 
 }

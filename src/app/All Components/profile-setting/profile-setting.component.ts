@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-profile-setting',
@@ -11,7 +11,6 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
   styleUrls: ['./profile-setting.component.css']
 })
 export class ProfileSettingComponent {
-  profileImage: string | ArrayBuffer | null = null;
   profileSetForm: FormGroup;
 
   constructor(private fb: FormBuilder, private Http: HttpClient) {
@@ -28,7 +27,7 @@ export class ProfileSettingComponent {
   }
 
   fetchUserData() {
-    this.Http.get('http://localhost:5000/users/63').subscribe(
+    this.Http.get('http://localhost:5000/users/65').subscribe(
       (response: any) => {
         if (response && response.length > 0) {
           this.profileSetForm.patchValue({
@@ -51,7 +50,7 @@ export class ProfileSettingComponent {
       this.profileSetForm.markAllAsTouched();
       return;
     }
-    this.Http.put('http://localhost:5000/users/63', this.profileSetForm.value).subscribe(
+    this.Http.put('http://localhost:5000/users/65', this.profileSetForm.value).subscribe(
       (response: any) => {
         console.log(response);
       },
@@ -60,26 +59,6 @@ export class ProfileSettingComponent {
       }
     )
     alert("Profile Updated  Successfully")
-    const formData = {
-      ...this.profileSetForm.value,
-      profileImage: this.profileImage
-    };
   }
-  onImageChange(event: Event) {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files[0]) {
-      const reader = new FileReader();
-      reader.onload = (e: any) => {
-        this.profileImage = e.target.result;
-        const imgElement = document.querySelector('.profile-picture') as HTMLImageElement;
-        imgElement.src = this.profileImage as string;
-      };
-      reader.readAsDataURL(input.files[0]);
-    }
-  }
-  resetImage() {
-    this.profileImage = null;
-    const imgElement = document.querySelector('.profile-picture') as HTMLImageElement;
-    imgElement.src = 'assets/Navbar2img.svg';
-  }
+
 }

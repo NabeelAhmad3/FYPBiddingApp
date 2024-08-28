@@ -20,7 +20,7 @@ export class AddCardComponent {
     expiry_date: new FormControl('', [Validators.required,Validators.minLength(5),Validators.maxLength(7)]),
     type: new FormControl('payment'), 
     method: new FormControl('bank transfer'), 
-    userid: new FormControl('57'),
+    userid: new FormControl('65'),
 
   });
 
@@ -32,7 +32,6 @@ export class AddCardComponent {
       this.addCardForm.markAllAsTouched();
       return;
     }
-    console.log(this.addCardForm.value);
 
   console.log('Form Data: ', this.formData);
     this.formData = this.addCardForm.value;

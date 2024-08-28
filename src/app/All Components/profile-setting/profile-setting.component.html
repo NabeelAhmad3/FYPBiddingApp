@@ -12,10 +12,6 @@
     <form [formGroup]="profileSetForm" (ngSubmit)="onSubmit()" class="form-content mt-5">
         <div class="picture-section d-flex justify-content-center mb-5 position-relative">
             <img src="assets/Navbar2img.svg" alt="Profile Picture" class="profile-picture"/>
-            <input type="file" id="profileImageInput" class="d-none" (change)="onImageChange($event)">
-            <label for="profileImageInput" class="camera-icon position-absolute d-flex">
-                <img src="assets/camera-icon.svg" alt="Upload Image"/>
-            </label>
         </div>
         <div class="form-row">
             <div class="col-md-12">

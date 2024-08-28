@@ -12,7 +12,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class EditInformationComponent {
   editInfoForm: FormGroup;
-  productId: number | null =35 ; 
+  productid: number=129 ; 
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.editInfoForm = this.fb.group({
@@ -20,7 +20,7 @@ export class EditInformationComponent {
       price: ['', [Validators.required, Validators.min(100000), Validators.max(1000000000)]],
       cartype: ['', Validators.required],
       fueltype: ['', Validators.required],
-      city: ['', [Validators.required]],
+      city: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       address: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       description: ['']
     });
@@ -31,11 +31,9 @@ export class EditInformationComponent {
       this.editInfoForm.markAllAsTouched();
       return;
     }
-    if (this.productId) {
-      const productData = { ...this.editInfoForm.value, userid: 55 };
-
-      // Update product
-      this.http.put<any>(`http://localhost:5000/products/${this.productId}`, productData).subscribe(
+    if (this.productid) {
+      const productData = { ...this.editInfoForm.value, userid: 65 };
+      this.http.put<any>(`http://localhost:5000/products/${this.productid}`, productData).subscribe(
         response => {
           alert(response.message);
         },

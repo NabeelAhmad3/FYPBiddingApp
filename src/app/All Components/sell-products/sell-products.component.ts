@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sell-products',
@@ -12,7 +12,8 @@ import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } fr
 })
 export class SellProductsComponent {
   sellProducts: FormGroup;
-  imageUrls: { [key: number]: string | ArrayBuffer | null } = {};
+  imageUrls: string[] = [];
+  imageUploadError = false;
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.sellProducts = this.fb.group({
@@ -23,47 +24,52 @@ export class SellProductsComponent {
       city: ['', Validators.required],
       address: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
       description: [''],
-      images: this.fb.array([''])
+      images: this.fb.array(this.createImageControls()) 
     });
   }
 
-  onSubmit() {
-    if (this.sellProducts.invalid) {
-      this.sellProducts.markAllAsTouched();
-      return;
-    }
-  
-    this.http.post<any>('http://localhost:5000/products', { ...this.sellProducts.value, userid: 65 }).subscribe(
-      response => {
-        alert(response.message);
-      },
-      error => {
-        console.error('Error adding product', error);
-      }
-    );
-
-    const imagesArray = this.sellProducts.get('images') as FormArray;
-    this.sellProducts.reset();
-    this.imageUrls = {};
-    while (imagesArray.length) {
-      imagesArray.removeAt(0);
-    }
+  get images(): FormArray {
+    return this.sellProducts.get('images') as FormArray;
   }
+  createImageControls(): FormControl[] {
+    const controls = [];
+    for (let i = 0; i < 5; i++) {
+      controls.push(this.fb.control('')); 
+    }
+    return controls;
+  }
+  
 
   onFileChange(event: any, index: number) {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = (e: any) => {
-        this.imageUrls[index] = e.target.result;
-        const imagesArray = this.sellProducts.get('images') as FormArray;
-        if (imagesArray.length <= index) {
-          imagesArray.push(this.fb.control(e.target.result));
-        } else {
-          imagesArray.at(index).setValue(e.target.result);
-        }
+        const base64String = e.target.result.split(',')[1]; 
+
+        this.images.at(index).setValue(base64String);  
+        this.imageUrls[index] = e.target.result;  
       };
       reader.readAsDataURL(file);
     }
+  }
+
+  onSubmit() {
+    this.imageUploadError = this.imageUrls.filter(url => url).length < 3;
+
+    if (this.sellProducts.invalid || this.imageUploadError) {
+      this.sellProducts.markAllAsTouched();
+      return;
+    }
+    this.http.post<any>('http://localhost:5000/products', { ...this.sellProducts.value, userid: 65 }).subscribe(
+      response => {
+        alert(response.message);
+        this.sellProducts.reset(); 
+        this.imageUrls = [];  
+      },
+      error => {
+        console.error('Error adding product', error);
+      }
+    );
   }
 }

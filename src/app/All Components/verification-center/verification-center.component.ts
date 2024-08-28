@@ -1,38 +1,78 @@
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-verification-center',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './verification-center.component.html',
-  styleUrl: './verification-center.component.css'
+  styleUrls: ['./verification-center.component.css']
 })
 export class VerificationCenterComponent {
+  
+  imageUrls: string[] = [];
+  verificationForm: FormGroup;
+  errorMessage: string = '';
+  constructor(private fb: FormBuilder, private http: HttpClient) {
+    this.verificationForm = this.fb.group({
+      images: this.fb.array(this.createImageControls())
+    });
+  }
 
-  selectedImage1: string | ArrayBuffer | null = null;
-  selectedImage2: string | ArrayBuffer | null = null;
-  onFileSelected(event: any, imageSlot: string) {
-    const file: File = event.target.files[0];
+  get images(): FormArray {
+    return this.verificationForm.get('images') as FormArray;
+  }
+
+  createImageControls(): FormControl[] {
+    const controls = [];
+    for (let i = 0; i < 2; i++) {
+      controls.push(this.fb.control('')); 
+    }
+    return controls;
+  }
+
+  onFileChange(event: any, index: number) {
+    const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
-      reader.onload = () => {
-        if (imageSlot === 'image1') {
-          this.selectedImage1 = reader.result;
-        } else if (imageSlot === 'image2') {
-          this.selectedImage2 = reader.result;
-        }
-        console.log('Image selected:', file);
+      reader.onload = (e: any) => {
+        const base64String = e.target.result.split(',')[1]; 
+        this.images.at(index).setValue(base64String);  
+        this.imageUrls[index] = e.target.result;  
       };
       reader.readAsDataURL(file);
     }
   }
-  submitForm() {
-    this.selectedImage1 = null;
-    this.selectedImage2 = null;
-    const fileInput1: HTMLInputElement = document.querySelector('#fileInput1')!;
-    const fileInput2: HTMLInputElement = document.querySelector('#fileInput2')!;
-    fileInput1.value = '';
-    fileInput2.value = '';
+
+  validateForm(): boolean {
+    this.errorMessage = '';
+    const valid = this.images.controls.every(control => control.value);
+    if (!valid) {
+      this.errorMessage = 'Please upload both front and back images of your CNIC.';
+    }
+    return valid;
+  }
+  
+  onSubmit() {
+    if (this.validateForm()) {
+      const formData = {
+        userid: 65, 
+        image1: this.images.at(0).value, 
+        image2: this.images.at(1).value
+      };
+  
+      this.http.post<any>('http://localhost:5000/id_verification', formData).subscribe(
+        response => {
+          alert(response.message);
+          this.imageUrls = [];  
+          this.verificationForm.reset(); 
+        },
+        error => {
+          console.error('Error adding product', error);
+        }
+      );
+    }
   }
 }

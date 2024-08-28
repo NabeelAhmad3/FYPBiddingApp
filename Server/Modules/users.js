@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const connection = require('../db');
+const pool = require('../db');
 
 
 router.post('/', (req, res) => {
     const { name, email, phone, cnic, city, password } = req.body;
     const sql = 'INSERT INTO users (name, email,phone,cnic,city, password) VALUES ( ?, ?, ?, ?, ?, ?)';
     try {
-        connection.query(sql, [name, email, phone, cnic, city, password], (err, result) => {
+        pool.query(sql, [name, email, phone, cnic, city, password], (err, result) => {
             res.status(201).json({ message: 'User created successfully', result });
         });
     } catch (err) {
@@ -21,7 +21,7 @@ router.get('/:userid', (req, res) => {
     const { userid } = req.params;
     try {
         const sql = `SELECT * FROM users WHERE userid = ?`;
-        connection.query(sql, [userid], (err, result) => {
+        pool.query(sql, [userid], (err, result) => {
             if (err) {
                 return res.status(500).send({ error: 'Database query failed' });
             }
@@ -38,7 +38,7 @@ router.put('/:userid', (req, res) => {
     try {
         
         const sql = `UPDATE users SET name = ?, email = ?, phone = ?, cnic = ?, city = ?, password = ? WHERE userid = ?`;
-        connection.query(sql, [name, email, phone, cnic, city, password, userid], (err, result) => {
+        pool.query(sql, [name, email, phone, cnic, city, password, userid], (err, result) => {
             if (err) {
                 return res.status(500).send(err);
             }

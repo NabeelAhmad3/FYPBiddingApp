@@ -1,27 +1,34 @@
 const express = require('express');
 const cors = require('cors');
-const connection = require('./db');
+const pool = require('./db');
 const users_endpoint = require ('./Modules/users');
 const products_endpoint = require('./Modules/products');
 const product_bid_endpoint = require('./Modules/product_bid');
 const payment_setting_endpoint = require('./Modules/payment_setting');
+const id_verification_endpoint =require('./Modules/id_verification')
 
 
-connection.connect((err) => {
-    if (err) throw err;
+pool.getConnection((err, connection) => {
+    if (err) {
+      console.error('Error connecting to MySQL:', err);
+      return;
+    }
     console.log('Connected to MySQL database');
-});
+    connection.release();  // Release the connection back to the pool
+  });
 
 const index = express();
 const port = 5000;
 
-index.use(express.json());
+index.use(express.json({ limit: '50mb' }));
+index.use(express.urlencoded({ limit: '50mb', extended: true }));
 index.use(cors());
 
 index.use('/users', users_endpoint);
 index.use('/products', products_endpoint);
 index.use('/product_bid', product_bid_endpoint);
 index.use('/payment_setting',payment_setting_endpoint);
+index.use('/id_verification',id_verification_endpoint);
 
 
 index.listen(port, () => {

@@ -1,7 +1,5 @@
 import { TransactionHistoryComponent } from './All Components/transaction-history/transaction-history.component';
 import { Routes } from '@angular/router';
-import { SignUpComponent } from './pop-ups/sign-up/sign-up.component';
-import { LogInComponent } from './pop-ups/log-in/log-in.component';
 import { HeaderComponent } from './header/header.component';
 import { AllListingsComponent } from './All Components/all-listings/all-listings.component';
 import { HomeComponent } from './All Components/home/home.component';
@@ -14,9 +12,6 @@ import { HelpUsComponent } from './All Components/help-us/help-us.component';
 import { EditInformationComponent } from './All Components/edit-information/edit-information.component';
 import { ProfileSettingComponent } from './All Components/profile-setting/profile-setting.component';
 import { PaymentSettingComponent } from './All Components/payment-setting/payment-setting.component';
-import { Component } from '@angular/core';
-import { AddCardComponent } from './pop-ups/add-card/add-card.component';
-import { AddMethodComponent } from './pop-ups/add-method/add-method.component';
 import { VerificationCenterComponent } from './All Components/verification-center/verification-center.component';
 import { DetailsComponent } from './details/details.component';
 import { PurchaseBidComponent } from './All Components/purchase-bid/purchase-bid.component';
