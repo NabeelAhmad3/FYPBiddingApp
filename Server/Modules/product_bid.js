@@ -13,7 +13,6 @@ router.put('/:userid/:productid', (req, res) => {
             }
 
             if (result.affectedRows === 0) {
-                // No rows were updated, so insert the new record
                 const insertSql = `INSERT INTO product_bid (price, userid, productid) VALUES (?, ?, ?)`;
                 pool.query(insertSql, [price, userid, productid], (err, result) => {
                     if (err) {
@@ -22,7 +21,6 @@ router.put('/:userid/:productid', (req, res) => {
                     return res.status(200).send({ message: 'Price added successfully', result });
                 });
             } else {
-                // Rows were updated
                 return res.status(200).send({ message: 'Price updated successfully', result });
             }
         });

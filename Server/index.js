@@ -5,7 +5,8 @@ const users_endpoint = require ('./Modules/users');
 const products_endpoint = require('./Modules/products');
 const product_bid_endpoint = require('./Modules/product_bid');
 const payment_setting_endpoint = require('./Modules/payment_setting');
-const id_verification_endpoint =require('./Modules/id_verification')
+const id_verification_endpoint =require('./Modules/id_verification');
+const contact_endpoint=require('./Modules/contact')
 
 
 pool.getConnection((err, connection) => {
@@ -14,7 +15,7 @@ pool.getConnection((err, connection) => {
       return;
     }
     console.log('Connected to MySQL database');
-    connection.release();  // Release the connection back to the pool
+    connection.release(); 
   });
 
 const index = express();
@@ -29,6 +30,7 @@ index.use('/products', products_endpoint);
 index.use('/product_bid', product_bid_endpoint);
 index.use('/payment_setting',payment_setting_endpoint);
 index.use('/id_verification',id_verification_endpoint);
+index.use('/contact',contact_endpoint);
 
 
 index.listen(port, () => {

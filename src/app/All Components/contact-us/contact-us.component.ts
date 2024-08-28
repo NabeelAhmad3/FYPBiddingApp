@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-us',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule,],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './contact-us.component.html',
   styleUrls: ['./contact-us.component.css'] 
 })
@@ -21,13 +22,24 @@ export class ContactUsComponent {
     terms: new FormControl(false, [Validators.requiredTrue])
   });
 
-  constructor(private fb: FormBuilder){}
+  constructor(private fb: FormBuilder,private http: HttpClient){}
   onSubmit() {
     if (this.contactForm.invalid) {
       this.contactForm.markAllAsTouched();
       return;
     }
     console.log(this.contactForm.value);
-    this.contactForm.reset();
-  }
+  
+  this.http.post('http://localhost:5000/contact', this.contactForm.value)
+  .subscribe({
+    next: (response) => {
+      console.log('Email sent successfully!', response);
+      // this.contactForm.reset();
+    },
+    error: (error) => {
+      console.error('Error sending email:', error);
+    }
+  });
 }
+}
+
