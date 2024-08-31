@@ -51,6 +51,16 @@ router.put('/:userid', (req, res) => {
         res.status(500).send({ error: 'Server error' });
     }
 });
-
+router.get('/', (req, res) => {
+    const userid = req.query.userid; 
+    const sql = `SELECT name, email,phone,city FROM users WHERE userid = ?`;
+  
+    pool.query(sql, [userid], (err, result) => {
+      if (err) {
+        return res.status(500).send('Error fetching product info');
+      }
+      res.json(result); 
+    });
+  });
 
 module.exports = router;

@@ -2,11 +2,11 @@
     <p>Live Listings</p>
     <div class="card-gallery">
         <app-card-home *ngFor="let item of cards; index as i" 
-            [ImgSrc]="item.ImgSrc" 
-            [des]="item.des" 
-            [pId]="item.pId" 
-            [cBid]="item.cBid" 
-            [lctn]="item.lctn">
+            [image]="item.image" 
+            [description]="item.description" 
+            [productid]="item.productid" 
+            [price]="item.price" 
+            [city]="item.city">
             [key]="i"
         </app-card-home>
     </div>

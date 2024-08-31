@@ -1,31 +1,45 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { FeaturesComponent } from "../../features/features.component";
-import { CommonModule } from '@angular/common';
 import { FilterModalComponent } from "../../pop-ups/filter-modal/filter-modal.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-all-listings',
   standalone: true,
-  imports: [FeaturesComponent, CommonModule, FilterModalComponent],
+  imports: [FeaturesComponent, FilterModalComponent,CommonModule],
   templateUrl: './all-listings.component.html',
-  styleUrl: './all-listings.component.css'
+  styleUrls: ['./all-listings.component.css'],
 })
-export class AllListingsComponent {
-  Card=[
-    
-    { walkicon:'assets/all7.svg', walk:'120m(4min)', status:'Available', ImgSrc: 'assets/all1.svg',CarName:'Toyota Yaris', carClr:'1.5 Turbo Black Color' ,price:'PKR: 50,00,000',fuelicon:'assets/all4.svg',fueltype:'petrol',caricon:'assets/all5.svg' ,cartype:'Manual',locationicon:'assets/all6.svg',city:'Location'},
-    
-    { walkicon:'assets/all7.svg', walk:'120m(4min)', status:'Available', ImgSrc: 'assets/all1.svg',CarName:'Toyota Yaris', carClr:'1.5 Turbo Black Color' ,price:'PKR: 50,00,000',fuelicon:'assets/all4.svg',fueltype:'petrol',caricon:'assets/all5.svg' ,cartype:'Manual',locationicon:'assets/all6.svg',city:'Location'},
-    
-    { walkicon:'assets/all7.svg', walk:'120m(4min)', status:'Available', ImgSrc: 'assets/all1.svg',CarName:'Toyota Yaris', carClr:'1.5 Turbo Black Color' ,price:'PKR: 50,00,000',fuelicon:'assets/all4.svg',fueltype:'petrol',caricon:'assets/all5.svg' ,cartype:'Manual',locationicon:'assets/all6.svg',city:'Location'},
-    
-    { walkicon:'assets/all7.svg', walk:'120m(4min)', status:'Available', ImgSrc: 'assets/all1.svg',CarName:'Toyota Yaris', carClr:'1.5 Turbo Black Color' ,price:'PKR: 50,00,000',fuelicon:'assets/all4.svg',fueltype:'petrol',caricon:'assets/all5.svg' ,cartype:'Manual',locationicon:'assets/all6.svg',city:'Location'},
-    
-    { walkicon:'assets/all7.svg', walk:'120m(4min)', status:'Available', ImgSrc: 'assets/all1.svg',CarName:'Toyota Yaris', carClr:'1.5 Turbo Black Color' ,price:'PKR: 50,00,000',fuelicon:'assets/all4.svg',fueltype:'petrol',caricon:'assets/all5.svg' ,cartype:'Manual',locationicon:'assets/all6.svg',city:'Location'},
-    
-    { walkicon:'assets/all7.svg', walk:'120m(4min)', status:'Available', ImgSrc: 'assets/all1.svg',CarName:'Toyota Yaris', carClr:'1.5 Turbo Black Color' ,price:'PKR: 50,00,000',fuelicon:'assets/all4.svg',fueltype:'petrol',caricon:'assets/all5.svg' ,cartype:'Manual',locationicon:'assets/all6.svg',city:'Location'},
-    
-    { walkicon:'assets/all7.svg', walk:'120m(4min)', status:'Available', ImgSrc: 'assets/all1.svg',CarName:'Toyota Yaris', carClr:'1.5 Turbo Black Color' ,price:'PKR: 50,00,000',fuelicon:'assets/all4.svg',fueltype:'petrol',caricon:'assets/all5.svg' ,cartype:'Manual',locationicon:'assets/all6.svg',city:'Location'},
-    
-  ]
+export class AllListingsComponent implements OnInit {
+  products: any[] = [];
+  constructor(private http: HttpClient) {}
+  ngOnInit() {
+    this.getProducts();
+  }
+
+  getProducts() {
+    this.http.get<any[]>('http://localhost:5000/products').subscribe({
+      next: (data) => {
+        // console.log('Data received:', data); // Add this line for debugging
+        this.products = data.map(product => ({
+          walkicon:'assets/all7.svg',
+          walk:'(10 mins to walk)',
+          status:'Available',
+          name: product.name,
+          image:'assets/all2.svg',
+          description:product.description,
+          price: `PKR: ${product.price.toLocaleString()}`,
+          fuelicon: 'assets/all4.svg',
+          fueltype: product.fueltype,
+          caricon: 'assets/all5.svg',
+          cartype: product.cartype,
+          locationicon: 'assets/all6.svg',
+          city: product.city,
+        }));
+      },
+      error: (err) => console.error('Error fetching products:', err)
+    });
+  }
+  
 }

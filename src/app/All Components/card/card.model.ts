@@ -1,9 +1,9 @@
 export interface CardModel {
     status: string;
-    ImgSrc: string;
-    CarName: string;
-    cBid: string;
-    strtIn: string;
+    image: string;
+    name: string;
+    price: string;
+    city: string;
     eyeTxt: number;
 
 }

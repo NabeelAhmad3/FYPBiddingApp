@@ -1,7 +1,7 @@
 export interface myCardModel {
-    ImgSrc: string;
-    des: string;
-    cBid: string;
-    pId: string;
-    lctn: string;
+    image: string;
+    description: string;
+    price: string;
+    productid: string;
+    city: string;
 }

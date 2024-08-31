@@ -63,8 +63,12 @@
         </div>
         <div class="form-row row mt-3">
             <div class="col-md-10 ">
-                <textarea class=" custom-textarea form-control" id="description" formControlName="description" rows="4"
-                    placeholder="description"></textarea>
+                <textarea class=" custom-textarea form-control" id="description" formControlName="description" rows="4"placeholder="description"></textarea>
+                <div *ngIf="editInfoForm.get('address')?.errors && editInfoForm.get('address')?.touched">
+                    <span class="text-danger" *ngIf="editInfoForm.get('description')?.errors?.['required']">Descriptions required.</span>
+                    <span class="text-danger" *ngIf="editInfoForm.get('description')?.errors?.['minlength']">Minimum length is 6 characters.</span>
+                    <span class="text-danger" *ngIf="editInfoForm.get('description')?.errors?.['maxlength']">Maximum length is 20 characters.</span>
+                </div>
             </div>
         </div>
     <div class="row mt-xl-5">

@@ -28,13 +28,12 @@ export class ContactUsComponent {
       this.contactForm.markAllAsTouched();
       return;
     }
-    console.log(this.contactForm.value);
   
   this.http.post('http://localhost:5000/contact', this.contactForm.value)
   .subscribe({
     next: (response) => {
       console.log('Email sent successfully!', response);
-      // this.contactForm.reset();
+      this.contactForm.reset();
     },
     error: (error) => {
       console.error('Error sending email:', error);

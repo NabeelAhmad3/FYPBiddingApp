@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CardModel } from '../../card/card.model';
 import { CardComponent } from "../../card/card.component";
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-recent-wins',
@@ -10,22 +11,23 @@ import { CommonModule } from '@angular/common';
   templateUrl: './recent-wins.component.html',
   styleUrl: './recent-wins.component.css'
 })
-export class RecentWinsComponent {
-  CarData: CardModel[] = [
-    { status: "assets/myprostatus.svg", ImgSrc: 'assets/all2.svg', CarName: 'Toyota Yaris', cBid: '4500000', strtIn: 'Pakistan',  eyeTxt: 3423 },
-
-    { status: "assets/myprostatus.svg", ImgSrc: 'assets/all2.svg',  CarName: 'Toyota Yaris', cBid: '4500000', strtIn: 'Pakistan',  eyeTxt: 343 },
-
-    { status: "assets/myprostatus.svg", ImgSrc: 'assets/all2.svg', CarName: 'Toyota Yaris', cBid: '4500000', strtIn: 'Pakistan',  eyeTxt: 3423 },
-    
-    { status: "assets/myprostatus.svg", ImgSrc: 'assets/all2.svg', CarName: 'Toyota Yaris', cBid: '4500000', strtIn: 'Pakistan',  eyeTxt: 3423 },
-
-    { status: "assets/myprostatus.svg", ImgSrc: 'assets/all2.svg', CarName: 'Toyota Yaris', cBid: '4500000', strtIn: 'Pakistan',  eyeTxt: 3423 },
-
-    { status: "assets/myprostatus.svg", ImgSrc: 'assets/all2.svg', CarName: 'Toyota Yaris', cBid: '4500000', strtIn: 'Pakistan',  eyeTxt: 3423 },
-
-    { status: "assets/myprostatus.svg", ImgSrc: 'assets/all2.svg', CarName: 'Toyota Yaris', cBid: '4500000', strtIn: 'Pakistan',  eyeTxt: 3423 },
-
-    { status: "assets/myprostatus.svg", ImgSrc: 'assets/all2.svg', CarName: 'Toyota Yaris', cBid: '4500000', strtIn: 'Pakistan',  eyeTxt: 3423 },
- ]
+export class RecentWinsComponent implements OnInit{
+  CarData: CardModel[] = []
+  constructor(private http: HttpClient){}
+  ngOnInit(): void {
+    this.http.get<CardModel[]>('http://localhost:5000/products') .subscribe( (data) => {
+          this.CarData = data.map(item => ({
+            status: "assets/myprostatus.svg",
+            image: './assets/all2.svg',
+            name: item.name,
+            price:item.price,
+            eyeTxt: 3423,
+            city: item.city
+          }));
+        },
+        (error) => {
+          console.error('Error fetching products:', error);
+        }
+      );
+  }
 }

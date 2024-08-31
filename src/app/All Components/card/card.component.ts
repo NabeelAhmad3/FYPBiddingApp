@@ -14,10 +14,10 @@ import { SetBidComponent } from "../../pop-ups/set-bid/set-bid.component";
 export class CardComponent {
 constructor(){}
   @Input() status!: string;
-  @Input() ImgSrc!: string;
-  @Input() CarName!: string;
-  @Input() cBid!: string;
-  @Input() strtIn!: string;
+  @Input() image!: string;
+  @Input() name!: string;
+  @Input() price!: string;
+  @Input() city!: string;
   @Input() eyeTxt!: number;
   @Input() key!: number;
   @Input() isRecentWinsComponent: boolean = true;

@@ -13,7 +13,7 @@ import { EditInformationComponent } from './All Components/edit-information/edit
 import { ProfileSettingComponent } from './All Components/profile-setting/profile-setting.component';
 import { PaymentSettingComponent } from './All Components/payment-setting/payment-setting.component';
 import { VerificationCenterComponent } from './All Components/verification-center/verification-center.component';
-import { DetailsComponent } from './details/details.component';
+import { DetailsComponent } from './All Components/details/details.component';
 import { PurchaseBidComponent } from './All Components/purchase-bid/purchase-bid.component';
 
 export const routes: Routes = [

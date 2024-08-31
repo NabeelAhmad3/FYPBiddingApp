@@ -23,7 +23,7 @@ export class SellProductsComponent {
       fueltype: ['', Validators.required],
       city: ['', Validators.required],
       address: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
-      description: [''],
+      description: ['',[Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
       images: this.fb.array(this.createImageControls()) 
     });
   }

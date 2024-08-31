@@ -10,10 +10,10 @@ import { SetBidComponent } from "../../../pop-ups/set-bid/set-bid.component";
   styleUrl: './card-home.component.css'
 })
 export class CardHomeComponent {
-  @Input() ImgSrc!: string;
-  @Input() des!: string;
-  @Input() cBid!: string;
-  @Input() pId!: string;
-  @Input() lctn!: string;
+  @Input() image!: string;
+  @Input() description!: string;
+  @Input() price!: string;
+  @Input() productid!: string;
+  @Input() city!: string;
   @Input() key!: number;
 }
