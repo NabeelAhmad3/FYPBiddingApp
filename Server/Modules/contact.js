@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-    const { name, street, city, postCode, phoneNo, email, message } = req.body;
+    const { name, street, city, postCode, phoneNo, email, message,subject } = req.body;
 
     const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
@@ -27,6 +27,7 @@ router.post('/', async (req, res) => {
       Phone No: ${phoneNo}
       Email: ${email}
       Message: ${message}
+      subject:${subject}
     `
     };
 

@@ -4,7 +4,7 @@
                 <div class="search-bar ms-3">
                     <div class="search-input">
                         <img src="assets/Search icon.svg" alt="Search Icon"/>
-                        <input type="text" class="search" placeholder="Search...">
+                        <input type="text" class="search" placeholder="Search..." [(ngModel)]="searchQuery"  (keydown.enter)="searchProduct()">
                     </div>
                 </div>
                 <ul class="navbar-nav text-white mb-2 mb-lg-0">

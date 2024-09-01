@@ -15,6 +15,7 @@ import { PaymentSettingComponent } from './All Components/payment-setting/paymen
 import { VerificationCenterComponent } from './All Components/verification-center/verification-center.component';
 import { DetailsComponent } from './All Components/details/details.component';
 import { PurchaseBidComponent } from './All Components/purchase-bid/purchase-bid.component';
+import { SearchResultsComponent } from './All Components/search-results/search-results.component';
 
 export const routes: Routes = [
   {path:'', component: HomeComponent },
@@ -33,5 +34,6 @@ export const routes: Routes = [
   {path:'purchaseBid',component:PurchaseBidComponent},
   {path:'paymetnSet',component:PaymentSettingComponent},
   {path:'transHistory',component:TransactionHistoryComponent},
+  {path:'search',component:SearchResultsComponent},
   { path: '**', redirectTo: ''}
 ];

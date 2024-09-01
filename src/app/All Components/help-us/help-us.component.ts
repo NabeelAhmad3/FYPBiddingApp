@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
@@ -13,15 +14,23 @@ export class HelpUsComponent {
   helpUsForm: FormGroup =new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(20)]),
     subject: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(20)]),
+    message: new FormControl('')
   });
 
-  constructor(private fb: FormBuilder){}
+  constructor(private fb: FormBuilder,private http:HttpClient){}
   onSubmit() {
     if (this.helpUsForm.invalid) {
       this.helpUsForm.markAllAsTouched();
       return;
     }
-    console.log(this.helpUsForm.value);
-    this.helpUsForm.reset();
+    this.http.post('http://localhost:5000/contact', this.helpUsForm.value)
+    .subscribe((response) => {
+        console.log('Email sent successfully!', response);
+        this.helpUsForm.reset();
+      },
+      (error) => {
+        console.error('Error sending email:', error);
+      }
+    );
   }
 }

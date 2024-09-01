@@ -18,13 +18,12 @@ export class AddCardComponent {
     card_number: new FormControl('', [Validators.required,Validators.min(10000000000000),Validators.max(9999999999999999)]),
     cvv: new FormControl('', [Validators.required,Validators.min(100),Validators.max(999),]),
     expiry_date: new FormControl('', [Validators.required,Validators.minLength(5),Validators.maxLength(7)]),
-    type: new FormControl('payment'), 
-    method: new FormControl('bank transfer'), 
     userid: new FormControl('65'),
 
   });
 
   formData: any = {};
+
   constructor(private fb: FormBuilder, private http: HttpClient) { }
 
   onSubmit() {
@@ -33,7 +32,6 @@ export class AddCardComponent {
       return;
     }
 
-  console.log('Form Data: ', this.formData);
     this.formData = this.addCardForm.value;
     this.cardAdded.emit(this.formData);
     this.onCardAdded(this.formData)

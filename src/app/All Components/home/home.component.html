@@ -11,42 +11,28 @@
             <div class="collapse navbar-collapse" [ngClass]="{ 'show': isNavbarOpen }" id="navbarSupportedContent" 
             id="navbarContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/allListings">ALL LISTINGS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link products-button" href="/sellProducts">Sell Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contactUs">CONTACT US</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/faq">FAQ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link login-link" href="" data-bs-toggle="modal"
-                            data-bs-target="#logInModal">Login</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="/allListings">ALL LISTINGS</a></li>
+                    <li class="nav-item"><a class="nav-link products-button" href="/sellProducts">Sell Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contactUs">CONTACT US</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link login-link" href="" data-bs-toggle="modal"data-bs-target="#logInModal">Login</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-
     <div class="hero_section">
         <div class="hero-content mb-lg-2">
             <p style="font-size: Clash Display;">Pakistan's Biggest Auction Website</p>
             <div class="search-bar">
                 <div class="search-input">
                     <img src="assets/Search icon.svg" alt="Search Icon"/>
-                    <input type="text" class="search" placeholder="Search..."/>
+                    <input type="text" class="search" placeholder="Search..." [(ngModel)]="searchQuery"  (keydown.enter)="searchProduct()"/>
                 </div>
-                <button>Advanced Search</button>
+                <button (click)="searchProduct()">Advanced Search</button>
             </div>
-        </div>
+        </div>            
     </div>
 </div>
-
-
 <app-live-listings/>
 <app-log-in />
 <app-sign-up />

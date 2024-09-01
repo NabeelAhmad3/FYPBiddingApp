@@ -99,5 +99,20 @@ router.get('/', (req, res) => {
     });
   });
   
+  router.get('/search', (req, res) => {
+    const searchQuery = req.query.name;
+    if (!searchQuery) {
+        return res.status(400).json({ message: 'Search query is required' });
+    }
+    const sql = 'SELECT * FROM products WHERE name LIKE ?';
+
+    pool.query(sql, [`%${searchQuery}%`], (err, results) => {
+        if (err) {
+            console.error('Error searching for product:', err);
+            return res.status(500).json({ error: 'Database query error' });
+        }
+        res.status(200).json(results);
+    });
+});
 
 module.exports = router;
