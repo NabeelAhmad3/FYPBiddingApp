@@ -9,28 +9,28 @@
               <p>Create an account</p>
               
               <div class="form-group">
-                <input type="text" id="name" formControlName="name" class="form-control" placeholder="Name" />
+                <input type="text" id="Name" formControlName="name" class="form-control" placeholder="Name" />
                 <div *ngIf="signUpForm.get('name')?.invalid && signUpForm.get('name')?.touched" class="text-danger">
                   Name is required (3-20 characters).
                 </div>
               </div>
               
               <div class="form-group">
-                <input type="email" id="email" formControlName="email" class="form-control" placeholder="Email" />
+                <input type="email" id="mail" formControlName="email" class="form-control" placeholder="Email" />
                 <div *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched" class="text-danger">
                   Valid email is required (10-30 characters).
                 </div>
               </div>
               
               <div class="form-group">
-                <input type="number" id="phone" formControlName="phone" class="form-control" placeholder="Phone Number" />
+                <input type="number" id="Phone" formControlName="phone" class="form-control" placeholder="Phone Number" />
                 <div *ngIf="signUpForm.get('phone')?.invalid && signUpForm.get('phone')?.touched" class="text-danger">
                   Valid phone number is required (10-14 digits).
                 </div>
               </div>
               
               <div class="form-group">
-                <input type="number" id="cnic" formControlName="cnic" class="form-control" placeholder="CNIC Number" />
+                <input type="number" id="Cnic" formControlName="cnic" class="form-control" placeholder="CNIC Number" />
                 <div *ngIf="signUpForm.get('cnic')?.invalid && signUpForm.get('cnic')?.touched" class="text-danger">
                   Valid CNIC number is required (10-15 digits).
                 </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { HttpService } from './sign-up.services';  // Adjust the import path as necessary
+import { HttpService } from './sign-up.services';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -37,8 +37,7 @@ export class SignUpComponent implements OnInit {
   }
 
   addUser(data: any): void {
-    console.log(data);  
-    this.http.postData('http://localhost:5000/users', data).subscribe(
+    this.http.postData('http://localhost:5000/users/register', data).subscribe(
       (response: any) => {
         alert(response.message);
       },
@@ -47,4 +46,5 @@ export class SignUpComponent implements OnInit {
       }
     );
   }
+  
 }

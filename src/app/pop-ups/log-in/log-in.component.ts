@@ -1,50 +1,45 @@
 import { CommonModule, JsonPipe } from '@angular/common';
-import { Component, AfterViewInit, Renderer2 } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-log-in',
   standalone: true,
-  imports: [FormsModule, CommonModule, JsonPipe],
+  imports: [CommonModule,JsonPipe,ReactiveFormsModule],
   templateUrl: './log-in.component.html',
-  styleUrl: './log-in.component.css',
+  styleUrls: ['./log-in.component.css'], 
 })
-export class LogInComponent  implements AfterViewInit{
-  data: any = {};
-  myValues: any[] = [];
-  constructor(private renderer: Renderer2) {}
-
-  onSubmit(form:NgForm) {
-    if (form.invalid) {
-       return; 
-      }
-    this.myValues.push(this.data);
-    this.reset();
-  }
-  reset() {
-    this.data = {};
-  }
-  googleLogUrl = 'https://accounts.google.com/v3/signin/identifier?dsh=S34321812%3A1689766128107239&hl=en_GB&ifkv=AeDOFXjVb8dV0EgcaUCimuPD3ioRs9_qp8ZtcARJBFX6hVBHYt1CqE-KgKnvn8LkYbSQjzeGIsAn&flowName=GlifWebSignIn&flowEntry=ServiceLogin ';
+export class LogInComponent implements OnInit {
+  loginForm!: FormGroup;
+  googleLogUrl = 'https://www.google.com/login/';
   facebookLogUrl = 'https://www.facebook.com/login/';
 
+  constructor(private fb: FormBuilder,private http:HttpClient) {}
 
-ngAfterViewInit(){
-  this.initializeValidation();
-}
-  
-  initializeValidation() {
-    this.renderer.listen('document', 'DOMContentLoaded', () => {
-      const forms = document.querySelectorAll('.needs-validation');
-      Array.from(forms).forEach(form => {
-        this.renderer.listen(form, 'submit', (event) => {
-          const formElement = form as HTMLFormElement;
-          if (!formElement.checkValidity()) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-          this.renderer.addClass(form, 'was-validated');
-        });
-      });
+  ngOnInit(): void {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email, Validators.minLength(10), Validators.maxLength(30)]],
+      password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],
     });
   }
+
+  onSubmit(): void {
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched();
+      return;
+    }
+  
+  const formData = this.loginForm.value;
+  this.http.post('http://localhost:5000/users/login', formData).subscribe({
+    next: (response: any) => {
+      alert(response.message);  
+      this.loginForm.reset();
+    },
+    error: (error: any) => {
+      alert(error.error.message || 'An error occurred during login');  
+    },
+  });
+}
+
 }
