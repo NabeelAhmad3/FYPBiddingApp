@@ -15,7 +15,7 @@ export class CardComponent {
 constructor(){}
   @Input() status!: string;
   @Input() image!: string;
-  @Input() name!: string;
+  @Input() carname!: string;
   @Input() price!: string;
   @Input() city!: string;
   @Input() eyeTxt!: number;

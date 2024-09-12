@@ -6,16 +6,16 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 @Component({
   selector: 'app-log-in',
   standalone: true,
-  imports: [CommonModule,JsonPipe,ReactiveFormsModule],
+  imports: [CommonModule, JsonPipe, ReactiveFormsModule],
   templateUrl: './log-in.component.html',
-  styleUrls: ['./log-in.component.css'], 
+  styleUrls: ['./log-in.component.css'],
 })
 export class LogInComponent implements OnInit {
   loginForm!: FormGroup;
   googleLogUrl = 'https://www.google.com/login/';
   facebookLogUrl = 'https://www.facebook.com/login/';
-
-  constructor(private fb: FormBuilder,private http:HttpClient) {}
+  Authdata: any;
+  constructor(private fb: FormBuilder, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -29,17 +29,33 @@ export class LogInComponent implements OnInit {
       this.loginForm.markAllAsTouched();
       return;
     }
-  
-  const formData = this.loginForm.value;
-  this.http.post('http://localhost:5000/users/login', formData).subscribe({
-    next: (response: any) => {
-      alert(response.message);  
-      this.loginForm.reset();
-    },
-    error: (error: any) => {
-      alert(error.error.message || 'An error occurred during login');  
-    },
-  });
-}
+
+    const formData = this.loginForm.value;
+    this.http.post('http://localhost:5000/users/login', formData).subscribe({
+      next: (response: any) => {
+        // console.log(response.token);
+
+        if (response.token) {
+          localStorage.setItem('authToken', response.token);
+        }
+        if (response.userid) {
+          localStorage.setItem('authUserId', response.userid);
+        }
+        this.Authdata = {
+          token: localStorage.getItem('authToken'),
+          userid: localStorage.getItem('authUserId')
+        };
+        // console.log(this.Authdata);
+        alert(response.message);
+        window.location.reload();
+        // this.loginForm.reset();
+
+        // Reload to reflect the login state
+      },
+      error: (error: any) => {
+        alert(error.error.message || 'An error occurred during login');
+      },
+    });
+  }
 
 }

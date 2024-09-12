@@ -22,7 +22,7 @@ export class MyProductsComponent implements OnInit{
           this.CarData = data.map(item => ({
             status: "assets/myprostatus.svg",
             image: './assets/all3.svg',
-            name: item.name,
+            carname: item.carname,
             price:item.price,
             eyeTxt: 3423,
             city: item.city

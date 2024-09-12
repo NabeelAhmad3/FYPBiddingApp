@@ -13,11 +13,11 @@
     <form [formGroup]="sellProducts" (ngSubmit)="onSubmit()" class="form-content mt-5 mb-5">
         <div class="row">
             <div class="col-md-5 mt-xl-5">
-                <input type="text" class="form-control custom-input" id="name" formControlName="name" placeholder="Name" />
-                <div *ngIf="sellProducts.get('name')?.errors && sellProducts.get('name')?.touched">
-                    <span class="text-danger" *ngIf="sellProducts.get('name')?.errors?.['required']">Name is required.</span>
-                    <span class="text-danger" *ngIf="sellProducts.get('name')?.errors?.['minlength']">Minimum length is 3 characters.</span>
-                    <span class="text-danger" *ngIf="sellProducts.get('name')?.errors?.['maxlength']">Maximum length is 20 characters.</span>
+                <input type="text" class="form-control custom-input" id="carname" formControlName="carname" placeholder="Car Name" />
+                <div *ngIf="sellProducts.get('carname')?.errors && sellProducts.get('carname')?.touched">
+                    <span class="text-danger" *ngIf="sellProducts.get('carname')?.errors?.['required']">carname is required.</span>
+                    <span class="text-danger" *ngIf="sellProducts.get('carname')?.errors?.['minlength']">Minimum length is 3 characters.</span>
+                    <span class="text-danger" *ngIf="sellProducts.get('carname')?.errors?.['maxlength']">Maximum length is 20 characters.</span>
                 </div>
             </div>
             <div class="col-md-5 mt-xl-5">

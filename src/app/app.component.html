@@ -6,19 +6,15 @@
 <ng-template #otherRoutes>
   <div class="d-flex flex-row justify-content-between bg-dark align-items-center">
     <div class="">
-      <a class="navbar-brand" href="">
-        <img src="assets/Logo.svg" alt="Logo" style="height: 60px;">
-      </a>
+      <a class="navbar-brand" href=""><img src="assets/Logo.svg" alt="Logo" style="height: 60px;"></a>
     </div>
-    <app-header></app-header>
-    <div >
-      <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#profileModal">
-        <img src="assets/Navbar2img.svg" alt="img" style="width: 40px; height: 40px;">
-      </a>
+    <app-header/>
+    <div>
+      <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#profileModal"><img src="assets/Navbar2img.svg" alt="img" style="width: 40px; height: 40px;"></a>
     </div>
   </div>
 
   <app-profile-modal />
-  <router-outlet></router-outlet>
-  <app-footer></app-footer>
+  <router-outlet/>
+  <app-footer/>
 </ng-template>

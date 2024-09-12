@@ -1,18 +1,34 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-purchase-bid',
   standalone: true,
-  imports: [CommonModule],
+  imports:[CommonModule],
   templateUrl: './purchase-bid.component.html',
-  styleUrl: './purchase-bid.component.css'
+  styleUrls: ['./purchase-bid.component.css']
 })
-export class PurchaseBidComponent {
+export class PurchaseBidComponent implements OnInit {
+  summary: any = {}; 
 
-summary=[
- { serial:'1', productName:'Prado 2024',winingAmount:'3323',quantity: '1'},
- { serial: '2', productName: 'Civic 2024', winingAmount: '2879', quantity: '2' },
- { serial: '3', productName: 'Corolla 2024', winingAmount: '3100', quantity: '1' }
-]
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.http.get<any>('http://localhost:5000/products?productid=137').subscribe(
+      (data) => {
+        if (data && data.length > 0) {
+          const item = data[0];
+          this.summary = {
+            carname: item.carname,
+            productid: item.productid,
+            price: item.price,
+          };
+        }
+      },
+      (error) => {
+        console.error('Error fetching item info:', error);
+      }
+    );
+  }
 }

@@ -2,36 +2,35 @@
   <a href="/" style="text-decoration: none; color: black;">&#8672; &#160;Home&#160;/&#160;</a>
   <p style="color: #AAAAAA;">Purchase Bid</p>
 </div>
-<div class="text-center mt-5 ">
-    <h2 class="fw-bolder" style="width: 100%;">Congrats! You have won the auction</h2>
-    <p style="width: 100%;">Some text below the heading, centered on the page.  Some text below the heading, centered on the page.</p>
-    <div class="auction-summary-container">
-        <h3 class="auction-summary-border ">Auction Summary</h3>
-      </div>
 
-    <table class="container summary-table" >
-        <thead >
-          <tr>
-            <td>Serial No</td>
-            <td>Product Name</td>
-            <td>Wining Amount</td>
-            <td>Quantity</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of summary" class="tdata">
-            <td >{{ item.serial }}</td>
-            <td >{{ item.productName }}</td>
-            <td >{{ item.winingAmount }}</td>
-            <td >{{ item.quantity }}</td>
-          </tr>
-        </tbody>
-      </table>
-    <h3 style="color:rgba(68, 85, 59, 1);" class="mt-5 mb-5">Choose your payment method</h3>
+<div class="text-center mt-5">
+  <h2 class="fw-bolder" style="width: 100%;">Congrats! You have won the auction</h2>
+  <p style="width: 100%;">Some text below the heading, centered on the page. Some text below the heading, centered on the page.</p>
+  <div class="auction-summary-container">
+    <h3 class="auction-summary-border">Auction Summary</h3>
+  </div>
+
+  <table class="container summary-table">
+    <thead>
+      <tr>
+        <td>Car Name</td>
+        <td>Price</td>
+        <td>Product ID</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="summary">
+        <td>{{ summary.carname }}</td>
+        <td>{{ summary.price }}</td>
+        <td>{{ summary.productid }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 style="color:rgba(68, 85, 59, 1);" class="mt-5 mb-5">Choose your payment method</h3>
 </div>
 
-<div class="container align-items-center imgsDiv ">
-    <a href=""><img src="assets/payment3.svg" alt="img"/></a>
-    <a href="" style="width: 150px;"><img src="assets/payment4.svg" alt="img"></a>
+<div class="container align-items-center imgsDiv">
+  <a href=""><img src="assets/payment3.svg" alt="Payment Method 1"/></a>
+  <a href="" style="width: 150px;"><img src="assets/payment4.svg" alt="Payment Method 2"></a>
 </div>
-  
