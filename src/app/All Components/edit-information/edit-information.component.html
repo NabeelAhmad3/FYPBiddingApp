@@ -14,11 +14,11 @@
     <form [formGroup]="editInfoForm" (ngSubmit)="onSubmit()" class="form-content mt-5 mb-5" >
         <div class="form-row row ">
             <div class="col-md-5 mt-4">
-                <input type="text" class="form-control custom-input" id="name" formControlName="name" placeholder="Name"/>
+                <input type="text" class="form-control custom-input" id="name" formControlName="carname" placeholder="Name"/>
                 <div *ngIf="editInfoForm.get('name')?.errors && editInfoForm.get('name')?.touched">
-                    <span class="text-danger">{{ editInfoForm.get('name')?.errors?.['required'] ? 'Name is required.' : '' }}</span>
-                    <span class="text-danger">{{ editInfoForm.get('name')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
-                    <span class="text-danger">{{ editInfoForm.get('name')?.errors?.['maxlength'] ? 'Maximum length is 20 characters.' : '' }}</span>
+                    <span class="text-danger">{{ editInfoForm.get('carname')?.errors?.['required'] ? 'Name is required.' : '' }}</span>
+                    <span class="text-danger">{{ editInfoForm.get('carname')?.errors?.['minlength'] ? 'Minimum length is 3 characters.' : '' }}</span>
+                    <span class="text-danger">{{ editInfoForm.get('carname')?.errors?.['maxlength'] ? 'Maximum length is 20 characters.' : '' }}</span>
                 </div>
             </div>
             <div class="col-md-5 mt-4">

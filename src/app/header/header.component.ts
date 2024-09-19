@@ -25,7 +25,7 @@ export class HeaderComponent {
 searchProduct() {
   if (this.searchQuery.trim()) {
     this.router.navigate(['/search'], {
-      queryParams: { name: this.searchQuery }
+      queryParams: { carname: this.searchQuery }
     });
   }
 }

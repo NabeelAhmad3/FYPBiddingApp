@@ -54,13 +54,17 @@
                 <td>{{ productInfo.price }}</td>
               </tr>
               <tr>
+                <td class="tdcolor">Current Bid:</td>
+                <td>{{ productInfo.price }}</td>
+              </tr>
+              <tr>
                 <td class="tdcolor">Upload Date:</td>
                 <td>{{ productInfo.created_at }}</td>
               </tr>
             </tbody>
           </table>
-          <a href="/purchaseBid" style="display: flex; justify-content: center;">
-            <button class="btnstyle">Buy Now</button>
+          <a href="/" data-bs-toggle="modal" data-bs-target="#setBidModal" style="display: flex; justify-content: center;">
+            <button class="btnstyle">Start Bidding</button>
           </a>
         </div>
   
@@ -95,18 +99,4 @@
         <p>{{description}}</p>
     </div>
 </div>
-
-
-<div class="Listings">
-    <p>Related Items</p>
-    <div class="card-gallery">
-        <app-card-home *ngFor="let item of cards; index as i" 
-            [image]="item.image" 
-            [description]="item.description" 
-            [productid]="item.productid" 
-            [price]="item.price" 
-            [city]="item.city">
-            [key]="i"
-        </app-card-home>
-    </div>
-</div>
+<app-set-bid/>

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
@@ -63,7 +63,7 @@ export class SellProductsComponent {
       this.sellProducts.markAllAsTouched();
       return;
     }
-    this.http.post<any>('http://localhost:5000/products', { ...this.sellProducts.value, userid: this.userid }).subscribe(
+    this.http.post<any>('http://localhost:5000/products/addProducts', { ...this.sellProducts.value, userid: this.userid }).subscribe(
       response => {
         alert(response.message);
         this.sellProducts.reset();

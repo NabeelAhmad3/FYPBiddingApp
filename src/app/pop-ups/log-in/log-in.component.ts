@@ -33,8 +33,6 @@ export class LogInComponent implements OnInit {
     const formData = this.loginForm.value;
     this.http.post('http://localhost:5000/users/login', formData).subscribe({
       next: (response: any) => {
-        // console.log(response.token);
-
         if (response.token) {
           localStorage.setItem('authToken', response.token);
         }
@@ -45,12 +43,8 @@ export class LogInComponent implements OnInit {
           token: localStorage.getItem('authToken'),
           userid: localStorage.getItem('authUserId')
         };
-        // console.log(this.Authdata);
         alert(response.message);
         window.location.reload();
-        // this.loginForm.reset();
-
-        // Reload to reflect the login state
       },
       error: (error: any) => {
         alert(error.error.message || 'An error occurred during login');

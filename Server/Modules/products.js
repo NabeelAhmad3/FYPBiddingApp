@@ -3,7 +3,7 @@ const router = express.Router();
 const pool = require('../db');
 
 
-router.post('/', (req, res) => {
+router.post('/addProducts', (req, res) => {
     const { carname, price, fueltype, cartype, description, city, address, userid, images } = req.body;
     const sql = 'INSERT INTO products (carname, price, fueltype, cartype,description, city, address, userid) VALUES (?,?,?,?,?,?,?,?)';
     pool.query(sql, [carname, price, fueltype, cartype, description, city, address, userid], (err, result) => {
@@ -41,32 +41,28 @@ router.put('/:productid', (req, res) => {
         }
         if (result.affectedRows === 0) {
             return res.status(404).json({ message: 'Product not found' });
+        
         }
         res.status(200).json({ message: 'Product updated successfully' });
     });
 });
-router.get('/product/:id/images', (req, res) => {
-    const productId = req.params.id;
-    const sql = 'SELECT * FROM product_images WHERE productid = ?';
-    pool.query(sql, [productId], (err, results) => {
+
+router.get('/livelistings', (req, res) => {
+    const sql = `SELECT products.productid, products.carname, products.city, product_bid.price 
+                 FROM products 
+                 LEFT JOIN product_bid ON products.productid = product_bid.productid`;
+
+    pool.query(sql, (err, result) => {
         if (err) {
-            console.error('Error fetching images:', err);
-            return res.status(500).json({ sqlMessage: 'Error fetching images' });
+            console.error('Error fetching products:', err);
+            return res.status(500).json({ error: 'Database query error' });
         }
-        if (results.length > 0) {
-            const images = results.map(result => {
-                return {
-                    image: Buffer.from(result.image).toString('base64')
-                };
-            });
-            res.json(images);
-        } else {
-            res.status(404).json({ message: 'No images found' });
-        }
+        res.status(200).json(result);
     });
 });
-router.get('/', (req, res) => {
-    const sql = `SELECT productid, carname, price, fueltype, cartype,description, city, address FROM products`;
+
+router.get('/allData', (req, res) => {
+    const sql = `SELECT * FROM products`;
 
     pool.query(sql, (err, results) => {
         if (err) {
@@ -74,29 +70,6 @@ router.get('/', (req, res) => {
             return res.status(500).json({ error: 'Database query error' });
         }
         res.status(200).json(results);
-    });
-});
-router.get('/', (req, res) => {
-    const sql = `SELECT p.status, p.carname, p.price, p.city, p.eyeTxt FROM products p`;
-
-    pool.query(sql, (err, results) => {
-        if (err) {
-            console.error('Unexpected error:', err);
-            return res.status(500).json({ sqlMessage: 'An unexpected error occurred' });
-        }
-
-        res.status(200).json(results);
-    });
-});
-router.get('/', (req, res) => {
-    const productid = req.query.productid;
-    const sql = `SELECT carname,productid, city, status, deliveryFee, price, currentBid, created_at FROM products WHERE productid = ?`;
-
-    pool.query(sql, [productid], (err, result) => {
-        if (err) {
-            return res.status(500).send('Error fetching product info');
-        }
-        res.json(result);
     });
 });
 

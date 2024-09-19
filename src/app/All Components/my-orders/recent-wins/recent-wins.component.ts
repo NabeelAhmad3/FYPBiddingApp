@@ -15,7 +15,7 @@ export class RecentWinsComponent implements OnInit{
   CarData: CardModel[] = []
   constructor(private http: HttpClient){}
   ngOnInit(): void {
-    this.http.get<CardModel[]>('http://localhost:5000/products') .subscribe( (data) => {
+    this.http.get<CardModel[]>('http://localhost:5000/products/allData') .subscribe( (data) => {
           this.CarData = data.map(item => ({
             status: "assets/myprostatus.svg",
             image: './assets/all2.svg',

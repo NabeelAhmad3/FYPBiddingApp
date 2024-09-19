@@ -3,7 +3,7 @@
     <div class="card-gallery">
         <app-card-home *ngFor="let item of cards; index as i" 
             [image]="item.image" 
-            [description]="item.description" 
+            [carname]="item.carname" 
             [productid]="item.productid" 
             [price]="item.price" 
             [city]="item.city">

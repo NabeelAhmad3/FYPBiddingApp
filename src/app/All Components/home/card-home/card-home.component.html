@@ -1,11 +1,12 @@
 <div class="card">
     <img [src]="image" alt="img" class="card-image" />
     <div class="cardDetails">
-        <p>{{description}}</p>
-        <p style="color: rgba(13, 110, 253, 1);">{{productid}}</p>
-        <p>{{price}}</p>
-        <p>{{city}}</p>
+        <p><b>{{carname}}</b></p>
+        <p style="color: rgba(13, 110, 253, 1);">Product ID :   {{productid}}</p>
+        <p>Current Bid :  {{price}}</p>
+        <p>City :  {{city}}</p>
     </div>
-    <a href="/" data-bs-toggle="modal" data-bs-target="#setBidModal"><button class="bid-btn">Place Bid</button></a>
+    <button (click)="selectProduct(productid)" class="viewdetails" data-bs-toggle="modal" data-bs-target="#setBidModal">Place Bid</button>
 </div>
-<app-set-bid/>
+<app-set-bid [selectedProductId]="selectedProductId"/>
+

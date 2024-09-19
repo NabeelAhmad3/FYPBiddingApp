@@ -12,6 +12,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class ProfileSettingComponent {
   profileSetForm: FormGroup;
+  userid: string | null;
 
   constructor(private fb: FormBuilder, private Http: HttpClient) {
     this.profileSetForm = this.fb.group({
@@ -23,11 +24,12 @@ export class ProfileSettingComponent {
       password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],
     });
 
+    this.userid = localStorage.getItem('authUserId');
     this.fetchUserData();
   }
 
   fetchUserData() {
-    this.Http.get('http://localhost:5000/users/65').subscribe(
+    this.Http.get(`http://localhost:5000/users/profileDetails/${this.userid}`).subscribe(
       (response: any) => {
         if (response && response.length > 0) {
           this.profileSetForm.patchValue({
@@ -50,7 +52,7 @@ export class ProfileSettingComponent {
       this.profileSetForm.markAllAsTouched();
       return;
     }
-    this.Http.put('http://localhost:5000/users/65', this.profileSetForm.value).subscribe(
+    this.Http.put(`http://localhost:5000/users/profileDetails/${this.userid}`, this.profileSetForm.value).subscribe(
       (response: any) => {
         console.log(response);
       },

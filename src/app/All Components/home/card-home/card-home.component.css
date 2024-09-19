@@ -12,10 +12,8 @@
     padding: 15px;
 }
 
-
-.bid-btn {
+.viewdetails{
     display: block;
-    
     margin: 10px auto;
     padding: 10px 20px;
     font-size: 16px;
@@ -26,11 +24,25 @@
 
 }
 
-.bid-btn:hover {
+.viewdetails:hover {
     background-color: rgba(68, 85, 59, 1);
     color: white;
 }
 
 a {
     text-decoration: none;
+}
+
+.card-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.Listings {
+    padding: 20px;
+    margin-top: 60px;
+    background-color: rgba(255, 255, 255, 1);
 }

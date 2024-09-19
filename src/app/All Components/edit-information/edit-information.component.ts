@@ -12,11 +12,12 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class EditInformationComponent {
   editInfoForm: FormGroup;
-  productid: number=139 ; 
+  userid: string | null;
+  
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.editInfoForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      carname: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       price: ['', [Validators.required, Validators.min(100000), Validators.max(1000000000)]],
       cartype: ['', Validators.required],
       fueltype: ['', Validators.required],
@@ -24,6 +25,7 @@ export class EditInformationComponent {
       address: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       description: ['',[Validators.required, Validators.minLength(6), Validators.maxLength(20)]]
     });
+    this.userid = localStorage.getItem('authUserId');
   }
 
   onSubmit() {
@@ -31,19 +33,15 @@ export class EditInformationComponent {
       this.editInfoForm.markAllAsTouched();
       return;
     }
-    if (this.productid) {
-      const productData = { ...this.editInfoForm.value, userid: 65 };
-      this.http.put<any>(`http://localhost:5000/products/${this.productid}`, productData).subscribe(
+      this.http.put<any>(`http://localhost:5000/products/168`,{ ...this.editInfoForm.value, userid: this.userid }).subscribe(
         response => {
           alert(response.message);
+          this.editInfoForm.reset();
         },
         error => {
           console.error('Error updating product', error);
         }
       );
-      this.editInfoForm.reset();
-    } else {
-      console.error('No product ID specified for update');
-    }
+    } 
   }
-}
+

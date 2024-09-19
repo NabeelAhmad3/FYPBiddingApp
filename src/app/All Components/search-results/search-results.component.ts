@@ -17,7 +17,7 @@ export class SearchResultsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      const searchQuery = params['name'];
+      const searchQuery = params['carname'];
       if (searchQuery) {
         this.searchProducts(searchQuery);
       }
@@ -26,14 +26,14 @@ export class SearchResultsComponent implements OnInit {
 
   searchProducts(searchQuery: string): void {
     this.http.get<any[]>('http://localhost:5000/products/search', {
-      params: { name: searchQuery }
+      params: { carname: searchQuery }
     }).subscribe(
       (results) => {
         this.products = results.map(product => ({
           walkicon: 'assets/all7.svg',
           walk: '(10 mins to walk)',
           status: 'Available',
-          name: product.name,
+          carname: product.carname,
           image: 'assets/all2.svg',
           description: product.description,
           price: `PKR: ${product.price.toLocaleString()}`,

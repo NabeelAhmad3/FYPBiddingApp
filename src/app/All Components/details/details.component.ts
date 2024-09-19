@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { CardHomeComponent } from "../home/card-home/card-home.component";
 import { myCardModel } from '../home/card-home/card-home.model';
 import { HttpClient } from '@angular/common/http';
+import { SetBidComponent } from "../../pop-ups/set-bid/set-bid.component";
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [CommonModule, CardHomeComponent],
+  imports: [CommonModule, CardHomeComponent, SetBidComponent],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css'
 })
@@ -24,7 +25,7 @@ export class DetailsComponent implements OnInit{
   constructor(private http:HttpClient){}
 
   ngOnInit(): void {
-    this.http.get<any>('http://localhost:5000/products?productid=137').subscribe(
+    this.http.get<any>('http://localhost:5000/products/allData').subscribe(
       (data) => {
         if (data && data.length > 0) {
           const product = data[0];  
@@ -44,7 +45,7 @@ export class DetailsComponent implements OnInit{
         console.error('Error fetching product info:', error);
       }
     );
-    this.http.get<any>('http://localhost:5000/users?userid=65').subscribe(
+    this.http.get<any>('http://localhost:5000/users/sellerDetails?userid=88').subscribe(
       (data) => {
         if (data && data.length > 0) {
           const seller = data[0];  
@@ -58,21 +59,6 @@ export class DetailsComponent implements OnInit{
       },
       (error) => {
         console.error('Error fetching product info:', error);
-      }
-    );
-    
-    this.http.get<myCardModel[]>('http://localhost:5000/products').subscribe(
-      (data) => {
-        this.cards = data.map(item => ({
-          image: './assets/car2.svg', 
-          description: item.description,
-          productid: `Product ID: ${item.productid}`,
-          price: `Price: ${item.price}`,
-          city: `City: ${item.city}`
-        }));
-      },
-      (error) => {
-        console.error('Error fetching products:', error);
       }
     );
   }

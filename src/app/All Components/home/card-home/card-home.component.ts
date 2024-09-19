@@ -11,9 +11,15 @@ import { SetBidComponent } from "../../../pop-ups/set-bid/set-bid.component";
 })
 export class CardHomeComponent {
   @Input() image!: string;
-  @Input() description!: string;
-  @Input() price!: string;
-  @Input() productid!: string;
+  @Input() carname!: string;
+  @Input() price!: number;
+  @Input() productid!: number;
   @Input() city!: string;
   @Input() key!: number;
+  selectedProductId!: number;
+
+  selectProduct(productid: number) {
+    this.selectedProductId = productid;
+    console.log('Selected Product ID: ' + this.selectedProductId);
+  }
 }

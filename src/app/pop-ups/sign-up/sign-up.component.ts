@@ -40,6 +40,11 @@ export class SignUpComponent implements OnInit {
     this.http.postData('http://localhost:5000/users/register', data).subscribe(
       (response: any) => {
         alert(response.message);
+        const closeModalButton = document.getElementById('closeModalButton');
+        if (closeModalButton) {
+          closeModalButton.click();
+          window.location.reload();
+        }
       },
       (error: any) => {
         console.error('Error adding user', error);

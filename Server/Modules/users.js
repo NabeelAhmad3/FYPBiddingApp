@@ -24,7 +24,7 @@ router.post('/register', (req, res) => {
     });
 });
 
-router.put('/:userid', (req, res) => {
+router.put('/profileDetails/:userid', (req, res) => {
     const { userid } = req.params;
     const { name, email, phone, cnic, city, password } = req.body;
 
@@ -45,7 +45,7 @@ router.put('/:userid', (req, res) => {
     });
 });
 
-router.get('/:userid', (req, res) => {
+router.get('/profileDetails/:userid', (req, res) => {
     const { userid } = req.params;
     const sql = `SELECT * FROM users WHERE userid = ?`;
     pool.query(sql, [userid], (err, result) => {
@@ -56,7 +56,7 @@ router.get('/:userid', (req, res) => {
     });
 });
 
-router.get('/', (req, res) => {
+router.get('/sellerDetails', (req, res) => {
     const userid = req.query.userid;
 
     const sql = `SELECT name, email, phone, city FROM users WHERE userid = ?`;
@@ -85,11 +85,10 @@ router.post('/login', (req, res) => {
             if (!passwordMatch) {
                 return res.status(401).json({ message: 'Invalid password' });
             }
-            // Generate JWT token
             const token = jwt.sign({ id: user.userid }, secretKey, { expiresIn: '2h' });
-            // console.log(token);
+          
             res.status(200).json({ message: 'Login successful from backend', token, userid: user.userid });
-            // console.log(res.send);
+
         } catch (compareErr) {
             return res.status(500).json({ message: 'Password comparison error', error: compareErr });
         }

@@ -17,13 +17,13 @@ export class LiveListingsComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get<myCardModel[]>('http://localhost:5000/products') .subscribe( (data) => {
-          this.cards = data.map(item => ({
+    this.http.get<myCardModel[]>('http://localhost:5000/products/livelistings') .subscribe( (data) => {
+          this.cards = data.slice(0, 4).map(item => ({
             image: './assets/car1.svg',
-            description: item.description,
-            productid: `Product ID:${item.productid}`,
-            price: `price: ${item.price}`,
-            city: `city:${item.city}`
+            carname: item.carname,
+            productid: item.productid,
+            price: item.price,
+            city: item.city
           }));
         },
         (error) => {

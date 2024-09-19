@@ -1,13 +1,18 @@
-<div class="Listings ">
+<div class="Listings">
+  <div class="fw-bold align-items-center text-center" style="font-size: 24px;">
     <p>Feature Products</p>
-    <div class="card-gallery ">
-        <app-card-home *ngFor="let item of cards; index as i" 
-            [image]="item.image" 
-            [description]="item.description" 
-            [productid]="item.productid" 
-            [price]="item.price" 
-            [city]="item.city">
-            [key]="i" 
-         </app-card-home>
+  </div>
+  <div class="card-gallery">
+    <div class="card" *ngFor="let item of cards; index as i">
+      <img [src]="item.image" alt="img" class="card-image" />
+      <div class="cardDetails">
+        <p><b>{{item.carname}}</b></p>
+        <p style="color: rgba(13, 110, 253, 1);">Product ID : {{item.productid}}</p>
+        <p>Current Bid : {{item.price}}</p>
+        <p>City : {{item.city}}</p>
+      </div>
+      <a href="/details"><button class="viewdetails">View Details</button></a>
     </div>
+    
+  </div>
 </div>

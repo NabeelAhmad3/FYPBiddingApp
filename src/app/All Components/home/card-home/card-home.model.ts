@@ -1,7 +1,7 @@
 export interface myCardModel {
     image: string;
-    description: string;
-    price: string;
-    productid: string;
+    carname: string;
+    price: number;
+    productid: number;
     city: string;
 }
