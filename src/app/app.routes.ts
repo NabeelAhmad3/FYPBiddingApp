@@ -17,6 +17,7 @@ import { DetailsComponent } from './All Components/details/details.component';
 import { PurchaseBidComponent } from './All Components/purchase-bid/purchase-bid.component';
 import { SearchResultsComponent } from './All Components/search-results/search-results.component';
 import { AuthGuard } from './auth.guard';
+import { FavoriteComponent } from './All Components/favorite/favorite.component';
 
 export const routes: Routes = [
   {path:'',component: HomeComponent},
@@ -36,5 +37,6 @@ export const routes: Routes = [
   {path:'paymetnSet',component:PaymentSettingComponent},
   {path:'transHistory',component:TransactionHistoryComponent},
   {path:'search',component:SearchResultsComponent},
+  {path:'favorites', component: FavoriteComponent},
   {path: '**', redirectTo: ''}
 ];

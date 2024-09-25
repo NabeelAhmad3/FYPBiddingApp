@@ -33,7 +33,7 @@
             <p>We usually respond within 24 hours.</p>
           </div>
           <div class="contact-form">
-            <form [formGroup]="footerForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+            <form [formGroup]="footerForm" (ngSubmit)="onSubmit()" (keydown.enter)="onSubmit()" class="needs-validation" novalidate>
               <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="name" formControlName="Name" placeholder="Name" />
                 <label for="name">Name</label>

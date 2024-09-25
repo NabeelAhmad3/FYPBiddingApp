@@ -1,0 +1,10 @@
+.form-container {
+  border-radius: 8px;
+  background: white;
+  width: 350px;
+  height: auto;
+  margin-top: 2px;
+  border: 1px solid #000;
+  padding-bottom: 10px;
+}
+

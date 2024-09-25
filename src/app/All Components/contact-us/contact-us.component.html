@@ -8,7 +8,7 @@
     <p class="text-center">Some text below the heading, centered on the page. Some text below the heading, centered on the page.</p>
   </div>
 
-  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="form-content mt-5">
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" (keydown.enter)="onSubmit()" class="form-content mt-5">
     <div class="form-row">
       <div class="col-12">
         <input type="text" class="form-control custom-input" id="name" formControlName="name" placeholder="Name"/>

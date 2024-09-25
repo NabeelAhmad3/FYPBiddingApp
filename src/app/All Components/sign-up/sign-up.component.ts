@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   standalone:true,
   imports:[ReactiveFormsModule,CommonModule],
   templateUrl: './sign-up.component.html',
-  styleUrls: ['../../pop-ups/log-in/log-in.component.css'],
+  styleUrls: ['../log-in/log-in.component.css'],
 })
 export class SignUpComponent implements OnInit {
   signUpForm!: FormGroup;

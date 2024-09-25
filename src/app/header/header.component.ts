@@ -7,11 +7,12 @@ import { HeaderModalComponent } from "../pop-ups/header-modal/header-modal.compo
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ProfileModalComponent } from "../pop-ups/profile-modal/profile-modal.component";
+import { RegistrationPageComponent } from "../pop-ups/registration-page/registration-page.component";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatButtonModule, MatMenuModule, MatIconModule, CommonModule, HeaderModalComponent, FormsModule, ProfileModalComponent],
+  imports: [MatButtonModule, MatMenuModule, MatIconModule, CommonModule, HeaderModalComponent, FormsModule, ProfileModalComponent, RegistrationPageComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })

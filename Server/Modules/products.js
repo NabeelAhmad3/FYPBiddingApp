@@ -72,6 +72,19 @@ router.get('/allData', (req, res) => {
         res.status(200).json(results);
     });
 });
+router.get('/favorites/:userid', (req, res) => {
+    const { userid } = req.params;
+    const sql = `SELECT * FROM products WHERE userid = ?`;
+
+    pool.query(sql, [userid], (err, results) => {  
+        if (err) {
+            console.error('Error fetching products:', err);
+            return res.status(500).json({ error: 'Database query error' });
+        }
+        res.status(200).json(results);
+    });
+});
+
 router.get('/search', (req, res) => {
     const searchQuery = req.query.carname;
     if (!searchQuery) {

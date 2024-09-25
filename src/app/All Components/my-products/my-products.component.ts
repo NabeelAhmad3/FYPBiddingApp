@@ -15,10 +15,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MyProductsComponent implements OnInit{
   CarData: CardModel[] = []
+  userid: string | null;
 
-  constructor(private http: HttpClient){}
+
+  constructor(private http: HttpClient){
+    
+this.userid = localStorage.getItem('authUserId');
+  }
   ngOnInit(): void {
-    this.http.get<CardModel[]>('http://localhost:5000/products/allData') .subscribe( (data) => {
+    this.http.get<CardModel[]>(`http://localhost:5000/products/favorites/${this.userid}`) .subscribe( (data) => {
           this.CarData = data.map(item => ({
             status: "assets/myprostatus.svg",
             image: './assets/all3.svg',

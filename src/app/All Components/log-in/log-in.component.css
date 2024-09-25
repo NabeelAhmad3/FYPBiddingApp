@@ -4,16 +4,6 @@
   align-items: center;
 }
 
-.form-container {
-  padding: 20px;
-  border-radius: 8px;
-  background: white;
-  width: 350px;
-  height: auto;
-  margin-top: 2px;
-  border: 1px solid #000;
-}
-
 .form-group {
   margin-bottom: 15px;
 }

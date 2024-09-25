@@ -18,7 +18,7 @@ export class FeatureProductsComponent {
   ngOnInit(): void {
     this.http.get<myCardModel[]>('http://localhost:5000/products/allData').subscribe(
       (data) => {
-        this.cards = data.map(item => ({
+        this.cards = data.slice(0,8).map(item => ({
           image: './assets/car2.svg', 
           carname: item.carname,
           productid: item.productid,

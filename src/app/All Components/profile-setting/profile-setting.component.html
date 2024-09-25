@@ -9,7 +9,7 @@
             <span style="color: rgba(68, 85, 59, 1);">Setting</span>
         </p>
     </div>    
-    <form [formGroup]="profileSetForm" (ngSubmit)="onSubmit()" class="form-content mt-5">
+    <form [formGroup]="profileSetForm" (ngSubmit)="onSubmit()" (keydown.enter)="onSubmit()" class="form-content mt-5">
         <div class="picture-section d-flex justify-content-center mb-5 position-relative">
             <img src="assets/Navbar2img.svg" alt="Profile Picture" class="profile-picture"/>
         </div>

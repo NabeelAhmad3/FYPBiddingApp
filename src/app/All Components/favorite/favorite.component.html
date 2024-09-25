@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-center flex-column">
     <div class="d-flex flex-wrap justify-content-center mt-3">
-        <div class="m-3" *ngFor="let item of products">
+        <div class="m-3" *ngFor="let item of favorites">
             <div class="card shadow-sm position-relative">
                 <div class="card-body">
                     <div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
@@ -10,10 +10,6 @@
                         </div>
                         <div class="availability-box d-flex align-items-center justify-content-center">
                             <span class="availablebtn">{{ item.status }}</span>
-                        </div>
-                        <div>
-                            <i class="bi bi-heart-fill position-absolute top-0 end-0 m-2 favorite-icon"
-                                [class.favorited]="item.isFavorite" (click)="toggleFavorite(item)"></i>
                         </div>
                     </div>
                     <img [src]="item.image" alt="imgAlt" class="img-fluid mx-auto d-block my-3 main-img" />

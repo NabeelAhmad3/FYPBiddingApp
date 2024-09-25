@@ -1,0 +1,61 @@
+<div class="fullForm mt-4">
+  <div class="form-container">
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" (keydown.enter)="onSubmit()">
+      <p>Create an account</p>
+
+      <div class="form-group">
+        <input type="text" id="Name" formControlName="name" class="form-control" placeholder="Name" />
+        <div *ngIf="signUpForm.get('name')?.invalid && signUpForm.get('name')?.touched" class="text-danger">
+          Name is required (3-20 characters).
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="email" id="mail" formControlName="email" class="form-control" placeholder="Email" />
+        <div *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched" class="text-danger">
+          Valid email is required (10-30 characters).
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="number" id="Phone" formControlName="phone" class="form-control" placeholder="Phone Number" />
+        <div *ngIf="signUpForm.get('phone')?.invalid && signUpForm.get('phone')?.touched" class="text-danger">
+          Valid phone number is required (10-14 digits).
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="number" id="Cnic" formControlName="cnic" class="form-control" placeholder="CNIC Number" />
+        <div *ngIf="signUpForm.get('cnic')?.invalid && signUpForm.get('cnic')?.touched" class="text-danger">
+          Valid CNIC number is required (10-15 digits).
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="text" id="city" formControlName="city" class="form-control" placeholder="City" />
+        <div *ngIf="signUpForm.get('city')?.invalid && signUpForm.get('city')?.touched" class="text-danger">
+          City is required (3-20 characters).
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="password" id="password" formControlName="password" class="form-control"
+          placeholder="Password (8-20 characters)" />
+        <div *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched" class="text-danger">
+          Password is required (8-20 characters).
+        </div>
+      </div>
+
+      <div class="form-check d-flex flex-row flex-wrap">
+        <input type="checkbox" id="terms" formControlName="terms" class="form-check-input me-3" />
+        <p>I agree to the terms & conditions</p>
+        <div *ngIf="signUpForm.get('terms')?.invalid && signUpForm.get('terms')?.touched" class="text-danger">
+          You must agree to the terms and conditions.
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Create an account</button>
+
+    </form>
+  </div>
+</div>

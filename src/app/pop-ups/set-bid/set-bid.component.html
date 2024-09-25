@@ -5,7 +5,7 @@
         <h1 class="modal-title fs-5" id="exampleModalLabel">Set Auto Bid</h1>
       </div>
       <div class="modal-body">
-        <form [formGroup]="Bid" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+        <form [formGroup]="Bid" (ngSubmit)="onSubmit()" (keydown.enter)="onSubmit()" class="needs-validation" novalidate>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Stay at the top to win.</label>
           </div>
