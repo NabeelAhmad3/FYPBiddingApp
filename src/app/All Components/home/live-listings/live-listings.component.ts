@@ -18,7 +18,7 @@ export class LiveListingsComponent implements OnInit {
 
   ngOnInit(): void {
     this.http.get<myCardModel[]>('http://localhost:5000/products/livelistings') .subscribe( (data) => {
-          this.cards = data.slice(0, 4).map(item => ({
+          this.cards = data.map(item => ({
             image: './assets/car1.svg',
             carname: item.carname,
             productid: item.productid,

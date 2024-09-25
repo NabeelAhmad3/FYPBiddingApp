@@ -1,10 +1,10 @@
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar  navbar-expand-lg">
           <button class="navbar-toggler" data-bs-toggle="modal" data-bs-target="#headerModal"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse">
                 <div class="search-bar ms-3">
                     <div class="search-input">
                         <img src="assets/Search icon.svg" alt="Search Icon"/>
-                        <input type="text" class="search" placeholder="Search..." [(ngModel)]="searchQuery"  (keydown.enter)="searchProduct()">
+                        <input type="text" class="search" placeholder="Search" [(ngModel)]="searchQuery"  (keydown.enter)="searchProduct()">
                     </div>
                 </div>
                 <ul class="navbar-nav text-white mb-2 mb-lg-0">
@@ -20,7 +20,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/sellProducts">Sell Products</a>
                     </li>
+                    <li class="nav-item" *ngIf="!isLoggedIn"><a class="nav-link login-link " href="" data-bs-toggle="modal"data-bs-target="#logInModal">Login</a></li>
+                    <li class="nav-item" *ngIf="isLoggedIn"><a class="nav-link login-link " href="" data-bs-toggle="modal"data-bs-target="#profileModal">
+                        <img src="assets/Navbar2img.svg" alt="img" class="" style="width: 30px; height: 30px;"></a></li>
                 </ul>
             </div>
+            
 </nav>
+<app-profile-modal/>
 <app-header-modal/>

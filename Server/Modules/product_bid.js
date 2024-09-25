@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../db');
 
-router.put('/:userid/:productid', (req, res) => {
+router.put('/createBid/:userid/:productid', (req, res) => {
     const { userid, productid } = req.params;
     const { price } = req.body;
 

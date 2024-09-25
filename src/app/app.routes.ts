@@ -16,24 +16,25 @@ import { VerificationCenterComponent } from './All Components/verification-cente
 import { DetailsComponent } from './All Components/details/details.component';
 import { PurchaseBidComponent } from './All Components/purchase-bid/purchase-bid.component';
 import { SearchResultsComponent } from './All Components/search-results/search-results.component';
+import { AuthGuard } from './auth.guard';
 
 export const routes: Routes = [
-  {path:'', component: HomeComponent },
+  {path:'',component: HomeComponent},
   {path:'header',component:HeaderComponent},
-  {path:'allListings', component: AllListingsComponent},
+  {path:'allListings',component: AllListingsComponent, canActivate: [AuthGuard]},
   {path:'contactUs',component:ContactUsComponent},
   {path:'faq',component:FAQComponent},
-  {path:'sellProducts',component:SellProductsComponent},
+  {path:'sellProducts',component:SellProductsComponent, canActivate: [AuthGuard]},
   {path:'profileSet',component:ProfileSettingComponent},
   {path:'verificationCent',component:VerificationCenterComponent},
   {path:'myOrders',component:MyOrdersComponent},
   {path:'helpUs',component:HelpUsComponent},
-  {path:'myProducts' , component: MyProductsComponent},
+  {path:'myProducts' ,component: MyProductsComponent},
   {path:'details',component:DetailsComponent},
   {path:'editInfo',component:EditInformationComponent},
   {path:'purchaseBid',component:PurchaseBidComponent},
   {path:'paymetnSet',component:PaymentSettingComponent},
   {path:'transHistory',component:TransactionHistoryComponent},
   {path:'search',component:SearchResultsComponent},
-  { path: '**', redirectTo: ''}
+  {path: '**', redirectTo: ''}
 ];

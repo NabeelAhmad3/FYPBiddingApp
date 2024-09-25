@@ -29,12 +29,12 @@ router.post('/addProducts', (req, res) => {
         }
     });
 });
-router.put('/:productid', (req, res) => {
-    const { productid } = req.params;
+router.put('/updateProduct/:productid/:userid', (req, res) => {
+    const { productid,userid } = req.params;
     const { carname, price, fueltype, cartype, description, city, address } = req.body;
-    const sql = 'UPDATE products SET carname = ?, price = ?,fueltype = ?, cartype = ?,description = ?, city = ?, address = ? WHERE productid = ?';
+    const sql = 'UPDATE products SET carname = ?, price = ?,fueltype = ?, cartype = ?,description = ?, city = ?, address = ? WHERE productid = ? AND userid = ?';
 
-    pool.query(sql, [carname, price, fueltype, cartype, description, city, address, productid], (err, result) => {
+    pool.query(sql, [carname, price, fueltype, cartype, description, city, address, productid, userid], (err, result) => {
         if (err) {
             console.error('Error updating product:', err);
             return res.status(500).json({ sqlMessage: 'Failed to update product' });
@@ -50,7 +50,7 @@ router.put('/:productid', (req, res) => {
 router.get('/livelistings', (req, res) => {
     const sql = `SELECT products.productid, products.carname, products.city, product_bid.price 
                  FROM products 
-                 LEFT JOIN product_bid ON products.productid = product_bid.productid`;
+                 INNER JOIN product_bid ON products.productid = product_bid.productid`;
 
     pool.query(sql, (err, result) => {
         if (err) {
@@ -72,7 +72,6 @@ router.get('/allData', (req, res) => {
         res.status(200).json(results);
     });
 });
-
 router.get('/search', (req, res) => {
     const searchQuery = req.query.carname;
     if (!searchQuery) {

@@ -33,7 +33,7 @@ export class EditInformationComponent {
       this.editInfoForm.markAllAsTouched();
       return;
     }
-      this.http.put<any>(`http://localhost:5000/products/168`,{ ...this.editInfoForm.value, userid: this.userid }).subscribe(
+      this.http.put<any>(`http://localhost:5000/products/updateProduct/172/${this.userid}`,{ ...this.editInfoForm.value }).subscribe(
         response => {
           alert(response.message);
           this.editInfoForm.reset();

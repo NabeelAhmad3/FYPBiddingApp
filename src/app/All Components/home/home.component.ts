@@ -39,9 +39,6 @@ export class HomeComponent {
       this.isLoggedIn = true;
     }
   }
-  ngOnInit(): void {
-
-  }
 
   searchProduct() {
     if (this.searchQuery.trim()) {

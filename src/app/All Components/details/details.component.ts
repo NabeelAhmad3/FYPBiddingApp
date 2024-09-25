@@ -13,7 +13,7 @@ import { SetBidComponent } from "../../pop-ups/set-bid/set-bid.component";
   styleUrl: './details.component.css'
 })
 export class DetailsComponent implements OnInit{
-  description=' vehicula ex lacinia eu.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna vitae lacus tempor placerat. Etiam vulputate neque nec nulla consequat, non cursus libero suscipit. Fusce tempor dapibus mauris, at vehicula ex lacinia eu.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna vitae lacus tempor placerat. Etiam vulputate neque nec nulla consequat, non cursus libero suscipit. Fusce tempor dapibus mauris, at vehicula ex lacinia eu.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna vitae lacus tempor placerat. Etiam vulputate neque nec nulla consequat, non cursus libero suscipit. Fusce tempor dapibus mauris, at vehicula ex lacinia eu.';
+  description='Etiam vulputate neque nec nulla consequat, non cursus libero suscipit. Fusce tempor dapibus mauris, at vehicula ex lacinia eu.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna vitae lacus tempor placerat. Etiam vulputate neque nec nulla consequat, non cursus libero suscipit. Fusce tempor dapibus mauris, at vehicula ex lacinia eu.';
   cards: myCardModel[] = [];
   productInfo: any = {};
   sellerInfo:any={};

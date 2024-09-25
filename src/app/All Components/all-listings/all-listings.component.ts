@@ -21,7 +21,6 @@ export class AllListingsComponent implements OnInit {
   getProducts() {
     this.http.get<any[]>('http://localhost:5000/products/allData').subscribe({
       next: (data) => {
-        // console.log('Data received:', data); // Add this line for debugging
         this.products = data.map(product => ({
           walkicon:'assets/all7.svg',
           walk:'(10 mins to walk)',

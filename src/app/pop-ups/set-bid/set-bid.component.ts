@@ -35,7 +35,7 @@ export class SetBidComponent {
 
     const formValues = this.Bid.value;
 
-    this.http.put(`http://localhost:5000/product_bid/${this.userid}/${this.selectedProductId}`, formValues).subscribe(
+    this.http.put(`http://localhost:5000/product_bid/createBid/${this.userid}/${this.selectedProductId}`, formValues).subscribe(
       (response: any) => {
         this.Bid.reset();
         alert(response.message);

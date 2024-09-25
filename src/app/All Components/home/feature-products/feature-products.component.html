@@ -7,12 +7,11 @@
       <img [src]="item.image" alt="img" class="card-image" />
       <div class="cardDetails">
         <p><b>{{item.carname}}</b></p>
-        <p style="color: rgba(13, 110, 253, 1);">Product ID : {{item.productid}}</p>
-        <p>Current Bid : {{item.price}}</p>
-        <p>City : {{item.city}}</p>
+        <p style="color: rgba(13, 110, 253, 1);">Product ID: {{item.productid}}</p>
+        <p>Initial Price: {{item.price}}</p>
+        <p>City: {{item.city}}</p>
       </div>
-      <a href="/details"><button class="viewdetails">View Details</button></a>
+      <a href="/details"><button class="viewdetails" (click)="localCardData(item)">View Details</button></a>
     </div>
-    
   </div>
 </div>
