@@ -60,10 +60,25 @@ router.get('/livelistings', (req, res) => {
         res.status(200).json(result);
     });
 });
+router.get('/productsInfo/:id', (req, res) => {
+    const productId = req.params.id; 
+    const sql = `SELECT * FROM products WHERE productid = ?`;
+
+    pool.query(sql, [productId], (err, results) => {
+        if (err) {
+            console.error('Error fetching product:', err);
+            return res.status(500).json({ error: 'Database query error' });
+        }
+        if (results.length > 0) {
+            res.status(200).json(results[0]);
+        } else {
+            res.status(404).json({ error: 'Product not found' });
+        }
+    });
+});
 
 router.get('/allData', (req, res) => {
     const sql = `SELECT * FROM products`;
-
     pool.query(sql, (err, results) => {
         if (err) {
             console.error('Error fetching products:', err);
@@ -72,7 +87,8 @@ router.get('/allData', (req, res) => {
         res.status(200).json(results);
     });
 });
-router.get('/favorites/:userid', (req, res) => {
+
+router.get('/myProducts/:userid', (req, res) => {
     const { userid } = req.params;
     const sql = `SELECT * FROM products WHERE userid = ?`;
 
@@ -84,6 +100,25 @@ router.get('/favorites/:userid', (req, res) => {
         res.status(200).json(results);
     });
 });
+router.delete('/deleteProduct/:productid/:userid', (req, res) => {
+    const { productid, userid } = req.params; // Get both productid and userid from the request parameters
+    const sql = `DELETE FROM products WHERE productid = ? AND userId = ?`; // Use productid in the query
+
+    pool.query(sql, [productid, userid], (err, results) => {  
+        if (err) {
+            console.error('Error deleting product:', err); // Log the error for debugging
+            return res.status(500).json({ error: 'Database query error' });
+        }
+        
+        // Check if any rows were affected
+        if (results.affectedRows === 0) {
+            return res.status(404).json({ error: 'Product not found or does not belong to the user' });
+        }
+        
+        res.status(200).json({ message: 'Product deleted successfully' });
+    });
+});
+
 
 router.get('/search', (req, res) => {
     const searchQuery = req.query.carname;

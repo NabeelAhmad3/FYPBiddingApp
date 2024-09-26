@@ -1,13 +1,19 @@
 <div class="Listings">
+  <div class="fw-bold align-items-center text-center" style="font-size: 24px;">
     <p>Live Listings</p>
+  </div>
     <div class="card-gallery">
-        <app-card-home *ngFor="let item of cards; index as i" 
-            [image]="item.image" 
-            [carname]="item.carname" 
-            [productid]="item.productid" 
-            [price]="item.price" 
-            [city]="item.city">
-            [key]="i"
-        </app-card-home>
+      <div class="card" *ngFor="let item of cards">
+        <img [src]="item.image" alt="Car Image" class="card-image" />
+        <div class="cardDetails">
+          <p><b>{{item.carname}}</b></p>
+          <p style="color: rgba(13, 110, 253, 1);">Product ID : {{item.productid}}</p>
+          <p>Current Bid : {{item.price}}</p>
+          <p>City : {{item.city}}</p>
+        </div>
+        <button class="viewdetails" data-bs-toggle="modal" data-bs-target="#setBidModal">Place Bid</button>
+      </div>
     </div>
-</div>
+  </div>
+  
+<app-set-bid/>

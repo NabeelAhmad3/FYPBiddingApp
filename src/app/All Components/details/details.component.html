@@ -3,74 +3,48 @@
   <a href="/" style="text-decoration: none; color: black;">&#8672; &#160;Home&#160;/&#160;</a>
   <p style="color: #AAAAAA;"> Details</p>
 </div>
+
 <div class="container mt-5 mb-5 d-flex flex-column align-items-center" style="width: 80%; max-width: 700px;">
-  <div id="imageCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img [src]="img[0].img1" class="d-block w-100" alt="Image" style="height: 300px; object-fit: cover;"/>
-      </div>
-      <div class="carousel-item">
-        <img [src]="img[0].img2" class="d-block w-100" alt="Image" style="height: 300px; object-fit: cover;"/>
-      </div>
-      <div class="carousel-item">
-        <img [src]="img[0].img3" class="d-block w-100" alt="Image" style="height: 300px; object-fit: cover;"/>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
   <div class="d-flex flex-row justify-content-between flex-wrap w-100">
     <div class="table-responsive m-2">
-      <h4 style="text-align: center;">Product Details</h4>
+      <h4 class="text-center">Product Details</h4>
       <table class="table vertical-table">
         <tbody>
           <tr>
             <td style="color: rgba(142, 142, 142, 1);">Car Name:</td>
-            <td>{{ productInfo.carname }}</td>
+            <td>{{ productInfo?.carname }}</td>
           </tr>
           <tr>
             <td style="color: rgba(142, 142, 142, 1);">Product ID:</td>
-            <td>{{ productInfo.productid }}</td>
+            <td>{{ productInfo?.productid }}</td>
           </tr>
           <tr>
             <td class="tdcolor">City:</td>
-            <td>{{ productInfo.city }}</td>
-          </tr>
-          <tr>
-            <td style="color: rgba(142, 142, 142, 1);">Bid Information:</td>
-            <td>{{ productInfo.status }}</td>
-          </tr>
-          <tr>
-            <td class="tdcolor">Delivery Fee:</td>
-            <td>{{ productInfo.deliveryFee }}</td>
+            <td>{{ productInfo?.city }}</td>
           </tr>
           <tr>
             <td class="tdcolor">Basic Price:</td>
-            <td>{{ productInfo.price }}</td>
+            <td>{{ productInfo?.price }}</td>
           </tr>
           <tr>
             <td class="tdcolor">Current Bid:</td>
-            <td>{{ productInfo.currentBid }}</td>
+            <td>{{ productInfo?.currentBid }}</td>
           </tr>
           <tr>
             <td class="tdcolor">Upload Date:</td>
-            <td>{{ productInfo.created_at }}</td>
+            <td>{{ productInfo?.created_at }}</td>
           </tr>
         </tbody>
       </table>
-      <a href="/" data-bs-toggle="modal" data-bs-target="#setBidModal" style="display: flex; justify-content: center;">
-        <button class="btnstyle">Start Bidding</button>
-      </a>
+      <div class="text-center">
+        <a href="/" data-bs-toggle="modal" data-bs-target="#setBidModal">
+          <button class="btnstyle">Start Bidding</button>
+        </a>
+      </div>
     </div>
 
     <div class="table-responsive m-2">
-      <h4 style="text-align: center;">Seller Information</h4>
+      <h4 class="text-center">Seller Information</h4>
       <table class="table vertical-table">
         <tbody>
           <tr>
@@ -90,14 +64,17 @@
             <td>{{ sellerInfo.city }}</td>
           </tr>
         </tbody>
-      </table>      
+      </table>
     </div>
   </div>
 </div>
+
 <div class="container mt-5 mb-5" style="width: 75%;">
   <p style="color: rgba(142, 142, 142, 1)">Description:</p>
-  <div style="background-color: rgba(182, 182, 182, 0.2); padding: 16px; border-radius: 15px; color: rgba(142, 142, 142, 1)">
+  <div
+    style="background-color: rgba(182, 182, 182, 0.2); padding: 16px; border-radius: 15px; color: rgba(142, 142, 142, 1)">
     <p>{{ description }}</p>
   </div>
 </div>
+
 <app-set-bid></app-set-bid>

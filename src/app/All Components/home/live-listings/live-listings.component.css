@@ -3,12 +3,39 @@
     margin-top: 60px;
     background-color: rgba(255, 255, 255, 1);
 }
-
-.Listings p {
-    font-size: 24px;
-    font-weight: bold;
+.card {
     margin-bottom: 20px;
-    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.cardDetails {
+    padding: 15px;
+}
+
+.viewdetails{
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid rgba(187, 187, 187, 1);
+
+}
+
+.viewdetails:hover {
+    background-color: rgba(68, 85, 59, 1);
+    color: white;
+}
+
+a {
+    text-decoration: none;
 }
 
 .card-gallery {
@@ -17,4 +44,10 @@
     gap: 20px;
     justify-content: center;
     align-items: center;
+}
+
+.Listings {
+    padding: 20px;
+    margin-top: 60px;
+    background-color: rgba(255, 255, 255, 1);
 }

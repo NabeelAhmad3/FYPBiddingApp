@@ -10,8 +10,7 @@
         <p style="color: rgba(13, 110, 253, 1);">Product ID: {{item.productid}}</p>
         <p>Initial Price: {{item.price}}</p>
         <p>City: {{item.city}}</p>
-      </div>
-      <a href="/details"><button class="viewdetails" (click)="localCardData(item)">View Details</button></a>
+      </div><button class="viewdetails" (click)="localCardData(item)" [routerLink]="['/details']">View Details</button>
     </div>
   </div>
 </div>

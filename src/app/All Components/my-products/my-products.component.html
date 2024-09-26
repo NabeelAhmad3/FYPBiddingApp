@@ -2,18 +2,62 @@
     <a href="/" style="text-decoration: none; color: black;">&#8672; &#160;Home&#160;/&#160;</a>
     <p style="color: #AAAAAA;">My Products</p>
 </div>
-<div class="ms-4 mb-5 mt-3">
-    <div class="d-flex justify-content-evenly  flex-wrap">
-        <app-card *ngFor="let item of CarData; index as i"
-        [status]="item.status"
-        [image]="item.image"
-        [carname]="item.carname"
-        [price]="item.price"
-        [eyeTxt]="item.eyeTxt"
-        [city]="item.city"
-        [key]="i"
-        [isRecentWinsComponent]="false">
-        >
-        </app-card>
+<div class="d-flex justify-content-evenly  flex-wrap">
+<div class="mb-3 me-3" *ngFor="let car of CarData">
+    <div class="card shadow-sm">
+        <div class="card-body d-flex flex-column align-items-start">
+            <div class="d-flex align-items-center mb-3">
+                <img [src]="car.status" alt="img" class="status-img">
+            </div>
+
+            <div class="d-flex flex-column align-items-center mb-3" style="width: 298px;">
+                <img [src]="car.image" alt="img" class="img-fluid main-img">
+            </div>
+
+            <div class="text-start mb-3">
+                <div class="d-flex justify-content-between mb-1">
+                    <div class="d-flex flex-column justify-content-between line-container">
+                        <span class="label">Name:</span>
+                        <span class="label">Current Bid:</span>
+                        <span class="label">City:</span>
+                    </div>
+                    <div class="d-flex flex-column justify-content-between">
+                        <span>{{ car.carname }}</span>
+                        <span>{{ car.price }}</span>
+                        <span>{{ car.city }}</span>
+                    </div>
+                </div>
+
+                <hr class="w-100 my-2" />
+
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <div class="d-flex align-items-center">
+                        <img src="assets/myproeye.svg" alt="img" class="img-thumbnail thumb-img">
+                        <p class="mb-0 ms-2" style="color: red;">Views ({{ car.eyeTxt }})</p>
+                    </div>
+
+                    <button [matMenuTriggerFor]="menu" class="custom-button"
+                        style="width: 120px; background: rgba(68, 85, 59, 1);">In Action</button>
+                    <div>
+                        <mat-menu #menu="matMenu" class="bg-white">
+                            <a href="/details">
+                                <span mat-menu-item class="custom-menu-item">
+                                    <img src="assets/myprodrop1.svg" alt="img" /> Preview
+                                </span>
+                            </a>
+                            <a href="/editInfo">
+                                <span mat-menu-item class="custom-menu-item">
+                                    <img src="assets/myprodrop2.svg" alt="img" /> Edit
+                                </span>
+                            </a>
+                            <span mat-menu-item class="custom-menu-item" (click)="deleteProduct(car.productid)">
+                                <img src="assets/myprodrop3.svg" alt="img" /> Delete
+                            </span>                            
+                        </mat-menu>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 </div>

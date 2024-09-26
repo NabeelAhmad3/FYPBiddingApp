@@ -1,14 +1,22 @@
 import { Component } from '@angular/core';
-import { myCardModel } from '../card-home/card-home.model';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { RouterLink } from '@angular/router';
+
+export interface myCardModel {
+  image: string;
+  carname: string;
+  price: number;
+  productid: number;
+  city: string;
+}
 
 @Component({
   selector: 'app-feature-products',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
   templateUrl: './feature-products.component.html',
-  styleUrls: ['../card-home/card-home.component.css']
+  styleUrls: ['../live-listings/live-listings.component.css']
 })
 export class FeatureProductsComponent {
   cards: myCardModel[] = [];
@@ -18,7 +26,7 @@ export class FeatureProductsComponent {
   ngOnInit(): void {
     this.http.get<myCardModel[]>('http://localhost:5000/products/allData').subscribe(
       (data) => {
-        this.cards = data.slice(0,8).map(item => ({
+        this.cards = data.slice(0, 8).map(item => ({
           image: './assets/car2.svg', 
           carname: item.carname,
           productid: item.productid,
@@ -31,7 +39,8 @@ export class FeatureProductsComponent {
       }
     );
   }
-  localCardData(data:any){
-    localStorage.setItem('localdatadetail',data);
+
+  localCardData(data: myCardModel) {
+    localStorage.setItem('localdatadetail', JSON.stringify(data));
   }
 }

@@ -13,7 +13,6 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 export class SetBidComponent {
   Bid: FormGroup;
   userid: string | null;
-  @Input() selectedProductId: number | undefined;
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.Bid = this.fb.group({
@@ -34,8 +33,8 @@ export class SetBidComponent {
     }
 
     const formValues = this.Bid.value;
-
-    this.http.put(`http://localhost:5000/product_bid/createBid/${this.userid}/${this.selectedProductId}`, formValues).subscribe(
+    const productid = 180;
+    this.http.put(`http://localhost:5000/product_bid/createBid/${this.userid}/${productid}`, formValues).subscribe(
       (response: any) => {
         this.Bid.reset();
         alert(response.message);
