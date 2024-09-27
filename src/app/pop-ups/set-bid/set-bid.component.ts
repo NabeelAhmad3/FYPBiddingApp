@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
+import { AfterViewInit, Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
@@ -10,9 +10,10 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   templateUrl: './set-bid.component.html',
   styleUrls: ['./set-bid.component.css']
 })
-export class SetBidComponent {
+export class SetBidComponent implements AfterViewInit{
   Bid: FormGroup;
   userid: string | null;
+  @Input() productid?: number;
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.Bid = this.fb.group({
@@ -20,6 +21,10 @@ export class SetBidComponent {
     });
     this.userid = localStorage.getItem('authUserId');
   }
+  ngAfterViewInit(): void {
+    console.log(this.productid);
+  }
+
 
   onSubmit() {
     if (this.Bid.invalid) {
@@ -33,8 +38,7 @@ export class SetBidComponent {
     }
 
     const formValues = this.Bid.value;
-    const productid = 180;
-    this.http.put(`http://localhost:5000/product_bid/createBid/${this.userid}/${productid}`, formValues).subscribe(
+    this.http.put(`http://localhost:5000/product_bid/createBid/${this.userid}/${this.productid}`, formValues).subscribe(
       (response: any) => {
         this.Bid.reset();
         alert(response.message);

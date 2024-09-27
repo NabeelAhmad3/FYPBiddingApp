@@ -15,12 +15,12 @@
             <td>{{ productInfo?.carname }}</td>
           </tr>
           <tr>
-            <td style="color: rgba(142, 142, 142, 1);">Product ID:</td>
-            <td>{{ productInfo?.productid }}</td>
-          </tr>
-          <tr>
             <td class="tdcolor">City:</td>
             <td>{{ productInfo?.city }}</td>
+          </tr>
+          <tr>
+            <td class="tdcolor">Product ID:</td>
+            <td>{{ productInfo?.productid }}</td>
           </tr>
           <tr>
             <td class="tdcolor">Basic Price:</td>
@@ -28,7 +28,7 @@
           </tr>
           <tr>
             <td class="tdcolor">Current Bid:</td>
-            <td>{{ productInfo?.currentBid }}</td>
+            <td>{{ productInfo?.bid_price }}</td>
           </tr>
           <tr>
             <td class="tdcolor">Upload Date:</td>
@@ -49,26 +49,17 @@
         <tbody>
           <tr>
             <td style="color: rgba(142, 142, 142, 1);">Name:</td>
-            <td>{{ sellerInfo.name }}</td>
-          </tr>
-          <tr>
-            <td style="color: rgba(142, 142, 142, 1);">Email:</td>
-            <td>{{ sellerInfo.email }}</td>
-          </tr>
-          <tr>
-            <td style="color: rgba(142, 142, 142, 1);">Phone No:</td>
-            <td>+92{{ sellerInfo.phone }}</td>
+            <td>{{ productInfo?.seller_name }}</td>
           </tr>
           <tr>
             <td style="color: rgba(142, 142, 142, 1);">City:</td>
-            <td>{{ sellerInfo.city }}</td>
+            <td>{{ productInfo?.seller_city }}</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
-
 <div class="container mt-5 mb-5" style="width: 75%;">
   <p style="color: rgba(142, 142, 142, 1)">Description:</p>
   <div
@@ -77,4 +68,4 @@
   </div>
 </div>
 
-<app-set-bid></app-set-bid>
+<app-set-bid [productid]="this.productid"></app-set-bid>

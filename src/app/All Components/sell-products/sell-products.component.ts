@@ -59,14 +59,14 @@ export class SellProductsComponent {
   onSubmit() {
     this.imageUploadError = this.imageUrls.filter(url => url).length < 3;
 
-    if (this.sellProducts.invalid || this.imageUploadError) {
+    if (this.sellProducts.invalid) { //if (this.sellProducts.invalid || this.imageUploadError) { for imgs
       this.sellProducts.markAllAsTouched();
       return;
     }
     this.http.post<any>('http://localhost:5000/products/addProducts', { ...this.sellProducts.value, userid: this.userid }).subscribe(
       response => {
         alert(response.message);
-        this.sellProducts.reset();
+        // this.sellProducts.reset();
         this.imageUrls = [];
       },
       error => {

@@ -6,7 +6,7 @@ router.put('/createBid/:userid/:productid', (req, res) => {
     const { userid, productid } = req.params;
     const { price } = req.body;
 
-    const updateSql = `UPDATE product_bid SET price = ? WHERE userid = ? AND productid = ?`;
+    const updateSql = `UPDATE product_bid SET price = ?, userid = ? WHERE productid = ?`;
     pool.query(updateSql, [price, userid, productid], (err, result) => {
         if (err) {
             console.error('Database query error:', err);

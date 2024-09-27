@@ -35,16 +35,13 @@
                         <img src="assets/myproeye.svg" alt="img" class="img-thumbnail thumb-img">
                         <p class="mb-0 ms-2" style="color: red;">Views ({{ car.eyeTxt }})</p>
                     </div>
-
                     <button [matMenuTriggerFor]="menu" class="custom-button"
                         style="width: 120px; background: rgba(68, 85, 59, 1);">In Action</button>
                     <div>
                         <mat-menu #menu="matMenu" class="bg-white">
-                            <a href="/details">
-                                <span mat-menu-item class="custom-menu-item">
-                                    <img src="assets/myprodrop1.svg" alt="img" /> Preview
-                                </span>
-                            </a>
+                            <span  (click)="localCardData(car.productid)" [routerLink]="['/details']" mat-menu-item class="custom-menu-item">
+                                <img src="assets/myprodrop1.svg" alt="img" /> Preview
+                              </span>
                             <a href="/editInfo">
                                 <span mat-menu-item class="custom-menu-item">
                                     <img src="assets/myprodrop2.svg" alt="img" /> Edit

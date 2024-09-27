@@ -16,12 +16,14 @@ export interface myCardModel {
   standalone: true,
   imports: [CommonModule,RouterLink],
   templateUrl: './feature-products.component.html',
-  styleUrls: ['../live-listings/live-listings.component.css']
+  styleUrls: ['../home-card/home-card.component.css']
 })
 export class FeatureProductsComponent {
   cards: myCardModel[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    localStorage.setItem('localdatadetail', '');
+  }
 
   ngOnInit(): void {
     this.http.get<myCardModel[]>('http://localhost:5000/products/allData').subscribe(
@@ -40,7 +42,7 @@ export class FeatureProductsComponent {
     );
   }
 
-  localCardData(data: myCardModel) {
+  localCardData(data: number) {
     localStorage.setItem('localdatadetail', JSON.stringify(data));
   }
 }

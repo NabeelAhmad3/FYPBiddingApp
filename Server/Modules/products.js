@@ -30,7 +30,7 @@ router.post('/addProducts', (req, res) => {
     });
 });
 router.put('/updateProduct/:productid/:userid', (req, res) => {
-    const { productid,userid } = req.params;
+    const { productid, userid } = req.params;
     const { carname, price, fueltype, cartype, description, city, address } = req.body;
     const sql = 'UPDATE products SET carname = ?, price = ?,fueltype = ?, cartype = ?,description = ?, city = ?, address = ? WHERE productid = ? AND userid = ?';
 
@@ -41,7 +41,7 @@ router.put('/updateProduct/:productid/:userid', (req, res) => {
         }
         if (result.affectedRows === 0) {
             return res.status(404).json({ message: 'Product not found' });
-        
+
         }
         res.status(200).json({ message: 'Product updated successfully' });
     });
@@ -60,11 +60,15 @@ router.get('/livelistings', (req, res) => {
         res.status(200).json(result);
     });
 });
-router.get('/productsInfo/:id', (req, res) => {
-    const productId = req.params.id; 
-    const sql = `SELECT * FROM products WHERE productid = ?`;
+router.get('/productsInfo/:productid', (req, res) => {
+    const { productid } = req.params;
+    const sql = `SELECT products.carname,products.productid, products.city, products.price, products.created_at, 
+                    product_bid.price AS bid_price, users.name AS seller_name, users.city AS seller_city FROM products 
+                    LEFT JOIN product_bid ON products.productid = product_bid.productid
+                    LEFT JOIN users ON products.userid = users.userid
+                    WHERE products.productid = ?`;
 
-    pool.query(sql, [productId], (err, results) => {
+    pool.query(sql, [productid], (err, results) => {
         if (err) {
             console.error('Error fetching product:', err);
             return res.status(500).json({ error: 'Database query error' });
@@ -92,7 +96,7 @@ router.get('/myProducts/:userid', (req, res) => {
     const { userid } = req.params;
     const sql = `SELECT * FROM products WHERE userid = ?`;
 
-    pool.query(sql, [userid], (err, results) => {  
+    pool.query(sql, [userid], (err, results) => {
         if (err) {
             console.error('Error fetching products:', err);
             return res.status(500).json({ error: 'Database query error' });
@@ -101,21 +105,28 @@ router.get('/myProducts/:userid', (req, res) => {
     });
 });
 router.delete('/deleteProduct/:productid/:userid', (req, res) => {
-    const { productid, userid } = req.params; // Get both productid and userid from the request parameters
-    const sql = `DELETE FROM products WHERE productid = ? AND userId = ?`; // Use productid in the query
+    const { productid, userid } = req.params;
+    const deleteBidsSql = `DELETE FROM product_bid WHERE productid = ?`;
 
-    pool.query(sql, [productid, userid], (err, results) => {  
+    pool.query(deleteBidsSql, [productid], (err, results) => {
         if (err) {
-            console.error('Error deleting product:', err); // Log the error for debugging
-            return res.status(500).json({ error: 'Database query error' });
+            console.error('Error deleting related bids:', err);
+            return res.status(500).json({ error: 'Error deleting related bids' });
         }
-        
-        // Check if any rows were affected
-        if (results.affectedRows === 0) {
-            return res.status(404).json({ error: 'Product not found or does not belong to the user' });
-        }
-        
-        res.status(200).json({ message: 'Product deleted successfully' });
+
+        const deleteProductSql = `DELETE FROM products WHERE productid = ? AND userid = ?`;
+
+        pool.query(deleteProductSql, [productid, userid], (err, results) => {
+            if (err) {
+                console.error('Error deleting product:', err);
+                return res.status(500).json({ error: 'Database query error' });
+            }
+            if (results.affectedRows === 0) {
+                return res.status(404).json({ error: 'Product not found or does not belong to the user' });
+            }
+
+            res.status(200).json({ message: 'Product deleted successfully' });
+        });
     });
 });
 

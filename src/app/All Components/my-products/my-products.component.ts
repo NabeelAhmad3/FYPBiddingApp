@@ -4,11 +4,12 @@ import { ProfileModalComponent } from "../../pop-ups/profile-modal/profile-modal
 import { CardComponent } from '../card/card.component';
 import { HttpClient } from '@angular/common/http';
 import { MatMenuModule } from '@angular/material/menu';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-my-products',
   standalone: true,
-  imports: [CommonModule, CardComponent, ProfileModalComponent, MatMenuModule],
+  imports: [CommonModule, CardComponent, ProfileModalComponent, MatMenuModule,RouterLink],
   templateUrl: './my-products.component.html',
   styleUrls: ['../card/card.component.css']
 })
@@ -18,6 +19,8 @@ export class MyProductsComponent implements OnInit {
 
   constructor(private http: HttpClient) {
     this.userid = localStorage.getItem('authUserId');
+   
+    localStorage.setItem('localdatadetail', '');
   }
 
   ngOnInit(): void {
@@ -31,7 +34,7 @@ export class MyProductsComponent implements OnInit {
           eyeTxt: 3423,
           city: item.city,
           productid: item.productid
-        }));
+      }));
       },
       (error) => {
         console.error('Error fetching products:', error);
@@ -54,5 +57,7 @@ export class MyProductsComponent implements OnInit {
         }
     );
 }
-    
+localCardData(data: number): void {
+  localStorage.setItem('localdatadetail', JSON.stringify(data));
+}
 }
