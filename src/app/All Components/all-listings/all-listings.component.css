@@ -56,4 +56,14 @@ a{
   .favorite-icon.favorited {
     color: red;
   }
-  
+  .CardButton{
+      border: none;
+      height: 40px;
+      border-radius: 10px;
+      margin-top: 20px;
+  }
+  .CardButton:hover{
+    background: rgba(68, 85, 59, 1);
+    color: white;
+    cursor: pointer;
+  }

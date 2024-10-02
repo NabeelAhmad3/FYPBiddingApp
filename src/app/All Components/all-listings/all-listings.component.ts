@@ -1,24 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router'; // Import Router for navigation
+import { Router, RouterLink } from '@angular/router';
 import { FeaturesComponent } from '../../features/features.component';
 import { FilterModalComponent } from '../../pop-ups/filter-modal/filter-modal.component';
 import { CommonModule } from '@angular/common';
 
+interface AddFavoriteResponse {
+  message: string;
+  productid: number; 
+  userid: number; 
+}
+
 @Component({
   selector: 'app-all-listings',
   standalone: true,
-  imports: [FeaturesComponent, FilterModalComponent, CommonModule],
+  imports: [FeaturesComponent, FilterModalComponent, CommonModule, RouterLink],
   templateUrl: './all-listings.component.html',
   styleUrls: ['./all-listings.component.css'],
 })
-export class AllListingsComponent implements OnInit {
+export class AllListingsComponent {
   products: any[] = [];
-  favorites: any[] = [];
 
-  constructor(private http: HttpClient, private router: Router) {} 
-
-  ngOnInit() {
+  constructor(private http: HttpClient, private router: Router) {
     this.getProducts();
   }
 
@@ -39,22 +42,14 @@ export class AllListingsComponent implements OnInit {
           cartype: product.cartype,
           locationicon: 'assets/all6.svg',
           city: product.city,
-          isFavorite: false, 
+          productid: product.productid,
+          userid: product.userid,
         }));
       },
       error: (err) => console.error('Error fetching products:', err),
     });
   }
-
-  toggleFavorite(item: any) {
-    item.isFavorite = !item.isFavorite;
-    if (item.isFavorite) {
-      this.favorites.push(item);
-    } else {
-      this.favorites = this.favorites.filter(
-        (favorite) => favorite !== item
-      );
-    }
-    this.router.navigate(['/favorites'], { state: { favorites: this.favorites } });
+  localCardData(data: number) {
+    localStorage.setItem('localdatadetail', JSON.stringify(data));
   }
 }
