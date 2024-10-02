@@ -31,21 +31,24 @@ router.post('/addProducts', (req, res) => {
 });
 router.put('/updateProduct/:productid/:userid', (req, res) => {
     const { productid, userid } = req.params;
-    const { carname, price, fueltype, cartype, description, city, address } = req.body;
-    const sql = 'UPDATE products SET carname = ?, price = ?,fueltype = ?, cartype = ?,description = ?, city = ?, address = ? WHERE productid = ? AND userid = ?';
-
-    pool.query(sql, [carname, price, fueltype, cartype, description, city, address, productid, userid], (err, result) => {
+    const updatedProductData = req.body;
+    
+    pool.query(
+      'UPDATE products SET ? WHERE productid = ? AND userid = ?',
+      [updatedProductData, productid, userid],
+      (err, result) => {
         if (err) {
-            console.error('Error updating product:', err);
-            return res.status(500).json({ sqlMessage: 'Failed to update product' });
+          console.error('Database error:', err);
+          return res.status(500).send({ message: 'Error updating product' });
         }
         if (result.affectedRows === 0) {
-            return res.status(404).json({ message: 'Product not found' });
-
+          return res.status(404).send({ message: 'Product not found or not owned by user' });
         }
-        res.status(200).json({ message: 'Product updated successfully' });
-    });
+        res.send({ message: 'Product updated successfully' });
+      }
+    );
 });
+  
 
 router.get('/livelistings', (req, res) => {
     const sql = `SELECT products.productid, products.carname, products.city, product_bid.price 
@@ -62,7 +65,7 @@ router.get('/livelistings', (req, res) => {
 });
 router.get('/productsInfo/:productid', (req, res) => {
     const { productid } = req.params;
-    const sql = `SELECT products.carname,products.productid, products.city, products.price, products.created_at, 
+    const sql = `SELECT products.carname,products.productid, products.city, products.price,products.cartype,products.fueltype,products.address,products.description, products.created_at, 
                     product_bid.price AS bid_price, users.name AS seller_name, users.city AS seller_city FROM products 
                     LEFT JOIN product_bid ON products.productid = product_bid.productid
                     LEFT JOIN users ON products.userid = users.userid
@@ -148,3 +151,4 @@ router.get('/search', (req, res) => {
 });
 
 module.exports = router;
+

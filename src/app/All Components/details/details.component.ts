@@ -27,12 +27,10 @@ export class DetailsComponent implements OnInit {
     }
   }
   fetchProductAndSellerDetails(productid: number) {
-    console.log("infro")
     this.http.get<any>(`http://localhost:5000/products/productsInfo/${productid}`).subscribe(
       (data) => {
         if (data) {
           this.productInfo = data;
-          console.log('Product Info:', this.productInfo); 
         }
       },
       (error) => {

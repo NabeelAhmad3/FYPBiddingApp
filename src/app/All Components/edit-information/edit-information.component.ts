@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-edit-information',
@@ -13,9 +14,9 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 export class EditInformationComponent {
   editInfoForm: FormGroup;
   userid: string | null;
-  
+  @Input() productid!: number;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute) {
     this.editInfoForm = this.fb.group({
       carname: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       price: ['', [Validators.required, Validators.min(100000), Validators.max(1000000000)]],
@@ -23,9 +24,34 @@ export class EditInformationComponent {
       fueltype: ['', Validators.required],
       city: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       address: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
-      description: ['',[Validators.required, Validators.minLength(6), Validators.maxLength(20)]]
+      description: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]]
     });
     this.userid = localStorage.getItem('authUserId');
+  }
+  ngOnInit(): void {
+    this.productid = +this.route.snapshot.paramMap.get('productid')!;
+    console.log(this.productid);
+    this.getProductData();
+  }
+
+  getProductData(): void {
+    this.http.get<any>(`http://localhost:5000/products/productsInfo/${this.productid}`)
+      .subscribe(
+        response => {
+          this.editInfoForm.patchValue({
+            carname: response.carname,
+            price: response.price,
+            cartype: response.cartype,
+            fueltype: response.fueltype,
+            city: response.city,
+            address: response.address,
+            description: response.description
+          });
+        },
+        error => {
+          console.error('Error fetching product data', error);
+        }
+      );
   }
 
   onSubmit() {
@@ -33,15 +59,18 @@ export class EditInformationComponent {
       this.editInfoForm.markAllAsTouched();
       return;
     }
-      this.http.put<any>(`http://localhost:5000/products/updateProduct/172/${this.userid}`,{ ...this.editInfoForm.value }).subscribe(
+
+    const updatedData = this.editInfoForm.value;
+
+    this.http.put<any>(`http://localhost:5000/products/updateProduct/${this.productid}/${this.userid}`, updatedData)
+      .subscribe(
         response => {
-          alert(response.message);
-          this.editInfoForm.reset();
+          alert('Product updated successfully');
         },
         error => {
           console.error('Error updating product', error);
         }
       );
-    } 
   }
+}
 

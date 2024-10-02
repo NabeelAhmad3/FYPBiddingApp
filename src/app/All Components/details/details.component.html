@@ -4,7 +4,7 @@
   <p style="color: #AAAAAA;"> Details</p>
 </div>
 
-<div class="container mt-5 mb-5 d-flex flex-column align-items-center" style="width: 80%; max-width: 700px;">
+<div class="container mt-5 mb-5 d-flex flex-column align-items-center" style="width: 80%; max-width: 730px;">
   <div class="d-flex flex-row justify-content-between flex-wrap w-100">
     <div class="table-responsive m-2">
       <h4 class="text-center">Product Details</h4>
@@ -15,12 +15,16 @@
             <td>{{ productInfo?.carname }}</td>
           </tr>
           <tr>
-            <td class="tdcolor">City:</td>
-            <td>{{ productInfo?.city }}</td>
-          </tr>
-          <tr>
             <td class="tdcolor">Product ID:</td>
             <td>{{ productInfo?.productid }}</td>
+          </tr>
+          <tr>
+            <td class="tdcolor">Car Type:</td>
+            <td>{{ productInfo?.cartype }}</td>
+          </tr>
+          <tr>
+            <td class="tdcolor">Fuel Type:</td>
+            <td>{{ productInfo?.fueltype }}</td>
           </tr>
           <tr>
             <td class="tdcolor">Basic Price:</td>
@@ -29,6 +33,10 @@
           <tr>
             <td class="tdcolor">Current Bid:</td>
             <td>{{ productInfo?.bid_price }}</td>
+          </tr>
+          <tr>
+            <td class="tdcolor">City:</td>
+            <td>{{ productInfo?.city }}</td>
           </tr>
           <tr>
             <td class="tdcolor">Upload Date:</td>
@@ -61,10 +69,10 @@
   </div>
 </div>
 <div class="container mt-5 mb-5" style="width: 75%;">
-  <p style="color: rgba(142, 142, 142, 1)">Description:</p>
+  <p>Description:</p>
   <div
     style="background-color: rgba(182, 182, 182, 0.2); padding: 16px; border-radius: 15px; color: rgba(142, 142, 142, 1)">
-    <p>{{ description }}</p>
+    <p>{{  productInfo?.description }}</p>
   </div>
 </div>
 

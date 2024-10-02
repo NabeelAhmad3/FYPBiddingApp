@@ -24,7 +24,7 @@ export class SellProductsComponent {
       fueltype: ['', Validators.required],
       city: ['', Validators.required],
       address: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
-      description: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
+      description: ['', [Validators.maxLength(1000)]],
       images: this.fb.array(this.createImageControls())
     });
     this.userid = localStorage.getItem('authUserId');

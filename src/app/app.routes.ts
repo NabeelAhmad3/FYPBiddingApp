@@ -38,5 +38,6 @@ export const routes: Routes = [
   {path:'transHistory',component:TransactionHistoryComponent},
   {path:'search',component:SearchResultsComponent},
   {path:'favorites', component: FavoriteComponent},
+  {path:'edit-product/:productid', component: EditInformationComponent },
   {path: '**', redirectTo: ''}
 ];

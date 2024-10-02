@@ -29,7 +29,7 @@ export class AllListingsComponent implements OnInit {
           walkicon: 'assets/all7.svg',
           walk: '(10 mins to walk)',
           status: 'Available',
-          name: product.name,
+          carname: product.carname,
           image: 'assets/all2.svg',
           description: product.description,
           price: `PKR: ${product.price.toLocaleString()}`,

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   templateUrl: './set-bid.component.html',
   styleUrls: ['./set-bid.component.css']
 })
-export class SetBidComponent implements AfterViewInit{
+export class SetBidComponent {
   Bid: FormGroup;
   userid: string | null;
   @Input() productid?: number;
@@ -20,9 +20,6 @@ export class SetBidComponent implements AfterViewInit{
       price: ['', [Validators.required, Validators.min(100000), Validators.max(100000000)]]
     });
     this.userid = localStorage.getItem('authUserId');
-  }
-  ngAfterViewInit(): void {
-    console.log(this.productid);
   }
 
 

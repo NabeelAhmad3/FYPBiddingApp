@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="col-md-5 mt-4">
-                <input type="text" class="form-control custom-input" id="price" formControlName="price" placeholder="Basic Price"/>
+                <input type="number" class="form-control custom-input" id="price" formControlName="price" placeholder="Basic Price"/>
                 <div *ngIf="editInfoForm.get('price')?.invalid && editInfoForm.get('price')?.touched"
                     class="text-danger">
                     <span class="text-danger">{{ editInfoForm.get('price')?.errors?.['required'] ? 'price is required.' : '' }}</span>
