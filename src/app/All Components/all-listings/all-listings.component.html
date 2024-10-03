@@ -1,40 +1,40 @@
 <div class="d-flex justify-content-center flex-column">
     <div class="d-flex flex-wrap justify-content-center mt-3">
-        <div class="m-3" *ngFor="let item of products">
-            <div class="card shadow-sm position-relative">
-                <div class="card-body">
-                    <div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
-                        <div class="d-flex align-items-center">
-                            <img [src]="item.walkicon" alt="img" class="img-fluid" style="max-height: 40px" />
-                            <span class="ms-2 n">{{ item.walk }}</span>
-                        </div>
-                        <div class="availability-box d-flex align-items-center justify-content-center">
-                            <span class="availablebtn">{{ item.status }}</span>
-                        </div>
-                    </div>
-                    <img [src]="item.image" alt="imgAlt" class="img-fluid mx-auto d-block my-3 main-img" />
-                    <div class="car-details d-flex justify-content-between align-items-center">
-                        <span>{{ item.carname }}</span>
-                        <strong class="ms-2">{{ item.price }}</strong>
-                    </div>
-                    <div class="d-flex justify-content-between flex-wrap align-items-center thumbnails-section mt-3">
-                        <div class="d-flex align-items-center">
-                            <img [src]="item.fuelicon" alt="img" class="img-thumbnail thumb-img" />
-                            <p class="mb-0 ms-1">{{ item.fueltype }}</p>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <img [src]="item.caricon" alt="img" class="img-thumbnail thumb-img" />
-                            <p class="mb-0 ms-1 me-1">{{ item.cartype }}</p>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <img [src]="item.locationicon" alt="img" class="img-thumbnail thumb-img" />
-                            <p class="mb-0 ms-1">{{ item.city }}</p>
-                        </div>
-                    </div>
-                    <button class="CardButton" (click)="localCardData(item.productid)" [routerLink]="['/details']"> View
-                        Details</button>
-                </div>
+      <div class="m-3" *ngFor="let item of products">
+        <div class="card shadow-sm position-relative">
+          <div class="card-body">
+            <div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
+              <div class="d-flex align-items-center">
+                <img [src]="item.walkicon" alt="img" class="img-fluid" style="max-height: 40px" />
+                <span class="ms-2">{{ item.walk }}</span>
+              </div>
+              <div class="availability-box d-flex align-items-center justify-content-center">
+                <span class="availablebtn">{{ item.status }}</span>
+              </div>
             </div>
+            <img [src]="item.image" alt="imgAlt" class="img-fluid mx-auto d-block my-3 main-img" />
+            <div class="car-details d-flex justify-content-between align-items-center">
+              <span>{{ item.carname }}</span>
+              <strong class="ms-2">{{ item.price }}</strong>
+            </div>
+            <div class="d-flex justify-content-between flex-wrap align-items-center thumbnails-section mt-3">
+              <div class="d-flex align-items-center">
+                <img [src]="item.fuelicon" alt="img" class="img-thumbnail thumb-img" />
+                <p class="mb-0 ms-1">{{ item.fueltype }}</p>
+              </div>
+              <div class="d-flex align-items-center">
+                <img [src]="item.caricon" alt="img" class="img-thumbnail thumb-img" />
+                <p class="mb-0 ms-1 me-1">{{ item.cartype }}</p>
+              </div>
+              <div class="d-flex align-items-center">
+                <img [src]="item.locationicon" alt="img" class="img-thumbnail thumb-img" />
+                <p class="mb-0 ms-1">{{ item.city }}</p>
+              </div>
+            </div>
+            <button class="CardButton" (click)="localCardData(item.productid)" [routerLink]="['/details']">View Details</button>
+          </div>
         </div>
+      </div>
     </div>
 </div>
+  

@@ -133,15 +133,30 @@ router.delete('/deleteProduct/:productid/:userid', (req, res) => {
     });
 });
 
-
 router.get('/search', (req, res) => {
-    const searchQuery = req.query.carname;
-    if (!searchQuery) {
+    const carname = req.query.carname;
+    const productid = parseInt(req.query.productid, 10); 
+    if (!carname && isNaN(productid)) {
         return res.status(400).json({ message: 'Search query is required' });
     }
-    const sql = 'SELECT * FROM products WHERE carname LIKE ?';
 
-    pool.query(sql, [`%${searchQuery}%`], (err, results) => {
+    let sql = 'SELECT * FROM products WHERE ';
+    const queryParams = [];
+
+    if (carname) {
+        sql += 'carname LIKE ? ';
+        queryParams.push(`%${carname}%`);
+    }
+
+    if (!isNaN(productid)) {
+        if (carname) {
+            sql += 'OR '; 
+        }
+        sql += 'productid = ? '; 
+        queryParams.push(productid);
+    }
+
+    pool.query(sql, queryParams, (err, results) => {
         if (err) {
             console.error('Error searching for product:', err);
             return res.status(500).json({ error: 'Database query error' });

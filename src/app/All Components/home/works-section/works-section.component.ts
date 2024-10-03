@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { SignUpComponent } from "../../sign-up/sign-up.component";
 import { HomeComponent } from "../home.component";
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-works-section',
   standalone: true,
-  imports: [SignUpComponent, HomeComponent,CommonModule],
+  imports: [SignUpComponent, HomeComponent,CommonModule,RouterLink],
   templateUrl: './works-section.component.html',
   styleUrl: './works-section.component.css'
 })

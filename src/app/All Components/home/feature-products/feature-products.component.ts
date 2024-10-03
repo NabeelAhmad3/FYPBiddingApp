@@ -20,9 +20,18 @@ export interface myCardModel {
 })
 export class FeatureProductsComponent {
   cards: myCardModel[] = [];
+  isLoggedIn: boolean = false;
+  Authdata: any = {};
 
   constructor(private http: HttpClient) {
     localStorage.setItem('localdatadetail', '');
+    this.Authdata = {
+      token: localStorage.getItem('authToken'),
+      userid: localStorage.getItem('authUserId')
+    };
+    if (this.Authdata.token) {
+      this.isLoggedIn = true;
+    }
   }
 
   ngOnInit(): void {

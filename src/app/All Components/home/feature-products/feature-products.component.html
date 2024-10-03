@@ -11,7 +11,8 @@
         <p>Initial Price: {{item.price}}</p>
         <p>City: {{item.city}}</p>
       </div>
-      <button class="viewdetails" (click)="localCardData(item.productid)" [routerLink]="['/details']">View Details</button>
+      <button class="viewdetails" *ngIf="isLoggedIn"  (click)="localCardData(item.productid)" [routerLink]="['/details']">View Details</button>
+      <button class="viewdetails" *ngIf="!isLoggedIn" data-bs-toggle="modal" data-bs-target="#regModal">View Details</button>
     </div>
   </div>
 </div>

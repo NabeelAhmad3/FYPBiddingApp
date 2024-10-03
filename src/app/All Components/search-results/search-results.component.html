@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-4" *ngFor="let item of products">
       <div class="card shadow-sm">
-        <div class="card-body ">
+        <div class="card-body">
           <div class="d-flex justify-content-between align-items-center mb-2">
             <div class="d-flex align-items-center">
               <img [src]="item.walkicon" alt="img" class="img-fluid" style="max-height: 40px;">
@@ -14,7 +14,7 @@
           </div>
           <img [src]="item.image" alt="imgAlt" class="img-fluid mx-auto d-block my-3 main-img">
           <div class="car-details d-flex justify-content-between align-items-center">
-            <span>{{ item.carname}}</span>
+            <span>{{ item.carname }}</span>
             <strong class="ms-2">{{ item.price }}</strong>
           </div>
           <div class="thumbnails-section d-flex justify-content-between align-items-center mt-3">
@@ -31,6 +31,10 @@
               <p class="mb-0 ms-1">{{ item.city }}</p>
             </div>
           </div>
+          <button class="CardButton" *ngIf="isLoggedIn" (click)="localCardData(item.productid)"
+            [routerLink]="['/details']">View Details</button>
+          <button class="CardButton" *ngIf="!isLoggedIn" data-bs-toggle="modal" data-bs-target="#regModal">View
+            Details</button>
         </div>
       </div>
     </div>

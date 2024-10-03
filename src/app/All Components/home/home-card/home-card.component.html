@@ -6,6 +6,7 @@
         <p>Current Bid :  {{price}}</p>
         <p>City :  {{city}}</p>
     </div>
-    <button class="viewdetails" data-bs-toggle="modal" data-bs-target="#setBidModal">Place Bid</button>
+    <button class="viewdetails" *ngIf="isLoggedIn" data-bs-toggle="modal" data-bs-target="#setBidModal">Place Bid</button>
+    <button class="viewdetails" *ngIf="!isLoggedIn" data-bs-toggle="modal" data-bs-target="#regModal">Place Bid</button>
 </div>
 <app-set-bid [productid]="productid"/>

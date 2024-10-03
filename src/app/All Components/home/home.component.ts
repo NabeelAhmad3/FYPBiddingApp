@@ -41,9 +41,15 @@ export class HomeComponent {
 
   searchProduct() {
     if (this.searchQuery.trim()) {
-      this.router.navigate(['/search'], {
-        queryParams: { carname: this.searchQuery }
-      });
+      const productid = parseInt(this.searchQuery, 10);
+      const queryParams: any = {};
+      if (isNaN(productid)) {
+        queryParams.carname = this.searchQuery;
+      } else {
+        queryParams.productid = productid;
+      }
+      this.router.navigate(['/search'], { queryParams });
     }
   }
+  
 }

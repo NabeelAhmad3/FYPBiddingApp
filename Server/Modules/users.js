@@ -85,7 +85,7 @@ router.post('/login', (req, res) => {
             if (!passwordMatch) {
                 return res.status(401).json({ message: 'Invalid password' });
             }
-            const token = jwt.sign({ id: user.userid }, secretKey, { expiresIn: '2h' });
+            const token = jwt.sign({ id: user.userid }, secretKey, { expiresIn: '1d' });
           
             res.status(200).json({ message: 'Login successful from backend', token, userid: user.userid });
 

@@ -47,3 +47,17 @@ a{
     padding: 1px 2px 1px 2px;
 }
 
+.CardButton {
+    border: none;
+    height: 40px;
+    border-radius: 10px;
+    margin-top: 20px;
+    background-color: #ddd;
+}
+
+.CardButton:hover {
+    background-color: rgba(68, 85, 59, 1);
+    color: white;
+    cursor: pointer;
+}
+
