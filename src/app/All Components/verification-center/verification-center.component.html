@@ -17,7 +17,8 @@
       <div class="d-flex flex-wrap justify-content-center">
         <div class="d-flex flex-wrap justify-content-center">
           <div *ngFor="let imageControl of images.controls; let i = index" class="image-box me-2 mt-2">
-            <input *ngIf="!imageUrls[i]" type="file" (change)="onFileChange($event, i)" class="mt-4"/>
+            <label for="Image" class="Images">Upload Image</label>
+            <input id="Image" *ngIf="!imageUrls[i]" type="file" (change)="onFileChange($event, i)" class="mt-4" style="display: none;"/>
             <img *ngIf="imageUrls[i]" [src]="imageUrls[i]" alt="Image" class="img-fluid"/>
           </div>
         </div>

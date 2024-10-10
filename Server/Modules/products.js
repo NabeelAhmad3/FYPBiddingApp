@@ -132,10 +132,10 @@ router.delete('/deleteProduct/:productid/:userid', (req, res) => {
         });
     });
 });
-
 router.get('/search', (req, res) => {
     const carname = req.query.carname;
     const productid = parseInt(req.query.productid, 10); 
+    
     if (!carname && isNaN(productid)) {
         return res.status(400).json({ message: 'Search query is required' });
     }
@@ -161,6 +161,11 @@ router.get('/search', (req, res) => {
             console.error('Error searching for product:', err);
             return res.status(500).json({ error: 'Database query error' });
         }
+
+        if (results.length === 0) {
+            return res.status(200).json([]);  
+        }
+
         res.status(200).json(results);
     });
 });

@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ProfileModalComponent } from "../pop-ups/profile-modal/profile-modal.component";
 import { RegistrationPageComponent } from "../pop-ups/registration-page/registration-page.component";
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-header',
@@ -21,7 +22,8 @@ export class HeaderComponent {
   isLoggedIn: boolean = false;
   Authdata: any = {};
 
-  constructor(private router:Router) {
+  errorMessage: string | null = null;
+  constructor(private router: Router, private http: HttpClient) {
     this.Authdata = {
       token: localStorage.getItem('authToken'),
       userid: localStorage.getItem('authUserId')
@@ -30,12 +32,35 @@ export class HeaderComponent {
       this.isLoggedIn = true;
     }
   }
+  searchProduct() {
+    if (this.searchQuery.trim()) {
+      const productid = parseInt(this.searchQuery, 10);
+      const queryParams: any = {};
 
-searchProduct() {
-  if (this.searchQuery.trim()) {
-    this.router.navigate(['/search'], {
-      queryParams: { carname: this.searchQuery }
-    });
+      if (isNaN(productid)) {
+        queryParams.carname = this.searchQuery;
+      } else {
+        queryParams.productid = productid;
+      }
+
+      this.http.get<any[]>('http://localhost:5000/products/search', { params: queryParams })
+        .subscribe(
+          (results) => {
+            if (results.length > 0) {
+              this.errorMessage = null;
+              this.router.navigate(['/search'], { queryParams });
+            } else {
+              this.errorMessage = 'No products found';
+              this.searchQuery = '';
+            }
+          },
+          (error) => {
+            console.error('Search error:', error);
+            this.errorMessage = 'An error occurred while searching for products.';
+            this.searchQuery = '';
+          }
+        );
+    }
   }
-}
+
 }

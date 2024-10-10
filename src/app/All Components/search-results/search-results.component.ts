@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-search-results',
   standalone: true,
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule, RouterLink],
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.css']
 })
@@ -14,6 +14,7 @@ export class SearchResultsComponent implements OnInit {
   products: any[] = [];
   isLoggedIn: boolean = false;
   Authdata: any = {};
+  errorMessage: string | null = null;  // Error message state
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { 
     localStorage.setItem('localdatadetail', '');
@@ -44,26 +45,32 @@ export class SearchResultsComponent implements OnInit {
       params: searchQuery  
     }).subscribe(
       (results) => {
-        console.log(results); // Log the results for debugging
-        this.products = results.map(product => ({
-          walkicon: 'assets/all7.svg',
-          walk: '(10 mins to walk)',
-          status: 'Available',
-          carname: product.carname,
-          image: 'assets/all2.svg',
-          description: product.description,
-          price: `PKR: ${product.price.toLocaleString()}`,
-          fuelicon: 'assets/all4.svg',
-          fueltype: product.fueltype,
-          caricon: 'assets/all5.svg',
-          cartype: product.cartype,
-          locationicon: 'assets/all6.svg',
-          city: product.city,
-          productid: product.id
-        }));
+        if (results.length > 0) {
+          this.products = results.map(product => ({
+            walkicon: 'assets/all7.svg',
+            walk: '(10 mins to walk)',
+            status: 'Available',
+            carname: product.carname,
+            image: 'assets/all2.svg',
+            description: product.description,
+            price: `PKR: ${product.price.toLocaleString()}`,
+            fuelicon: 'assets/all4.svg',
+            fueltype: product.fueltype,
+            caricon: 'assets/all5.svg',
+            cartype: product.cartype,
+            locationicon: 'assets/all6.svg',
+            city: product.city,
+            productid: product.id
+          }));
+          this.errorMessage = null;
+        } else {
+          this.products = [];
+          this.errorMessage = 'No products found matching your search criteria.';
+        }
       },
       (error) => {
         console.error('Search error:', error);
+        this.errorMessage = 'An error occurred while searching for products.';
       }
     );
   }

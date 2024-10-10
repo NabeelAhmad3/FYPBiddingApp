@@ -8,21 +8,10 @@
 
 .modal-dialog {
     position: absolute;
-    top: 67px;
-    right: 1px;
+    top: 2px;
+    right: 0px;
     transform: none;
     margin: 0;
-}
-
-
-.gmail-font {
-    font-family: Raleway;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 11.74px;
-    text-align: left;
-    color: rgba(131, 131, 131, 1);
-
 }
 
 .modal-content a {

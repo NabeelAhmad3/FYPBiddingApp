@@ -60,3 +60,15 @@
     align-items: center;
   }
 }
+.Images {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px;
+}
+.Images:hover{
+  border: none;
+  color: white;
+  cursor: pointer;
+  background: rgba(68, 85, 59, 1);
+  
+}

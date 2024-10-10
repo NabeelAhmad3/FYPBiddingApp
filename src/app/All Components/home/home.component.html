@@ -14,18 +14,20 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" href="/allListings" *ngIf="isLoggedIn">ALL LISTINGS</a>
-                        <a class="nav-link" data-bs-toggle="modal" data-bs-target="#regModal" *ngIf="!isLoggedIn">ALL LISTINGS</a>
+                        <a class="nav-link" data-bs-toggle="modal" data-bs-target="#regModal" *ngIf="!isLoggedIn">ALL
+                            LISTINGS</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="/contactUs">CONTACT US</a></li>
                     <li class="nav-item"><a class="nav-link" href="/faq">FAQ</a></li>
                     <li class="nav-item">
                         <a class="nav-link" href="/sellProducts" *ngIf="isLoggedIn">Sell Products</a>
-                        <a class="nav-link" data-bs-toggle="modal" data-bs-target="#regModal" *ngIf="!isLoggedIn">Sell Products</a>
+                        <a class="nav-link" data-bs-toggle="modal" data-bs-target="#regModal" *ngIf="!isLoggedIn">Sell
+                            Products</a>
                     </li>
-                    <li class="nav-item" *ngIf="!isLoggedIn"><a class="nav-link login-link" 
-                            data-bs-toggle="modal" data-bs-target="#regModal">Login</a></li>
-                    <li class="nav-item" *ngIf="isLoggedIn"><a class="nav-link login-link" 
-                            data-bs-toggle="modal" data-bs-target="#profileModal">
+                    <li class="nav-item" *ngIf="!isLoggedIn"><a class="nav-link login-link" data-bs-toggle="modal"
+                            data-bs-target="#regModal">Login</a></li>
+                    <li class="nav-item" *ngIf="isLoggedIn"><a class="nav-link login-link" data-bs-toggle="modal"
+                            data-bs-target="#profileModal">
                             <img src="assets/Navbar2img.svg" alt="img" class="" style="width: 30px; height: 30px;"> </a>
                     </li>
                 </ul>
@@ -42,6 +44,9 @@
                         (keydown.enter)="searchProduct()" />
                 </div>
             </div>
+            <div *ngIf="errorMessage" class="error-message">
+                {{ errorMessage }}
+            </div>
         </div>
     </div>
 </div>
@@ -51,3 +56,4 @@
 <app-features />
 <app-profile-modal />
 <app-registration-page />
+<app-search-results *ngIf="!errorMessage"></app-search-results>

@@ -9,27 +9,35 @@ import { FeatureProductsComponent } from "./feature-products/feature-products.co
 import { Router } from '@angular/router';
 import { PreviewOrdersComponent } from "../my-orders/preview-orders/preview-orders.component";
 import { RegistrationPageComponent } from "../../pop-ups/registration-page/registration-page.component";
+import { SearchResultsComponent } from "../search-results/search-results.component";
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [WorksSectionComponent, FeaturesComponent,
-    ProfileModalComponent, CommonModule, LiveListingsComponent, FeatureProductsComponent, FormsModule, PreviewOrdersComponent, RegistrationPageComponent],
-
+  imports: [
+    WorksSectionComponent, 
+    FeaturesComponent,
+    ProfileModalComponent, 
+    CommonModule, 
+    LiveListingsComponent, 
+    FeatureProductsComponent, 
+    FormsModule, 
+    PreviewOrdersComponent, 
+    RegistrationPageComponent, 
+    SearchResultsComponent
+  ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrls: ['./home.component.css'] 
 })
 export class HomeComponent {
   isNavbarOpen: boolean = false;
   searchQuery: string = '';
   isLoggedIn: boolean = false;
   Authdata: any = {};
+  errorMessage: string | null = null;
 
-  handleToggleNavbar() {
-    this.isNavbarOpen = !this.isNavbarOpen;
-  }
-
-  constructor(private router: Router) {
+  constructor(private router: Router, private http: HttpClient) { 
     this.Authdata = {
       token: localStorage.getItem('authToken'),
       userid: localStorage.getItem('authUserId')
@@ -39,17 +47,37 @@ export class HomeComponent {
     }
   }
 
+  handleToggleNavbar() {
+    this.isNavbarOpen = !this.isNavbarOpen;
+  }
   searchProduct() {
     if (this.searchQuery.trim()) {
       const productid = parseInt(this.searchQuery, 10);
       const queryParams: any = {};
+
       if (isNaN(productid)) {
         queryParams.carname = this.searchQuery;
       } else {
         queryParams.productid = productid;
       }
-      this.router.navigate(['/search'], { queryParams });
+
+      this.http.get<any[]>('http://localhost:5000/products/search', { params: queryParams })
+        .subscribe(
+          (results) => {
+            if (results.length > 0) {
+              this.errorMessage = null;
+              this.router.navigate(['/search'], { queryParams });
+            } else {
+              this.errorMessage = 'No products found';
+              this.searchQuery = '';
+            }
+          },
+          (error) => {
+            console.error('Search error:', error);
+            this.errorMessage = 'An error occurred while searching for products.';
+            this.searchQuery = '';
+          }
+        );
     }
   }
-  
 }
