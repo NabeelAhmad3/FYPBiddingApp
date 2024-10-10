@@ -43,7 +43,6 @@ export class LogInComponent implements OnInit {
           token: localStorage.getItem('authToken'),
           userid: localStorage.getItem('authUserId')
         };
-        alert(response.message);
         window.location.reload();
       },
       error: (error: any) => {

@@ -6,7 +6,6 @@ const saltRounds = 10;
 const jwt = require('jsonwebtoken');
 const secretKey = 'helloWorld';
 
-
 router.post('/register', (req, res) => {
     const { name, email, phone, cnic, city, password } = req.body;
 
@@ -19,7 +18,11 @@ router.post('/register', (req, res) => {
             if (err) {
                 return res.status(500).json({ message: 'Database error', error: err });
             }
-            res.status(201).json({ message: 'User created successfully', result });
+            
+            const newUser = { name, email }; 
+            const token = jwt.sign({ id: result.insertId }, secretKey, { expiresIn: '1d' });
+
+            res.status(201).json({ message: 'User created successfully', token, userid: result.insertId, user: newUser });
         });
     });
 });
@@ -77,7 +80,7 @@ router.post('/login', (req, res) => {
             return res.status(500).json({ message: 'Database error', error: err });
         }
         if (result.length === 0) {
-            return res.status(404).json({ message: 'Invalid email' });
+            return res.status(404).json({ message: 'User does not exist' });
         }
         const user = result[0];
         try {

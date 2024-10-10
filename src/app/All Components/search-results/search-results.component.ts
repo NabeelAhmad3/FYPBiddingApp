@@ -14,7 +14,7 @@ export class SearchResultsComponent implements OnInit {
   products: any[] = [];
   isLoggedIn: boolean = false;
   Authdata: any = {};
-  errorMessage: string | null = null;  // Error message state
+  errorMessage: string | null = null;
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { 
     localStorage.setItem('localdatadetail', '');
