@@ -33,16 +33,25 @@ export class LogInComponent implements OnInit {
     const formData = this.loginForm.value;
     this.http.post('http://localhost:5000/users/login', formData).subscribe({
       next: (response: any) => {
+        let logindata = {
+          token: response.token,
+          userid: response.userid,
+          ueertype: response.usertype
+        };
+        localStorage.setItem('userdata', JSON.stringify(logindata));
+        console.log(localStorage.getItem('userdata'))
         if (response.token) {
           localStorage.setItem('authToken', response.token);
         }
         if (response.userid) {
           localStorage.setItem('authUserId', response.userid);
+          localStorage.setItem('usertype', response.usertype);
         }
-        this.Authdata = {
-          token: localStorage.getItem('authToken'),
-          userid: localStorage.getItem('authUserId')
-        };
+        // this.Authdata = {
+        //   token: localStorage.getItem('authToken'),
+        //   userid: localStorage.getItem('authUserId'),
+        //   usertype: localStorage.getItem('usertype')
+        // };
         window.location.reload();
       },
       error: (error: any) => {

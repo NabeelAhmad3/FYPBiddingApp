@@ -13,9 +13,20 @@ import { ProfileModalComponent } from "./pop-ups/profile-modal/profile-modal.com
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   isHomeRoute(): boolean {
     return this.router.url === '/';
   }
+
+  // isAdmin(): boolean {
+  //   const usertype = localStorage.getItem('usertype');
+  //   if (usertype == "Admin") {
+  //     return false;
+  //   } else if (usertype == "Client") {
+  //     return true;
+  //   } else {
+  //     return true;
+  //   }
+  // }
 }

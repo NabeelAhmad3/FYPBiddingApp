@@ -14,14 +14,13 @@
             (keydown.enter)="searchProduct()"
           />
         </div>
-        <!-- Move error message div here -->
         <div *ngIf="errorMessage" class="error-message">
           {{ errorMessage }}
         </div>
       </div>
       <ul class="navbar-nav text-white mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="/allListings">ALL LISTINGS</a>
+          <a class="nav-link" href="/allListings" *ngIf="!isLoggedIn" data-bs-toggle="modal" data-bs-target="#regModal">ALL LISTINGS</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/contactUs">CONTACT US</a>
@@ -30,7 +29,7 @@
           <a class="nav-link" href="/faq">FAQ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/sellProducts">Sell Products</a>
+          <a class="nav-link" href="/sellProducts" *ngIf="!isLoggedIn" data-bs-toggle="modal" data-bs-target="#regModal">Sell Products </a>
         </li>
         <li class="nav-item" *ngIf="!isLoggedIn">
           <a class="nav-link login-link" href="" data-bs-toggle="modal" data-bs-target="#regModal">Login</a>

@@ -16,19 +16,19 @@ import { HttpClient } from '@angular/common/http';
   selector: 'app-home',
   standalone: true,
   imports: [
-    WorksSectionComponent, 
+    WorksSectionComponent,
     FeaturesComponent,
-    ProfileModalComponent, 
-    CommonModule, 
-    LiveListingsComponent, 
-    FeatureProductsComponent, 
-    FormsModule, 
-    PreviewOrdersComponent, 
-    RegistrationPageComponent, 
+    ProfileModalComponent,
+    CommonModule,
+    LiveListingsComponent,
+    FeatureProductsComponent,
+    FormsModule,
+    PreviewOrdersComponent,
+    RegistrationPageComponent,
     SearchResultsComponent
   ],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'] 
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
   isNavbarOpen: boolean = false;
@@ -37,7 +37,7 @@ export class HomeComponent {
   Authdata: any = {};
   errorMessage: string | null = null;
 
-  constructor(private router: Router, private http: HttpClient) { 
+  constructor(private router: Router, private http: HttpClient) {
     this.Authdata = {
       token: localStorage.getItem('authToken'),
       userid: localStorage.getItem('authUserId')
@@ -45,6 +45,7 @@ export class HomeComponent {
     if (this.Authdata.token) {
       this.isLoggedIn = true;
     }
+    console.log(localStorage.getItem('userdata'))
   }
 
   handleToggleNavbar() {
